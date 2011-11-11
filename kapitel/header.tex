@@ -1,0 +1,58 @@
+\documentclass[%
+a4paper,						% alle weiteren Papierformat einstellbar
+%landscape,						% Querformat
+11pt,							% Schriftgröße (12pt, 11pt (Standard))
+%BCOR1cm,						% Bindekorrektur, bspw. 1 cm
+%DIV=calc,						% führt die Satzspiegelberechnung neu aus
+								% s. scrguide 2.4
+%twoside,						% Doppelseiten
+%twocolumn,						% zweispaltiger Satz
+parskip=half,					% Absatzformatierung s. scrguide 3.1
+%headsepline,					% Trennline zum Seitenkopf	
+%footsepline,					% Trennline zum Seitenfuß
+titlepage,						% Titelei auf eigener Seite
+headings=normal,				% Überschriften etwas kleiner (smallheadings)
+%idxtotoc,						% Index im Inhaltsverzeichnis
+%liststotoc,					% Abb.- und Tab.verzeichnis im Inhalt
+bibliography=totoc,				% Literaturverzeichnis im Inhalt
+%abstracton,					% Überschrift über der Zusammenfassungan	
+%leqno,   						% Nummerierung von Gleichungen links
+%fleqn,							% Ausgabe von Gleichungen linksbündig
+%draft							% überlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrartcl}
+
+\usepackage{eurosym}
+\usepackage[pdftex]{graphicx} 
+\usepackage[ngerman]{babel}		
+\usepackage[T1]{fontenc}							
+\usepackage[latin1]{inputenc}		
+\usepackage{lmodern}
+\usepackage{color}
+
+% Links im PDF
+\usepackage{hyperref}
+\definecolor{LinkColor}{rgb}{0,0,0.5}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=LinkColor,
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor}
+	
+%Kopf u. Fußzeilen
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\chead{Software Quality Management \hfill WS 2011/2012}
+%\ofoot{Datei: ThemenNr\_Abstract\_Fleck\_Polanka.pdf}
+\cfoot{\pagemark}
+
+\usepackage{listings}
+\usepackage{subfig}
+\usepackage{mdwlist}
+\usepackage{csquotes}
+\usepackage{booktabs}
+
+\KOMAoptions{DIV=last}
