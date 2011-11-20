@@ -11,7 +11,8 @@
 
 - Timothy Fitz  
   [Blog] http://timothyfitz.wordpress.com/2009/02/08/continuous-deployment/
-
+  [Blog] http://timothyfitz.wordpress.com/2009/02/10/continuous-deployment-at-imvu-doing-the-impossible-fifty-times-a-day/
+ 
 - InfoQ Materialien  
   http://www.infoq.com/continuous_delivery/
 
@@ -28,3 +29,20 @@ Fail Fast pattern
 
 Cycle Time  
 > The time from deciding that ou need to make a change to having it in production is knwon as the _cycle time_, and it is a vital metric for any project.
+
+# Notizen # 
+
+## Wir bräuchten aktuelle Papers zu ##
+- Continuous Delivery/Deployment
+- Kanban
+- Lean Startup
+- Lean
+- Scrum
+- DevOps
+- Time-to-Market Beschleunigung
+
+
+## Anmerkungen vom Prof ##
+- Kriterien
+- Konzept f. Adressierung d. Kriterien
+- Evaluierungen dieser Konzepte? (Case Studies)
