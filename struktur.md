@@ -23,7 +23,7 @@ Qualitäsaspekte vergessen.
 
 Beschreibt und beantwortet die in Related Work erarbeitete Fragestellung indem
 Best Practices vorgestellt/herausgearbeitet werden. Weiters wird unser
-Vorgehen beschrieben. Und zwar wie iterativ einne immer kleinere Kadenz
+Vorgehen beschrieben. Und zwar wie iterativ eine immer kleinere Kadenz
 erreicht werden kann. In den Unterkapiteln werden die einzelnen
 Iterationsschritte vorgestellt.
 
