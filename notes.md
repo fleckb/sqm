@@ -32,6 +32,17 @@ Cycle Time
 
 # Notizen # 
 
+## Ziel d. Papers ##
+
+Herausarbeiten/Auswählen von Best-Practices um Releasezyklen schrittweise zu verringern:
+
+ * Jahr auf Quartal
+ * Quartal auf Monat
+ * Monat auf Woche
+ * Woche auf Tag
+ * Tag auf Stunde
+
+
 ## Wir bräuchten aktuelle Papers zu ##
 - Continuous Delivery/Deployment
 - Kanban
