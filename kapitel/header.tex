@@ -55,6 +55,15 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 \usepackage{csquotes}
 \usepackage{booktabs}
 
+%Eigene Umgebung für hervorhebung von Notizen, unfertigen Text, etc.
+\definecolor{background}{rgb}{0.9,0.9,1}
+\definecolor{border}{rgb}{0,0,0.5}
+\usepackage{framed}
+\newenvironment{wichtigbox}{%
+  \def\FrameCommand{\fboxrule 2pt \fcolorbox{border}{background}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+ {\endMakeFramed}
+
 % Neues bibliographie paket
 \usepackage[backend=biber]{biblatex}
 

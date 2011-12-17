@@ -1,6 +1,108 @@
-\section{Success Stories (Case Studies falls es welche gibt)}
+\section{Success Stories / Case Studies}
 
-Um dem Ganzen einen fundierten Unterbau zu geben ein paar Success Stories
-vorstellen, welche bereits CD erfolgreich einsetzen. Gut wäre es hier
+\begin{wichtigbox}
+Um dem Ganzen einen fundierten Unterbau zu geben ein paar Success
+Stories vorstellen, welche bereits CD erfolgreich einsetzen. Gut wäre es hier
 natürlich wenn es nicht nur Beispiele aus der Industrie sind, sondern
 wissenschaftliche Veröffentlichungen.
+\end{wichtigbox}
+
+\subsection{IMVU}
+%http://timothyfitz.wordpress.com/2009/02/10/continuous-deployment-at-imvu-doing-the-impossible-fifty-times-a-day/
+%http://radar.oreilly.com/2009/03/continuous-deployment-5-eas.html
+%http://www.infoq.com/news/2009/03/Continuous-Deployment
+%http://www.developsense.com/blog/2009/03/50-deployments-day-and-perpetual-beta/#268747558129898245
+%http://www.slideshare.net/bgdurrett/sds-2010-continuous-deployment-at-imvu
+
+Als erstes Beispiel dient IMVU~\footnote{IMVU: \url{http://www.imvu.com/}},
+eine soziale Online Community, in der in einer virtuellen Realität mit Hilfe
+von 3D Avataren geplaudert, Spiele gespielt und eigene Inhalte erschaffen und
+ausgetauscht werden können.
+
+IMVU war eines der ersten \emph{Lean Startup} Unternehmen welche Continuous
+Deployment aktiv einsetzten. Dabei ist dies aber nicht vorab im Ganzen geplant
+worden, sondern inkrementell entstanden. Derzeit sind bei IMVU zirka 50
+technische Mitarbeiter angestellt. Ein wichtiger Punkt warum bei vorallem so
+vielen Entwicklern Continuous Deployment funktioniert, ist, dass es ein
+zentraler Bestandteil der Firmenkultur ist. \\
+Als Vorteile von Continuous Deployment werden von IMVU die folgenden Punkte
+genannt:
+
+\begin{itemize*}
+    \item Regression wird sehr rasch erkannt
+    \item Fehler können schneller behoben werden, da zwischen dem einspielen
+          eines Fehlers und der Meldung über ein Problem nicht viel Zeit vergeht
+    \item Der Release einer neuen Version erzeugt keinen zusätzlichen Overhead
+    \item Als Feedback bekommen sie sofort messbare Kerndaten von echten Kunden
+\end{itemize*}
+
+\minisec{Workflow} Eine wichtige Grundvoraussetzung für Continuous Deployment
+bei IMVU ist wie schon in Abschnitt~\ref{subsec:jahr-auf-quartal} auf
+Seite~\pageref{subsec:jahr-auf-quartal} gezeigt: Continuous Integration. Als
+Technologie kommt hier Buildbot\footnote{Buildbot:
+\url{http://trac.buildbot.net/}} zum Einsatz. Um die Vorteile von Continuous
+Integration voll ausnützen zu können wird beim Entwickeln selbst \emph{Commit
+Early Commit Often} praktiziert. Ist ein Feature fertig entwickelt, oder eine
+Bug behoben worden, werden zuerst lokale  Tests auf der Entwicklermaschine
+durchgeführt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
+Code in Quellcode Versionsverwaltung eingespielt.
+
+Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zur Zeit sind
+dies zirka $15.000$ Tests aus den Bereichen Unit-Tests, Funktions-Tests und
+Verhaltens-Tests. Dabei werden die folgenden Technologien eingesetzt:
+
+\begin{itemize*}
+    \item Selenium Core wird mit einem eigens entwickelten API Wrapper für
+          die Verhaltens-Tests eingesetzt
+    \item YUI Test wird für Browser bsierte JavaScript Unit-Tests verwendet
+    \item PHP SimpleTest
+    \item Erlang EUnit
+    \item Python UnitTests
+\end{itemize*}
+
+Schalgt nur einer der Tests fehl wird der zuletzt eingespielte Code
+zurückgesetzt. Es ist zu beachten, dass nicht nur die Masse an Tests, sprich
+die Testabdeckung, wichtig für IMVU ist, sondern auch die Qualität der Tests.
+Ein weiteres Merkmal ihrer Firmenkultur ist das Schreiben von qualitativ
+hochwertigen Tests. Durch diese Maßnahmen, also dem Schreiben von gründlichen
+hochwertigen Tests, welche sich auf alle Aufgabenbereiche verteilen, schafft
+es IMVU ein separates Qualitätssicherungsteam überflüssig zu machen.
+
+Nachdem sämtliche Tests erfolgreich durchgeführt wurden, wird ein eigen
+entwickeltes Build-Skript angestoßen um den neuen Code in die
+Produktionsumgebung einzuspielen. IMVUs Produktionsumgebung besteht aus einem
+Custer mit derzeit zirka 700 Servern. Das Build-Skript verteilt zwar den Code
+im gesamten Cluster, umgestellt werden zunächst aber nur eine geisse Prozent
+Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt recht simpel per
+Symlink. 
+
+Durch ein ständig aktives Monitoring werden fortlaufend Messwerte über den
+Gesundheitszustand des Clusters gesammelt. Diese Messdaten beinhalten Werte
+für CUP-, Speicher- und Netzwerk-Last, aber auch Business Metriken kommen zum
+Einsatz. Findet nach einer gewissen Zeitspanne keine Regression des Clusters
+statt wird der neue Code auf allen Servern aktiv geschalten. Durch das
+begleitende Monitoring könnte so noch immer jederzeit auf die vorherige
+Version zurückgewechselt werden.
+
+Kurz sei noch erwähnt wie bei IMVU mit den ralationalen Datenbanken verfahren
+wird. Da ein Datenbank Schema Rollback nur schwer möglich ist, bzw. das
+Verändern des Schemas einen schwerwiegenden Eingriff darstellt, durchlaufen
+Schemamodifikationen, im gegensatz zum Code Deployment, einen formalen Review
+Prozess. Müssen tatsächlich die Strukturen der Tabellen angepasst werden,
+bleiben die  alten Tabellen weiterhin bestehen und es werden einfach neue
+Tabellen mit der neuen Struktur erstellt. Die Daten werden dann per \emph{Copy
+on Read} bzw. per Hintergrund-Job migriert.
+
+
+\subsection{Huitale}
+%http://books.google.co.uk/books?id=G3zTzENmyFIC&lpg=PA111&ots=CuQj-1x2oU&lr&pg=PA111#v=onepage&q&f=false
+
+\subsection{Digg~4}
+%http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4
+
+\subsection{WiredReach}
+%http://www.justin.tv/startuplessonslearned/b/262656299
+%http://www.startuplessonslearned.com/2010/01/case-study-continuous-deployment-makes.html
+
+\subsection{Wealthfront}
+%http://www.justin.tv/startuplessonslearned/b/286511488?utm_campaign=archive_embed_click&utm_source=www-cdn.justin.tv
