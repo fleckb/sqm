@@ -233,7 +233,10 @@ das Bereitstellen von fehlerhaften Upgrades für den Endkunden auf Dauer nicht
 tragbar.
 
 \begin{wichtigbox}
-TODO: Fertig ausformulieren\\
+TODO: Ab hier muss noch bis zum Abschnitt~\ref{sec:success-stories} auf
+Seite~\pageref{sec:success-stories} fertig ausformuliert werden.
+\end{wichtigbox}
+
 D.h., dass das Q/A-Department, das kritisch für den Erfolg für jährliche bzw.
 dreimonatige Deployments war, wird zur unüberwindbaren Barriere in
 einmonatigen Prozessen und muss deshalb verworfen werden. Und wieder müssen
@@ -250,10 +253,390 @@ Z.B. nimmt ein Entwickler Veränderungen an der Benutzerschnittstelle vor und
 berichtet dem Tester davon. Dieser kann sofort überprüfen ob die vorgenommen
 Änderungen fehlerfrei funktionieren. D.h. der Entwickler erhält nur wenige
 Augenblicke später sofortiges Feedback des Testers.
-\end{wichtigbox}
+
+\subsubsection{Mehrfach releaste Versionen}
+eines Produkts ist eine weitere Praktik die führe längere Zyklen äußerst
+hilfreich ist, jedoch bei kürzeren Phasen ein Problem dastellt. Z.B.
+verkauften wir unsere Software an einen Kunden. Dieser war äußerst zufrieden
+mit dem Produkt.  Nach einiger Zeit fanden wir auch einen weiteren Abnehmer
+jedoch wollte dieser einige Veränderungen. Somit mussten wir eine neue Version
+der Software für den zweiten Kunden erstellen.
+
+Wir versuchten die Änderungen auch dem ersten Kunden schmackhaft zu machen,
+allerdings war dieser mit seiner Version der Software zufrieden. Nach einiger
+Zeit bekamen wir einen Bug-Report und mussten diesen nun in beiden Versionen
+unseres Produkts beheben. Nach einigen Monaten kam der dritte Kunde hinzu, der
+ebenfalls einige Änderungen der Software vornehmen ließ. Nach drei Jahren des
+erfolgreichen Einsatzes der Software bestellten die Kunden einen Consultant
+und fragten, warum Änderungen so viel Zeit in Anspruch nahmen.
+
+Das was Problem war, dass wir (vermutlicherweise) mittlerweile sieben
+verschiedene Versionen des Produkts verkauft hatten und wir in allen dieselben
+Fehlerbehebungen durchführen mussten. Außerdem hat jede Version eine
+unterschiedliche Anzahl von Features implementiert, die wir ebenfalls
+verwalteten mussten. Selbst bei jährlichen Deployments versuchen Software-
+Unternehmen ältere Versionen ihrer Produkte bei Kunden zu aktualisieren, da
+die Verwaltung mehrerer Versionen zu komplex geworden ist.
+
+Jedoch kann man in so einer großen Zeitspanne mit diesem Overhead leben. Wenn
+man jedoch in einem Jahr zwölf neue Releases produziert, funktioniert diese
+Art von Versionierung nicht mehr. Bei dieser Veränderung handelt es sich nicht
+nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem
+Kunden und der Organisation die die Software produziert. Der Kunde muss dem
+Unternehmen vertrauen können und es ist ja kein Geheimnis, dass viele Kunden
+genau das nicht tun, nämlich dem Unternehmen trauen, das das Produkt erstellt.
+Wie man vielleicht schon bemerkt hat, handelt es sich dabei all diesen
+Veränderungen nicht um ausschließlich technischen Veränderungen. Die CEO-zu-
+CEO-Beziehung der Unternehmen muss zu einer Partnerschaft abgeändert werden.
+Sie müssen einander vertrauen können. Ein neues Release der Software darf
+nicht zur Qual für den Kunden werden.
+
+Wenn ein Software-Unternehmen innerhalb von monatlichen Releases überleben
+möchte, darf ein Software-Upgrade kein Hindernis sein. Aus Kundensicht muss
+für so eine Vertrauensbasis aber zu $100\%$ sichergestellt sein, das kein
+Datenverlust möglich ist, keine Produktivität verloren geht, man nicht an
+einem Montag dem 1. Jänner in die Firma kommt und eine komplette Zerstörung
+vorfindet. Der Kunde muss davon überzeugt sein, dass die Software solide ist.
+Der Aufbau einer solcher Beziehung zwischen Kunden und dem Software-
+Unternehmen kann Jahre in Anspruch nehmen. Es handelt sich nicht um einen
+Prozess der über Nach passieren kann.
+
+\subsubsection{Design Dokumente}
+Wenn man drei Monate für ein Release Zeit hat, kann man ohne Probleme Design-
+Skizzen produzieren, diese im Team bearbeiten und analysieren. Hat man
+allerdings nur genau 20 Werktage für das Erstellen einer neuen Version der
+Software, dann kann das Software-Design nicht im selben Umfang dokumentiert
+werden. D.h. aber nicht der komplette Verzicht auf das Design. Ganz im
+Gegenteil, man muss natürlich weiterhin ein ansprechendes Software-Design
+schaffen und dieses natürlich auch kommunizieren. Allerdings sind Dokumente
+dafür nicht das richtige Medium.
+
+\subsubsection{Change Requests}
+Change Request Process ist eine weitere organisational-Distance Barriere.
+Jemand fordert eine Änderung der Software. Diese Forderung wird in irgendein
+Change-Request-System eingearbeitet. Danach wird sie zum Change-Preventation-
+Board (Change Control Board) weitergeleitet und um effizient zu bleiben in
+eine Warteschlange eingereiht wird. Bei dem wöchentlichen Meeting des Boards
+werden dann sämtliche Forderungen abgelehnt. Stellt sich die Frage warum diese
+Forderungen, wenn sie sowieso immer abgelehnt werden, nicht unmittelbar beim
+Eintreffen abgelehnt werden.
+
+Da könnte man sich die wöchentlichen Change-Request-Review-Meetings auch
+gleich sparen. Aufgrund der Zeitbegrenzung funktioniert diese Art von Prozess
+sowieso nicht mehr. Jedoch handelt es sich bei einem Change-Request um
+wertvolles Feedback und wenn man auf dieses innerhalb kurzer Zeit reagieren
+möchte, und es stehen einem nur 20 Werktage zur Verfügung, muss ein
+pragmatischer Ansatz verfolgt werden um diese Requests bearbeiten.
+
+Z.B. könnte der Prozess die Change-Requests priorisieren wobei die
+entstandenen Prioritäten mit denen des Unternehmens harmonieren sollten. Man
+sollte klarerweise an den wichtigen Features arbeiten und die weniger
+wichtigen hinten anstellen. D.h. man muss natürlich weiterhin Entscheidungen
+über die zu implementierenden Features treffen, jedoch hat die ursprüngliche
+Unternehmensstruktur die mittels CCB funktionierte, innerhalb von einem Monat
+nicht genügend Zeit um Prioritäten richtig zu setzen.
+
+\subsubsection{Separate Build- und Analyse-Teams}
+Separate Teams für Analyse und Build-Prozess nehmen ebenfalls zu viel Zeit in
+Anspruch. Ein Team dass sich ausschließlich um die Analyse kümmert, und danach
+ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um
+innerhalb eines Monats ein neues Release zu erstellen. D.h. die
+Softwareentwickler müssen akzeptieren, gemeinsam für diese Dinge Verantwortung
+zu übernehmen.
+
+Es kann natürlich jemanden in einem Team geben, der sich mit der Verfeinerung
+des Builds beschäftigt, jedoch gibt es keine extra Abteilung die sich
+ausschließlich um den Build der Software kümmert. In monatlichen Release-
+Zyklen bleibt keine Zeit um Build-Errors jemanden anderen zu zuteilen der sie
+dann behebt. Benötigt man z.B. eine Woche für das Beheben eines solchen
+Problems, dann ist es in einer 12-wöchigen Phase schmerzhaft, in einer
+vierwöchigen Phase jedoch nicht tragbar.
+
+Entwickler müssen selbst dafür die Verantwortung übernehmen Build-Probleme zu
+beheben. Eine Rolle wie die des Build-Managers gibt es in einer monatliche
+Phase nicht mehr. D.h. die Organisation muss sich diesbezüglich verändern um
+einen vierwöchigen Release-Zyklus zu unterstützen.
+
 
 \subsection{Monat auf Woche}
 \label{subsec:monat-auf-woche}
 
+Es kann natürlich vorkommen, dass Kunden selbst für einen monatlichen Release-
+Zyklus zu ungeduldig sind und deshalb auf wöchentliche Updates ihrer Software
+bestehen. D.h. das Entwickler-Team steht wieder vor der Aufgabe, dieselben
+Probleme in noch kürzer Zeit zu bewältigen. Die erste Frage die sich bei der
+Umstellung auf wöchentliche Release-Zyklen stellt, wann soll die Software
+bereitgestellt werden? Freitag?
+
+Nein, der letzte Tag der Woche ist ein äußerst schlechter Tag um neue
+Produktaktualisierungen dem Kunden zur Verfügung zu stellen, genauso am Tag
+bevor Weihnachten. Die Mitte der Woche scheint eine gute Idee zu sein. D.h.
+Jeden Mittwoch wird eine neue Version der Software bereitgestellt, sodass der
+Kunde mit dieser seine Arbeit verrichten kann. Dafür müssen wieder einmal die
+Organisation und der Zeitpunkt der Lösung angepasst werden um einen
+einwöchigen Release-Zyklus gerecht zu werden. Das Entwickler-Team also fünf
+Tage Zeit um ein für den Kunden wertvolles Inkrement zu erstellen. Wie soll
+man das anstellen? Erster Schritt ist eine Atomated Data Migration.
+Automatische Datenmigration
+
+Bei einem einmonatigen Release-Zyklus hat man ein paar Tage Zeit um das DB-
+Schema anzupassen. Keinem Entwickler mach diese Art von Spaß, jedoch bleibt
+genügend Zeit um es manell anzupassen. Innerhalb von einer Woche geht sich
+diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen
+durchzuführen sind einfach zu kostspielig. Eine voll automatisierte \emph{1
+-Button-Push} Datenmigration ist unabdingbar um Daten von einem alten zu einem
+neuen Zustand überzuführen.
+
+Falls man einen Service 24/7 bereitstellen muss, dann muss man noch
+zusätzliche Dinge tun. Mehr davon bei täglichen Releases. Bei dieser Phase
+darf Datenmigration auf jeden Fall kein Problem mehr darstellen. Vor allem
+handelt es sich hierbei nur um ein Engineering-Problem. Dabei unterstützt ein
+Datastore automatisierte Datenmigrierung vielleicht besser als ein anderer.
+Dafür ist ja Engineering da, man nimmt die Zutaten die man hat und wendet sie
+passend am bestehenden Problem an.
+
+\subsubsection{Temporäre Branches}
+In einem einmonatigen Zyklus können Entwickler Branches für Änderungen der
+Software anlegen und diese nicht unmittelbar wieder in den Main-Branch zurück
+mergen. D.h. die Programmierer arbeiten z.B. über einen Zeitraum von einer
+Woche an einer Änderung in einem neu erstellten Branch und migrieren diesen
+dann nach Fertigstellung wieder zurück in den Trunk.
+
+Dabei kann es zu komplizierteren Merges kommen, die einiges an Zeit
+beanspruchen. Genau diese Zeit ist in einem einwöchigen Zyklus nicht mehr
+vorhanden. Daher können Entwickler maximal temporäre Branches anlegen, die
+maximal nach ein paar Stunden wieder in den Main-Branch zurückmigriert werden.
+Dadurch verhindert man komplizierte Merges die aufgrund einer hohen Anzahl von
+Konflikten auftreten könnten.
+
+Es stellt sich die Frage, ob bei temporären Branches nur halbfertige
+Änderungen wieder in die Main-Line zurückmigriert werden. Jedoch überwiegt die
+Verhinderung der auftretenden Kosten bei komplizierten Merges diese Tatsache.
+D.h. man hat keine andere Wahl als kurzweilige, temporäre Branches anzulegen
+da ansonsten einwöchige Release-Zyklen keine Chance auf Erfolg hätten.
+
+Ein wichtige Begabung die Entwickler bei immer kürzeren Zyklenen haben sollte,
+ist die immer feinere Unterteilung von Arbeiten, sodass die Software nach
+einer Änderung trotzdem noch funktioniert. Z.B. hat man ein Refactoring von
+ca. 4000 LoC vor sich. Diese Änderungen müssen nicht alle auf einmal
+geschehen. Die Begabung eines Entwickler liegt nun bei der Unterteilung der
+vorzunehmenden Änderungen. Diese müssen so proportioniert werden, sodass nach
+einer Integrierung die Software noch voll funktionsfähig ist. Das Problem ist
+also die Reihenfolge der Änderungen sorgfältig zu bestimmen.
+
+\subsubsection{Keystoning}
+Hat man das Problem, dass ein zu implementierendes Feature mehr als eine Woche
+Zeit in Anspruch nimmt, man hat allerdings wöchentliche Releases, kann man
+zuerst die notwendige Funktionalität erstellen, die der Endbenutzer nicht zu
+Gesicht bekommt. Im nächsten Release-Zyklus kann man dann die notwendigen UI-
+Anpassungen durchführen und
+
+gewährleistet dadurch die Einhaltung der fünftägigen Software-Aktualisierung.
+D.h. man sollte bei einwöchigen Releases die sichtbaren Änderungen immer zum
+Schluss durchführen. Natürlich entsteht dadurch ein gewisses Risiko, da man ja
+Code in Produktion ausgeliefert hat, der nicht aufgerufen werden kann. Diesen
+Preis muss man aber für wöchentliche Releases bezahlen.
+
+\subsubsection{Kanban}
+Die Vorteile von Kanban werden bei wöchentlichen Release-Zyklen so richtig
+wertvoll. Genau wie all die bereits erwähnten Techniken kann Kanban natürlich
+auch bei länger andauernden Phasen zum Einsatz kommen. Bei einwöchigen
+Iterationen macht eine Art des Pull-Modells auf jeden Fall Sinn. Hat man in
+jedem Release-Zyklus eine fixe Anzahl von Tasks die zu erledigen sind und
+dieser Plan kann aufgrund von irgendwelchen Einflüssen nicht eingehalten
+werden, dann kann das zu Folgefehlern führen, sodass der Gesamtplan gefährdet
+ist.
+
+Im Gegensatz dazu bietet Kanban die Möglichkeit mittels des Pull-Modells, dass
+ein Entwickler z.B. am Montag in der Früh eine neue Aufgabe vom Aufgaben-Stack
+entnimmt und diese abarbeitet. Sollte dieser Task mehr Zeit als angenommen
+beanspruchen, gefährdet dies keine anderen Aufgaben. Dadurch müssen keine
+Planänderungen durchgeführt bzw. keine entsprechenden Meetings einberufen
+werden.
+
+\subsubsection{One-Button-Deploy}
+
+Will man wöchentliche Release-Zyklen realisieren wird ein \emph{One-Button-
+Deploy} unvermeidlich. Selbst wenn man einen vollen Monat Zeit hat, wird ein
+zweistündiger, manueller Deploy, bei dem noch dazu hin und wieder Fehler
+auftreten können, wirklich zur Qual für jeden Entwickler. Wenn man sich jetzt
+vorstellt, dass man für jeden Release diese fehleranfällige Arbeit erledigen
+muss, wird man schnell einsichtig, dass die Zeit dafür zu kostbar ist.
+
+Auch hier gilt wieder, dass ein \emph{One-Button-Release} ebenfalls für
+jährliche Entwicklungs-Phasen eingesetzt werden kann. Jedoch ist diese Technik
+bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es
+auf jeden Fall kritisch.
+
+\subsubsection{Kein separates Test Team}
+In wöchentlichen Release-Zyklen unterscheidet man nicht mehr zwischen einem
+separaten Test-Team und einem Entwickler-Team. Selbst dieser geringe Abstand
+zwischen den beiden Teams wir in dieser kurzen Zeit zu aufwendig um ihn zu
+unterstützen. Der typische Arbeitsablauf bei dem ein Entwickler dem Tester neu
+hinzugefügte Funktionalität zum Testen bereitstellt, und dieser dann
+selbstständig das erwartete Verhalten der Software verifiziert.
+
+Der Entwickler erhält dann unmittelbares Feedback vom Tester auf das er dann
+in entsprechender Art und Weise reagieren muss. Dieses Request-Response
+Verfahren ist zu zeitintensiv um in einer Woche eingesetzt zu werden. D.h. es
+gibt das Team das sowohl neue Funktionalität bereitstellt, also auch Feedback
+für diese erzeugt, auf das das Team entsprechend reagieren muss. Somit gilt,
+das Team muss für Implementierung und Testen gemeinsam Verantwortung
+übernehmen.
+
+\subsubsection{Keine Up-front Usability}
+Jeder Spezialbereich der Software-Entwicklung hat das Verlangen vor allen
+anderen berücksichtigt zu werden. Z.B. wird gerne die Software-Architektur als
+wichtigstes Kriterium für die erfolgreiche Erstellung des Produkts angesehen.
+Die Architektur sollte zu Beginn entworfen werden, danach kann die restliche,
+oft als nicht so wesentlich empfundene Arbeit umgesetzt werden. Genau
+dieselben Ansichten haben die Designer, die Tester, etc. In wöchentlichen
+Release-Zyklen kann diese Kurzsichtigkeit nicht unterstützt werden.
+
+D.h. Entwickler können nicht fünf Tage auf das Architekturdokument warten,
+wenn man nur genau eine Woche Zeit hat, die gewünschten Features
+bereitzustellen. Daher muss die Aufgabe des Usability-Designs über die
+komplette Phase verteilt umgesetzt werden im Gegensatz zu einer Aufgabe, die
+nur zu Beginn des Zyklus stattfindet.
+
+\subsubsection{Aktiver Release-Branch}
+Bei wöchentlichen Iterationen wird die Pflege eines separaten Release-Banches,
+der aktiv verändert wird, zu zeitaufwändig und muss daher entfernt werden. Hat
+man einen Monat Zeit, und man muss eventuell einen Software-Patch einspielen
+der z.B. am 1. eines Monats deployt worden ist, ist es nicht kritischen diesen
+Patch auch im Entwickler-Branch nachzuziehen.
+
+D.h. in diesem Fall sind zwei Branches noch ohne Weiteres umsetzbar. Bei
+fünftätigen Zyklen wird es zu aufwendig den Release-Brach aktiv zu
+aktualisieren, da man ja ständig die Software verändert. Jede Änderung doppelt
+zu warten ist in wöchentlichen Iterationen zu kostspielig. D.h. Kunden müssen
+sich eine Woche, dafür maximal eine Woche, auf einen Bug-Fix gedulden.
+
+
 \subsection{Woche auf Tag}
 \label{subsec:subscription-modell}
+
+Neben den technischen Herausforderungen für tägliche Releases erhält der
+Entwickler den angenehmen Nebeneffekt, dass die tägliche Arbeit bereits am
+nächsten Tag von irgendeinem Kunden bereits verwendet wird. Diese Tatsache
+darf als Motivationsfaktor für den Softwareentwickler nicht unterschätzt
+werden. Sehr oft haben Entwickler das Gefühl, dass ihre erledigte Arbeit für
+niemanden spürbar von Bedeutung sind.
+
+\subsubsection{Immunization}
+Bei täglichen Deployments ist diese Arbeit bereits am nächsten Tag von
+Bedeutung. Natürlich stellt sich dabei die Frage wie mit Fehlern umgegangen
+wird. Ist es überhaupt noch möglich bei dieser Kürze der Iteration Fehler
+Softwareentwickler zu akzeptieren? Sichtlich kann es sich ein Entwickler nicht
+mehr leisten, einen schlechten Tag zu haben.
+
+D.h. sollte ein Team-Mitglied z.B. die Nacht zu vor zu wenig Schlaf bekommen
+haben und daher das Gefühl haben es sollte heute nicht programmieren, dann
+sollte es sich seinem Gefühl fügen. Dabei handelt es sich tatsächlich im
+Endeffekt um einen Produktivitätsgewinn wenn ein Entwickler bei schlechter
+Tagesverfassung nicht echten Code implementiert.
+
+Sollte doch entwickelt werden und es werden Fehler erzeugt, dann sieht man
+diese unmittelbar am nächsten Tag, nämlich nachdem der Kunde die fehlerhafte
+Version der Software verwendet hat. Die Kernaussage ist, wenn man sich nicht
+im Stande fühlt 100 Prozentig konzentriert zu Programmieren, dann sollte man
+es bei täglichen Releases auch nicht tun.
+
+Es gibt sicherlich genug andere Aufgaben die an solchen Tagen verrichtet
+werden kann und sei es nur jemanden anderen bei seiner Aufgabe zu
+unterstützen. Man kann sich metaphorisch dabei vorstellen, dass man bei
+täglichen Deployments das brüchige Eis unter seinen Zehenspitzen fühlt. Man
+darf nicht zu stark auftreten sonst bricht diese dünne Eisschicht sofort unter
+einem zusammen. Um all dies jedoch umsetzen zu können, muss es unmittelbar
+nach einem fehlerhaften Deployment möglich sein, automatisch eine frühere
+Version der Software herzustellen. Diese Art des Rollbacks nennt man
+Immunization.
+
+Eine weitere Variante wie man mit fehlerhaften Releases umgehen kann ist, dass
+nach einem Deployment eine Art Monitor der Software automatisch das Team
+benachrichtigt, dass es ein Problem mit dem System gibt. Daraufhin stoppen
+alle Entwickler ihre aktuellen Arbeiten und beheben den Fehler worauf eine
+neue Version der Software deployt werden kann.
+
+\subsubsection{Data-Informed-Usability}
+Man trifft bei täglichen Releasese dieselben Usability-Entscheidungen aber
+diesmal kann man mit Hilfe von echten Daten entscheiden. A/B-Testing ist eine
+Art von diesem Vorgehen bei dem z.B. an einem Tag eine bestimmte Version der
+Software released wird und danach Daten eingeholt werden. Am nächsten Tag
+deployt man eine abgeänderte Version und analysiert wieder die entstandenen
+Informationen. Z.B. könnte man die Transaktionenanzahl messen oder wie lange
+Benutzer auf einer Seite geblieben sind. Man kann also die Daten die man
+generiert dazu verwenden, um Usability-Entscheidungen zu treffen. Somit lassen
+sich UI-Konflikte  aufgrund von messbaren Daten vermeiden.
+
+\subsubsection{Feature-Flags}
+Die Idee dabei ist, dass man zur Laufzeit wenn man z.B. die Software auf 100
+Server verteilt hat, und nebenbei hat man eine Konsole, die es jemanden
+erlaubt Features ein- und auszuschalten. D.h. man eine globale Anzahl von
+Flags, die es möglichen machen, gewisse Funktionalitäten für gewisse Benutzer
+freizuschalten bzw. zu deaktivieren.
+
+Dabei kann man taktisch vorgehen wenn man z.B. ein neues Features
+implementiert jedoch zehn weitere neue Features ebenfalls mit deployt werden.
+Nun deaktiviert man sein Features mittels Konsole, wartet eine Zeit lang ab
+bis die anderen Features ihre Wirkung gezeigt haben und aktiviert das sein
+Feature wieder. Jetzt kann man den Output analysieren den das Feature
+verursacht hat. Man erkennt leicht, dass bei täglichen Deployments die
+Laufzeitkonfiguration der Software wirklichen Mehrwert einbringt.
+
+\subsubsection{One-Piece-Flow}
+Kanban ist derzeit in der Entwickler-Community sehr beliebt. Einer der Gründe
+ist, dass man den Arbeits-Flow des gesamten Teams auf einen Blick erkennen
+kann. Dabei limitiert man die Arbeit die in Bearbeitung ist und kennzeichnet
+dies anhand von Karteikarten auf einem sogenannten Kanban-Board. Dabei besteht
+dieses Board aus mehreren Spalten die eine gewisse Bedeutung haben wie z.B.
+die Aufgaben die gerade in Arbeit sind oder die, die gerade getestet werden.
+
+Bei täglichen Deployments hat man allerdings nicht mehr die Zeit, Aufgaben von
+einer Spalte zur nächsten weiterzureichen. Entwickler treffen eine hohe Anzahl
+an verschiedenen Entscheidungen bei täglichen Deployments im Gegensatz zu
+längeren Release-Zyklen. Das liegt daran, dass die Entwickler wirklich
+schnelles Feedback benötigen um entsprechend schnell darauf reagieren zu
+können. Dabei nehmen sie viele verschiedene Rollen ein z.B. die des Designers
+oder des Implementierers oder die des Performance-Testers, etc. D.h. die
+einzelnen Stationen bei Kanban werden zu einem \emph{One-Piece-Flow} wobei der
+Entwickler dafür die Verantwortung übernehmen muss, neue Funktionalitäten
+durch all diese Stationen zu führen um sie anschließend zu releasen.
+
+\subsubsection{Multi-Level-Staging}
+Bei täglichen Releases bleibt keine Zeit mehr, die Software durch verschiedene
+Stages zu führen. D.h. der Flow von einer Entwickler-Box über eine
+Integrations-Box wo einige Tests durchgeführt werden, über eine Testing-Box,
+über eine Pre-Production-Box und zu guter Letzt die Produktionsumgebung.
+Software durch all diese Stationen zu führen, benötigt zu viel Zeit wenn man
+täglichen deployn möchte.
+
+D.h. man muss wie immer dieselben Problemen in kürzerer dadurch lösen, indem
+man Verantwortungen verändert damit man dasselbe Feedback bekommt nur basiert
+auf einer kürzeren Pipeline. D.h. ideal wären eine Development-Box und eine
+Produktionsumgebung.
+
+\subsubsection{Operations Department}
+Heutzutage gibt es noch sehr oft eine Trennung zwischen dem Operations-
+Department und dem Entwicklungs-Team in einem IT-Unternehmen. Dabei mussten
+sich Entwickler nicht um Infrastrukturangelegenheiten kümmern. Bei täglichen
+Releases lässt sich diese Aufgabe jedoch nicht mehr so einfach delegieren.
+Wieder einmal gibt es nicht genug Zeit für den Roundtrip zwischen Operations-
+Team und Entwickler-Team. Natürlich gibt es auch weiterhin Operations-
+Engineers deren Job es ist, das System zu monitoren und gewisse Prozesse zu
+automatisieren und Entwickler zu schulen um Frameworks und Tools zu erstellen,
+sodass jeder Verantwortung für Operations-Angelegenheiten übernehmen kann.
+
+\subsubsection{Keine Status Meetings}
+Obwohl es eine der wichtigen agilen Praktiken ist, bleibt einem Entwickler
+keine Zeit darauf zu warten, dass man von jemanden anderen am nächsten Tag im
+Stand-Up Meeting erfährt, wie weit er mit seiner Aufgabe ist. Waren sie bei
+monatlichen Releases eine tolle Sache, so sind sie bei täglichen Iterationen
+eher ein Hindernis.
+
+Natürlich muss weiterhin kommuniziert werden, jedoch auf eine andere Art und
+Weise. Dabei müssen die Entwickler natürlich im selben Raum sitzen und mit der
+Tatsache klar kommen, dass man bei der Arbeit unterbrochen wird. Vielleicht
+hat man auch einen IRC-Channel, irgendeine Art von Social-Media wie eine
+Facebook-Group die einem eine Real-Time Übersicht über die Arbeit eines jeden
+einzelnen Entwicklers gibt zu jedem beliebigen Zeitpunkt gibt.
