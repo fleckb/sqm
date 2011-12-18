@@ -194,6 +194,63 @@ haben dabei geholfen regelmäße Upgrades der Software bereitzustellen, jedoch
 war das Erlernen und Einhalten der Techniken für jedes Teammitglied sehr
 aufwändig.
 
+\subsubsection{QA-Abteilung}
+\label{minisec:qa-abteilung}
+
+Bei einmonatigen Iterationen werden diese Praktiken jedoch zur Last. Z.B.: ist
+das Vorhandensein einer QA-Abteilung aufgrund der organisatorischen Entfernung
+nicht mehr möglich. Diese Abteilung darf jedoch nicht mit der Rolle der Tester
+verwechselt werden.
+
+Natürlich darf auch der psychologische Effekt bezüglich der Reduzierung
+dieser in längeren Iterationen noch so wichtigen Einrichtung nicht vergessen
+werden.  Ein Entwickler der viel Erfahrung mit dreimonatigen Release-Zyklen
+besitzt, für den die QA-Abteilung der erste Schritt aus dem Chaos war, d.h.
+man tatsächlich Software am Ende des Quartals bereitstellen konnte, die noch
+dazu für den Kunden problemlos funktioniert hat, für diesen Entwickler ist
+eine QA-Abteilung unverzichtbar. Er kann sich nicht vorstellen, wie man in
+einem Monat Software erfolgreich bereitstellen soll, ohne der Unterstützung
+dieses \emph{Fehlerfangnetzes}. Aus der Perspektive dieses Entwicklers sind
+dessen Argumentationen völlig nachvollziehbar.
+
+Betrachtet man jedoch den folgenden Prozess genauer, bei dem jede
+Funktionsänderung der Software über den Projektmanager zur QA-Abteilung
+weitergeleitet wird, damit diese dann notwendige Ressourcen allokieren kann um
+die erhaltene Anfrage bearbeiten zu können, erkennt man, dass man in einem
+Monat nicht genug Zeit für diese Vorgehensweise hat.
+
+Obwohl die QA-Abteilung die erhaltenen Anfragen aus Effizienzgründen in
+Warteschlangen organisiert damit dann ein Tester diese Aufgabe entnehmen und
+bearbeiten kann, dauert es für den Entwickler viel zu lange, bis er endlich
+Feedback erhält um darauf reagieren zu können. Wenn man jetzt noch darüber
+nachdenkt, dass die Programmierer die zurückbekommenen Antworten der Tester
+ebenfalls ähnlich organisieren und zum Beheben derselbe Prozess erneut
+durchgeführt werden muss kommt man zum Schluss, dass die Iteration bereits zu
+Ende ist bevor überhaupt nur eine Aufgabe abgeschlossen wurde. Man könnte
+natürlich die Software trotz der Tatsache bereitstellen, dass man nicht 100
+Prozentig sicher weiß, ob das System Fehler enthält oder nicht. Allerdings ist
+das Bereitstellen von fehlerhaften Upgrades für den Endkunden auf Dauer nicht
+tragbar.
+
+\begin{wichtigbox}
+TODO: Fertig ausformulieren\\
+D.h., dass das Q/A-Department, das kritisch für den Erfolg für jährliche bzw.
+dreimonatige Deployments war, wird zur unüberwindbaren Barriere in
+einmonatigen Prozessen und muss deshalb verworfen werden. Und wieder müssen
+dieselben Probleme nur jetzt ohne Q/A-Department erledigt werden also was
+machen? Ganz einfach, Tester müssen dem Entwicklungsteam hinzugefügt werden.
+D.h. im Endeffekt hat man einen großen Raum in denen sich sowohl Tester als
+auch Entwickler befinden und diese unmittelbar miteinander kommunizieren
+können.
+
+Nichts von den Vorgehensweisen über Warteschlangen, nichts von dem
+zeitaufwendigen weiterleiten von Requests über verschiedene Personen, sondern
+die unmittelbare Kommunikation zwischen Tester und Entwickler sind notwendig.
+Z.B. nimmt ein Entwickler Veränderungen an der Benutzerschnittstelle vor und
+berichtet dem Tester davon. Dieser kann sofort überprüfen ob die vorgenommen
+Änderungen fehlerfrei funktionieren. D.h. der Entwickler erhält nur wenige
+Augenblicke später sofortiges Feedback des Testers.
+\end{wichtigbox}
 
 \subsection{Monat auf Woche}
 \label{subsec:monat-auf-woche}
