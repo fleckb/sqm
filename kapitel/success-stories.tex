@@ -1,23 +1,28 @@
 \section{Success Stories / Case Studies}
 
+Im folgenden sollen einige Firmen kurz vorgestellt werden, welche Continuous
+Deployment nicht nur aktiv sondern auch erfolgreich einsetzen. Dabei werden
+ebenfalls die entwickelten Produkte kurz vorgestellt und besonderes Augenmerk
+auf angewandte Methoden und Workflows gerichtet. Sofern Angaben dar√ºber
+gemacht wurden, werden auch die  verwendeteten unterst√ºtzenden Technologien
+erw√§hnt.
+
 \begin{wichtigbox}
-Um dem Ganzen einen fundierten Unterbau zu geben ein paar Success
-Stories vorstellen, welche bereits CD erfolgreich einsetzen. Gut w‰re es hier
-nat¸rlich wenn es nicht nur Beispiele aus der Industrie sind, sondern
-wissenschaftliche Verˆffentlichungen.
+TODO: Referenzen zu den Quellen einbauen.
 \end{wichtigbox}
 
 \subsection{IMVU}
+\label{subsec:imvu}
 %http://timothyfitz.wordpress.com/2009/02/10/continuous-deployment-at-imvu-doing-the-impossible-fifty-times-a-day/
 %http://radar.oreilly.com/2009/03/continuous-deployment-5-eas.html
 %http://www.infoq.com/news/2009/03/Continuous-Deployment
 %http://www.developsense.com/blog/2009/03/50-deployments-day-and-perpetual-beta/#268747558129898245
 %http://www.slideshare.net/bgdurrett/sds-2010-continuous-deployment-at-imvu
 
-Als erstes Beispiel dient IMVU~\footnote{IMVU: \url{http://www.imvu.com/}},
-eine soziale Online Community, in der in einer virtuellen Realit‰t mit Hilfe
+Als erstes Beispiel dient IMVU\footnote{IMVU: \url{http://www.imvu.com/}},
+eine soziale Online Community, in der in einer virtuellen Realit√§t mit Hilfe
 von 3D Avataren geplaudert, Spiele gespielt und eigene Inhalte erschaffen und
-ausgetauscht werden kˆnnen.
+ausgetauscht werden k√∂nnen.
 
 IMVU war eines der ersten \emph{Lean Startup} Unternehmen welche Continuous
 Deployment aktiv einsetzten. Dabei ist dies aber nicht vorab im Ganzen geplant
@@ -30,72 +35,157 @@ genannt:
 
 \begin{itemize*}
     \item Regression wird sehr rasch erkannt
-    \item Fehler kˆnnen schneller behoben werden, da zwischen dem einspielen
-          eines Fehlers und der Meldung ¸ber ein Problem nicht viel Zeit vergeht
-    \item Der Release einer neuen Version erzeugt keinen zus‰tzlichen Overhead
+    \item Fehler k√∂nnen schneller behoben werden, da zwischen dem einspielen
+          eines Fehlers und der Meldung √ºber ein Problem nicht viel Zeit vergeht
+    \item Der Release einer neuen Version erzeugt keinen zus√§tzlichen Overhead
     \item Als Feedback bekommen sie sofort messbare Kerndaten von echten Kunden
 \end{itemize*}
 
-\minisec{Workflow} Eine wichtige Grundvoraussetzung f¸r Continuous Deployment
+\minisec{Workflow} Eine wichtige Grundvoraussetzung f√ºr Continuous Deployment
 bei IMVU ist wie schon in Abschnitt~\ref{subsec:jahr-auf-quartal} auf
 Seite~\pageref{subsec:jahr-auf-quartal} gezeigt: Continuous Integration. Als
 Technologie kommt hier Buildbot\footnote{Buildbot:
 \url{http://trac.buildbot.net/}} zum Einsatz. Um die Vorteile von Continuous
-Integration voll ausn¸tzen zu kˆnnen wird beim Entwickeln selbst \emph{Commit
+Integration voll ausn√ºtzen zu k√∂nnen wird beim Entwickeln selbst \emph{Commit
 Early Commit Often} praktiziert. Ist ein Feature fertig entwickelt, oder eine
 Bug behoben worden, werden zuerst lokale  Tests auf der Entwicklermaschine
-durchgef¸hrt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
+durchgef√ºhrt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
 Code in Quellcode Versionsverwaltung eingespielt.
 
-Erst jetzt werden s‰mtliche Tests der Test-Suite angestoﬂen. Zur Zeit sind
+Erst jetzt werden s√§mtliche Tests der Test-Suite angesto√üen. Zur Zeit sind
 dies zirka $15.000$ Tests aus den Bereichen Unit-Tests, Funktions-Tests und
 Verhaltens-Tests. Dabei werden die folgenden Technologien eingesetzt:
 
 \begin{itemize*}
-    \item Selenium Core wird mit einem eigens entwickelten API Wrapper f¸r
+    \item Selenium Core wird mit einem eigens entwickelten API Wrapper f√ºr
           die Verhaltens-Tests eingesetzt
-    \item YUI Test wird f¸r Browser bsierte JavaScript Unit-Tests verwendet
+    \item YUI Test wird f√ºr Browser bsierte JavaScript Unit-Tests verwendet
     \item PHP SimpleTest
     \item Erlang EUnit
     \item Python UnitTests
 \end{itemize*}
 
 Schalgt nur einer der Tests fehl wird der zuletzt eingespielte Code
-zur¸ckgesetzt. Es ist zu beachten, dass nicht nur die Masse an Tests, sprich
-die Testabdeckung, wichtig f¸r IMVU ist, sondern auch die Qualit‰t der Tests.
+zur√ºckgesetzt. Es ist zu beachten, dass nicht nur die Masse an Tests, sprich
+die Testabdeckung, wichtig f√ºr IMVU ist, sondern auch die Qualit√§t der Tests.
 Ein weiteres Merkmal ihrer Firmenkultur ist das Schreiben von qualitativ
-hochwertigen Tests. Durch diese Maﬂnahmen, also dem Schreiben von gr¸ndlichen
+hochwertigen Tests. Durch diese Ma√ünahmen, also dem Schreiben von gr√ºndlichen
 hochwertigen Tests, welche sich auf alle Aufgabenbereiche verteilen, schafft
-es IMVU ein separates Qualit‰tssicherungsteam ¸berfl¸ssig zu machen.
+es IMVU ein separates Qualit√§tssicherungsteam √ºberfl√ºssig zu machen.
 
-Nachdem s‰mtliche Tests erfolgreich durchgef¸hrt wurden, wird ein eigen
-entwickeltes Build-Skript angestoﬂen um den neuen Code in die
+Nachdem s√§mtliche Tests erfolgreich durchgef√ºhrt wurden, wird ein eigen
+entwickeltes Build-Skript angesto√üen um den neuen Code in die
 Produktionsumgebung einzuspielen. IMVUs Produktionsumgebung besteht aus einem
 Custer mit derzeit zirka 700 Servern. Das Build-Skript verteilt zwar den Code
-im gesamten Cluster, umgestellt werden zun‰chst aber nur eine geisse Prozent
+im gesamten Cluster, umgestellt werden zun√§chst aber nur eine geisse Prozent
 Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt recht simpel per
 Symlink. 
 
-Durch ein st‰ndig aktives Monitoring werden fortlaufend Messwerte ¸ber den
+Durch ein st√§ndig aktives Monitoring werden fortlaufend Messwerte √ºber den
 Gesundheitszustand des Clusters gesammelt. Diese Messdaten beinhalten Werte
-f¸r CUP-, Speicher- und Netzwerk-Last, aber auch Business Metriken kommen zum
+f√ºr CUP-, Speicher- und Netzwerk-Last, aber auch Business Metriken kommen zum
 Einsatz. Findet nach einer gewissen Zeitspanne keine Regression des Clusters
 statt wird der neue Code auf allen Servern aktiv geschalten. Durch das
-begleitende Monitoring kˆnnte so noch immer jederzeit auf die vorherige
-Version zur¸ckgewechselt werden.
+begleitende Monitoring k√∂nnte so noch immer jederzeit auf die vorherige
+Version zur√ºckgewechselt werden.
 
-Kurz sei noch erw‰hnt wie bei IMVU mit den ralationalen Datenbanken verfahren
-wird. Da ein Datenbank Schema Rollback nur schwer mˆglich ist, bzw. das
-Ver‰ndern des Schemas einen schwerwiegenden Eingriff darstellt, durchlaufen
+Kurz sei noch erw√§hnt wie bei IMVU mit den ralationalen Datenbanken verfahren
+wird. Da ein Datenbank Schema Rollback nur schwer m√∂glich ist, bzw. das
+Ver√§ndern des Schemas einen schwerwiegenden Eingriff darstellt, durchlaufen
 Schemamodifikationen, im gegensatz zum Code Deployment, einen formalen Review
-Prozess. M¸ssen tats‰chlich die Strukturen der Tabellen angepasst werden,
+Prozess. M√ºssen tats√§chlich die Strukturen der Tabellen angepasst werden,
 bleiben die  alten Tabellen weiterhin bestehen und es werden einfach neue
 Tabellen mit der neuen Struktur erstellt. Die Daten werden dann per \emph{Copy
 on Read} bzw. per Hintergrund-Job migriert.
 
+\begin{wichtigbox}
+Noch die Durchlaufzeit der Test Suite anmerken u. dass sie ca. 50 Deployments
+am Tag schaffen w√ºrden.
+\end{wichtigbox}
+
 
 \subsection{Huitale}
 %http://books.google.co.uk/books?id=G3zTzENmyFIC&lpg=PA111&ots=CuQj-1x2oU&lr&pg=PA111#v=onepage&q&f=false
+%http://huitale.blogspot.com/2011/03/presentation-continuous-deployment.html
+
+Huitale ist ein finnisches \emph{Lean Startup} Unternehmen aus Helsinki
+welches Dienstleistungen im agilen Umfeld f√ºr Training und Consulting, aber
+auch Softwareentwicklung, anbietet. Sie k√∂nnen sich dabei auf ihr eigen
+entwickeltes Produkt \emph{nextdoor.fi}\footnote{nextdoor.fi:
+\url{http://http://www.nextdoor.fi}} berufen. Nextdoor.fi ist eine online
+Plattform um Dienstleistungen im Haushaltsservicebereich anzubieten und zu
+konsumieren. Die Plattform hat derzeit zirka $2.000$ aktive Benutzer und im
+Monat ungef√§hr $30.000$ Besucher.
+
+Huitale hat w√§hrend der Entwicklung von \emph{nextdoor.fi} einen angepassten
+lean Software Entwicklungsprozess umgesetzt. Welcher im Folgenden kurz
+vorgestellt wird.q
+
+\minisec{Workflow} Der Softwareentwicklungsprozess von Huitale setzt viele
+Elemente von \emph{Kanban} ein um ihren Prozess zu visualisieren, messen und
+um diesen steuerbar zu machen. N√§heres zu Kanban siehe Abschnitt~\ref{subsec:monat-auf-woche}
+auf Seite~\pageref{subsec:monat-auf-woche}. \\
+Als Basis f√ºr neue Funktionalit√§t dienen \emph{Minimum Marketable Features}
+welche nach Priorit√§t sortiert in einer \emph{Product Queue} landen. Diese
+Queue hat ein \emph{Work in Progress} Limit von 7. Befinden sich nur noch 2
+MMFs in der Queue k√∂nnen neue aufgenommen werden. Diese Queue orientiert sich
+also ganz stark an dem Puffer Konzept aus Kanban. Die Entwicklungsabteilung
+selbst hat ein \emph{Work in Progress} Limit von 2.
+
+\begin{wichtigbox}
+Hier vielleicht noch erkl√§ren was genau ein Minimum Marketable Feature im
+Gegensatz zu einem \emph{normalen} Feature ist. Zus√§tzlich kann noch gezeigt
+werden wie Huitale √ºberhaupt zu den MMFs kommt (Brainstorming, Customer
+Development, etc.).
+\end{wichtigbox}
+
+Ein \emph{MMF} wird dann als fertig entwickelt angesehen, wenn es daf√ºr eine
+ausreichende Anzahl qualitativ hochwertiger Unit- und Abnahme-Tests gibt und
+diese in der Continuous Integration Umgebung fehlerfrei ausgef√ºhrt wurden.
+Weiters findet eine automatisierte Qualit√§tssicherung mittels statischer
+Codeanalyse (Checkstyle\footnote{Checkstyle:
+\url{http://checkstyle.sourceforge.net/}} und PMD\footnote{PMD:
+\url{http://pmd.sourceforge.net/}}). Als letzter Schritt findet ein \emph{Peer
+Review} statt. Werden all diese Schritte erfolgreich durchlaufen gilt ein
+\emph{MMF} als \emph{done} und wird in 24h Zyklen deployed.\\
+Das Continuous Deployment Konzept selbst ist sehr stark an das von IMVU
+angelehnt (siehe Abschnitt~\ref{subsec:imvu}). Auch hier gibt es ein 24/7
+Monitoring des Produktivsystems mit der M√∂glichkeit, die t√§glich statt
+findenden Backups, jederzeit automatisiert wiedereinzuspielen (Immune System
+mit automatischen Rollbacks).
+
+Die Einteilung des Teams war urspr√ºnglich start an SCRUM mit einem
+\emph{single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer zwei
+Team Strategie aufgegeben. Jetzt gibt es ein \emph{Problem Team} und ein
+\emph{Solution Team}. Dem \emph{Problem Team} steht der CEO vor und besteht
+weiters aus dem CTO, Marketing \& Sales und User Experience Experten. Der CTO
+steht zu√§tzlich dem \emph{Solution Team} vor, weches auch die Entwickler
+beinhaltet.\\
+Eigene Teams f√ºr das Testen oder den laufenden Betrieb gibt es nicht. Diese
+Aufgaben werden vom \emph{Solution Team} mit √ºbernommen. Bemerkenswert ist auch
+dass es bei Huitale keine Vollzeit angestellten Entwickler gibt.
+
+Die Ergebnisse dieses Vorgehens sprechen f√ºr sich. Die \emph{lead
+time}\footnote{lead time: Die Zeit vom Erfassen eines Features bis zur
+Fertigstellung} neuer Features kann Aufgrund der st√§ndig gemessenen und
+ausgewerteten Daten sehr genau angegeben werden. Im Durchschnitt betr√§gt diese
+derzeit 8 Tage, bei kleineren Features zirka 3 Tage.\\
+Das Entwickeln einer ersten \emph{Public Beta}, also des \emph{Minimum Viable
+Products} dauerte nur 120 Manntage.
+
+\begin{wichtigbox}
+TODO: \emph{Minimum Viable Product} kurz erkl√§ren.
+\end{wichtigbox}
+
+Durch das Monitoring werden auftretende Bugs sehr rasch erkannt und k√∂nnen  in
+der Regel innerhalb einer Stunde korrigiert werden. M√∂glich wurde all dies
+einerseits durch eiserne Disziplin der Mitarbeiter, als auch durch Erfahrung.
+S√§mtliche Entwickler hatten bereits Erfahrung mit agilen Entwicklungsmethoden.
+Auch Kanban wird als wichtige St√ºtze im Finden von Verbesserungspotenzial des
+Prozesses angegeben.\\
+In vier Jahren gab es bei t√§glichen Deployments insgesamt nur 2 schwerere
+Bugs.
+
 
 \subsection{Digg~4}
 %http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4

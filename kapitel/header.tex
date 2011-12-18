@@ -1,32 +1,32 @@
 \documentclass[%
 paper=a4,						% alle weiteren Papierformat einstellbar
 %landscape,						% Querformat
-fontsize=11pt,					% Schriftgröße (12pt, 11pt (Standard))
+fontsize=11pt,					% SchriftgrÃ¶ÃŸe (12pt, 11pt (Standard))
 %BCOR1cm,						% Bindekorrektur, bspw. 1 cm
-%DIV=calc,						% führt die Satzspiegelberechnung neu aus
+%DIV=calc,						% fÃ¼hrt die Satzspiegelberechnung neu aus
 								% s. scrguide 2.4
 %twoside,						% Doppelseiten
 %twocolumn,						% zweispaltiger Satz
 parskip=half,					% Absatzformatierung s. scrguide 3.1
 %headsepline,					% Trennline zum Seitenkopf	
-%footsepline,					% Trennline zum Seitenfuß
+%footsepline,					% Trennline zum SeitenfuÃŸ
 titlepage,						% Titelei auf eigener Seite
-headings=normal,				% Überschriften etwas kleiner (smallheadings)
+headings=normal,				% Ãœberschriften etwas kleiner (smallheadings)
 %idxtotoc,						% Index im Inhaltsverzeichnis
 %liststotoc,					% Abb.- und Tab.verzeichnis im Inhalt
 bibliography=totoc,				% Literaturverzeichnis im Inhalt
-%abstracton,					% Überschrift über der Zusammenfassungan	
+%abstracton,					% Ãœberschrift Ã¼ber der Zusammenfassungan	
 %leqno,   						% Nummerierung von Gleichungen links
-%fleqn,							% Ausgabe von Gleichungen linksbündig
-%draft							% überlangen Zeilen in Ausgabe gekennzeichnet
+%fleqn,							% Ausgabe von Gleichungen linksbÃ¼ndig
+%draft							% Ã¼berlangen Zeilen in Ausgabe gekennzeichnet
 ]
 {scrartcl}
 
 \usepackage{eurosym}
 \usepackage[pdftex]{graphicx} 
-\usepackage[ngerman]{babel}		
-\usepackage[T1]{fontenc}							
-\usepackage[latin1]{inputenc}		
+\usepackage[ngerman]{babel}	
+\usepackage[utf8]{inputenc}		
+\usepackage[T1]{fontenc}								
 \usepackage{lmodern}
 \usepackage{color}
 
@@ -41,7 +41,7 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 	menucolor=LinkColor,
 	urlcolor=LinkColor}
 	
-%Kopf u. Fußzeilen
+%Kopf u. FuÃŸzeilen
 \usepackage{scrpage2}
 \pagestyle{scrheadings}
 \clearscrheadfoot
@@ -55,7 +55,7 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 \usepackage{csquotes}
 \usepackage{booktabs}
 
-%Eigene Umgebung für hervorhebung von Notizen, unfertigen Text, etc.
+%Eigene Umgebung fÃ¼r hervorhebung von Notizen, unfertigen Text, etc.
 \definecolor{background}{rgb}{0.9,0.9,1}
 \definecolor{border}{rgb}{0,0,0.5}
 \usepackage{framed}
