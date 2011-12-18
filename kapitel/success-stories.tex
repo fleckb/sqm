@@ -1,11 +1,11 @@
 \section{Success Stories / Case Studies}
 
-Im folgenden sollen einige Firmen kurz vorgestellt werden, welche Continuous
+Im Folgenden sollen einige Firmen kurz vorgestellt werden, welche Continuous
 Deployment nicht nur aktiv sondern auch erfolgreich einsetzen. Dabei werden
 ebenfalls die entwickelten Produkte kurz vorgestellt und besonderes Augenmerk
-auf angewandte Methoden und Workflows gerichtet. Sofern Angaben darüber
-gemacht wurden, werden auch die  verwendeteten unterstützenden Technologien
-erwähnt.
+auf angewandte Methoden und Workflows gerichtet. Sofern Informationen darüber
+vorhanden sind welche unterstützenden Technologien verwendet wurden, werden
+diese ebenfalls erwähnt.
 
 \begin{wichtigbox}
 TODO: Referenzen zu den Quellen einbauen.
@@ -21,13 +21,13 @@ TODO: Referenzen zu den Quellen einbauen.
 
 Als erstes Beispiel dient IMVU\footnote{IMVU: \url{http://www.imvu.com/}},
 eine soziale Online Community, in der in einer virtuellen Realität mit Hilfe
-von 3D Avataren geplaudert, Spiele gespielt und eigene Inhalte erschaffen und
-ausgetauscht werden können.
+von 3D Avataren kommuniziert, Spiele gespielt und eigene Inhalte erschaffen
+und ausgetauscht werden können.
 
 IMVU war eines der ersten \emph{Lean Startup} Unternehmen welche Continuous
 Deployment aktiv einsetzten. Dabei ist dies aber nicht vorab im Ganzen geplant
 worden, sondern inkrementell entstanden. Derzeit sind bei IMVU zirka 50
-technische Mitarbeiter angestellt. Ein wichtiger Punkt warum bei vorallem so
+technische Mitarbeiter angestellt. Ein wichtiger Punkt warum bei vor allem so
 vielen Entwicklern Continuous Deployment funktioniert, ist, dass es ein
 zentraler Bestandteil der Firmenkultur ist. \\
 Als Vorteile von Continuous Deployment werden von IMVU die folgenden Punkte
@@ -47,37 +47,38 @@ Seite~\pageref{minisec:continuous-integration} gezeigt: Continuous
 Integration. Als Technologie kommt hier Buildbot\footnote{Buildbot:
 \url{http://trac.buildbot.net/}} zum Einsatz. Um die Vorteile von Continuous
 Integration voll ausnützen zu können wird beim Entwickeln selbst \emph{Commit
-Early Commit Often} praktiziert. Ist ein Feature fertig entwickelt, oder eine
-Bug behoben worden, werden zuerst lokale  Tests auf der Entwicklermaschine
+Early Commit Often} praktiziert. Ist ein Feature fertig entwickelt, oder ein
+Bug behoben worden, werden zuerst lokale Tests auf der Entwicklermaschine
 durchgeführt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
-Code in Quellcode Versionsverwaltung eingespielt.
+Code in die Versionsverwaltung eingespielt.
 
-Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zur Zeit sind
+Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zurzeit sind
 dies zirka $15.000$ Tests aus den Bereichen Unit-Tests, Funktions-Tests und
 Verhaltens-Tests. Dabei werden die folgenden Technologien eingesetzt:
 
 \begin{itemize*}
     \item Selenium Core wird mit einem eigens entwickelten API Wrapper für
           die Verhaltens-Tests eingesetzt
-    \item YUI Test wird für Browser bsierte JavaScript Unit-Tests verwendet
+    \item YUI Test wird für Browser basierte JavaScript Unit-Tests verwendet
     \item PHP SimpleTest
     \item Erlang EUnit
     \item Python UnitTests
 \end{itemize*}
 
-Schalgt nur einer der Tests fehl wird der zuletzt eingespielte Code
+Schlägt nur einer der Tests fehl wird der zuletzt eingespielte Code
 zurückgesetzt. Es ist zu beachten, dass nicht nur die Masse an Tests, sprich
 die Testabdeckung, wichtig für IMVU ist, sondern auch die Qualität der Tests.
-Ein weiteres Merkmal ihrer Firmenkultur ist das Schreiben von qualitativ
-hochwertigen Tests. Durch diese Maßnahmen, also dem Schreiben von gründlichen
-hochwertigen Tests, welche sich auf alle Aufgabenbereiche verteilen, schafft
-es IMVU ein separates Qualitätssicherungsteam überflüssig zu machen.
+Ein weiteres Merkmal ihrer Firmenkultur ist nämlich das Schreiben von
+qualitativ hochwertigen Tests. Durch diese Maßnahmen, also dem Schreiben von
+gründlichen hochwertigen Tests, welche sich auf alle Aufgabenbereiche
+verteilen, schafft es IMVU ein separates Qualitätssicherungsteam überflüssig
+zu machen.
 
 Nachdem sämtliche Tests erfolgreich durchgeführt wurden, wird ein eigen
 entwickeltes Build-Skript angestoßen um den neuen Code in die
 Produktionsumgebung einzuspielen. IMVUs Produktionsumgebung besteht aus einem
 Custer mit derzeit zirka 700 Servern. Das Build-Skript verteilt zwar den Code
-im gesamten Cluster, umgestellt werden zunächst aber nur eine geisse Prozent
+im gesamten Cluster, umgestellt werden zunächst aber nur eine gewisse Prozent
 Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt recht simpel per
 Symlink. 
 
@@ -89,10 +90,10 @@ statt wird der neue Code auf allen Servern aktiv geschalten. Durch das
 begleitende Monitoring könnte so noch immer jederzeit auf die vorherige
 Version zurückgewechselt werden.
 
-Kurz sei noch erwähnt wie bei IMVU mit den ralationalen Datenbanken verfahren
+Kurz sei noch erwähnt wie bei IMVU mit den relationalen Datenbanken verfahren
 wird. Da ein Datenbank Schema Rollback nur schwer möglich ist, bzw. das
 Verändern des Schemas einen schwerwiegenden Eingriff darstellt, durchlaufen
-Schemamodifikationen, im gegensatz zum Code Deployment, einen formalen Review
+Schemamodifikationen, im Gegensatz zum Code Deployment, einen formalen Review
 Prozess. Müssen tatsächlich die Strukturen der Tabellen angepasst werden,
 bleiben die  alten Tabellen weiterhin bestehen und es werden einfach neue
 Tabellen mit der neuen Struktur erstellt. Die Daten werden dann per \emph{Copy
@@ -113,13 +114,13 @@ welches Dienstleistungen im agilen Umfeld für Training und Consulting, aber
 auch Softwareentwicklung, anbietet. Sie können sich dabei auf ihr eigen
 entwickeltes Produkt \emph{nextdoor.fi}\footnote{nextdoor.fi:
 \url{http://http://www.nextdoor.fi}} berufen. Nextdoor.fi ist eine online
-Plattform um Dienstleistungen im Haushaltsservicebereich anzubieten und zu
-konsumieren. Die Plattform hat derzeit zirka $2.000$ aktive Benutzer und im
+Plattform um Dienstleistungen im Haushaltsservicebereich anzubieten und
+einzukaufen. Die Plattform hat derzeit zirka $2.000$ aktive Benutzer und im
 Monat ungefähr $30.000$ Besucher.
 
 Huitale hat während der Entwicklung von \emph{nextdoor.fi} einen angepassten
-lean Software Entwicklungsprozess umgesetzt. Welcher im Folgenden kurz
-vorgestellt wird.q
+lean Software Entwicklungsprozess umgesetzt, welcher im Folgenden kurz
+vorgestellt wird.
 
 \minisec{Workflow} Der Softwareentwicklungsprozess von Huitale setzt viele
 Elemente von \emph{Kanban} ein um ihren Prozess zu visualisieren, messen und
@@ -140,7 +141,7 @@ Development, etc.).
 \end{wichtigbox}
 
 Ein \emph{MMF} wird dann als fertig entwickelt angesehen, wenn es dafür eine
-ausreichende Anzahl qualitativ hochwertiger Unit- und Abnahme-Tests gibt und
+ausreichende Anzahl qualitativ hochwertiger Unit- und Akzeptanz-Tests gibt und
 diese in der Continuous Integration Umgebung fehlerfrei ausgeführt wurden.
 Weiters findet eine automatisierte Qualitätssicherung mittels statischer
 Codeanalyse (Checkstyle\footnote{Checkstyle:
@@ -154,12 +155,12 @@ Monitoring des Produktivsystems mit der Möglichkeit, die täglich statt
 findenden Backups, jederzeit automatisiert wiedereinzuspielen (Immune System
 mit automatischen Rollbacks).
 
-Die Einteilung des Teams war ursprünglich start an SCRUM mit einem
+Die Einteilung des Teams war ursprünglich stark an SCRUM mit einem
 \emph{single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer zwei
 Team Strategie aufgegeben. Jetzt gibt es ein \emph{Problem Team} und ein
 \emph{Solution Team}. Dem \emph{Problem Team} steht der CEO vor und besteht
 weiters aus dem CTO, Marketing \& Sales und User Experience Experten. Der CTO
-steht zuätzlich dem \emph{Solution Team} vor, weches auch die Entwickler
+steht zusätzlich dem \emph{Solution Team} vor, welches auch die Entwickler
 beinhaltet.\\
 Eigene Teams für das Testen oder den laufenden Betrieb gibt es nicht. Diese
 Aufgaben werden vom \emph{Solution Team} mit übernommen. Bemerkenswert ist auch
@@ -171,7 +172,7 @@ Fertigstellung} neuer Features kann Aufgrund der ständig gemessenen und
 ausgewerteten Daten sehr genau angegeben werden. Im Durchschnitt beträgt diese
 derzeit 8 Tage, bei kleineren Features zirka 3 Tage.\\
 Das Entwickeln einer ersten \emph{Public Beta}, also des \emph{Minimum Viable
-Products} dauerte nur 120 Manntage.
+Products} dauerte nur 120 Mann-Tage.
 
 \begin{wichtigbox}
 TODO: \emph{Minimum Viable Product} kurz erklären.

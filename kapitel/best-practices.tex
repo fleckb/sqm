@@ -1,11 +1,13 @@
-\section{Research Questions (Best-Practices)}
+\section{Best-Practices}
 \label{sec:best-practices}
 
+\begin{wichtigbox}
 Beschreibt und beantwortet die in Related Work erarbeitete Fragestellung indem
 Best Practices vorgestellt/herausgearbeitet werden. Weiters wird unser
 Vorgehen beschrieben. Und zwar wie iterativ eine immer kleinere Kadenz
 erreicht werden kann. In den Unterkapiteln werden die einzelnen
 Iterationsschritte vorgestellt.
+\end{wichtigbox}
 
 \subsection{Jahr auf Quartal}
 \label{subsec:jahr-auf-quartal}
@@ -15,8 +17,8 @@ bereitstellen, kommen häufig lineare, nicht iterative Vorgehensmodelle zum
 Einsatz. Eines der bekanntesten Beispiele dafür ist das Wasserfallmodell, dass
 aus verschiedenen Phasen wie z.B.: der Analyse, dem Entwurf, der Realisierung
 (Implementierung) und dem Testen besteht. Wenn man diese Art von langwierigen
-Prozess verfolgt, dann ist es für ein Unternehmen relative schwer auf
-Veränderungen am weltweiten Markt rasch reagieren zu können.  Aktualisiert man
+Prozess verfolgt, dann ist es für ein Unternehmen relativ schwer auf
+Veränderungen am weltweiten Markt rasch reagieren zu können. Aktualisiert man
 nur einmal im Jahr das Produkt läuft man Gefahr, dass die verwendete
 Technologie höchstwahrscheinlich schon längst wieder veraltet ist. Daher muss
 ein Unternehmen um am Markt konkurrenzfähig zu bleiben, auf kürzere Release-
@@ -25,38 +27,40 @@ Zyklen setzen.
 Die dabei nächst kürzere Iterationslänge würde z.B.: drei Monate betragen.
 Dabei könnte ein Unternehmen einmal im Quartal eine neue Version ihrer
 Software bereitstellen. Die große Herausforderung ist die bisherigen Prozesse
-so anzupassen, um dieselben Probleme in kürzere Zeit zu lösen. Eine
+so anzupassen, um dieselben Probleme in kürzerer Zeit zu lösen. Eine
 Vorgehensweise die dabei offensichtlich nicht funktionieren würde, ist nichts
 im Unternehmen zu verändern, jedoch alle bisherigen Praktiken nun in drei
-Monaten durchzuführen.  Da diese Art der Komprimierung nicht funktionieren
+Monaten durchzuführen. Da diese Art der Komprimierung nicht funktionieren
 kann, müssen daher fundamentale Techniken adaptiert werden um bestimmte
 Aufgaben zu gewissen Zeitpunkten in der kürzeren Iteration durchzuführen.
 
 \subsubsection{Automatisierte Akzeptanztests}
+\label{minisec:automatisierte-akzeptanztests}
 Manuelles Testen der Software ist zeitaufwendig und fehleranfällig. Hat man
-eine Iterationslänge von einem Jahr, kann man jedoch ohne weiteres die Art von
-Testen durchführen. Nach Beendigung der Implementierungsphase wird die
+eine Iterationslänge von einem Jahr, kann man jedoch ohne weiteres diese Art
+von Testen durchführen. Nach Beendigung der Implementierungsphase wird die
 Software an die QA-Abteilung weitergeleitet, die dann mit dem ausführlichen
 verifizieren des Produkts beschäftigt ist. Hat ein Unternehmen jedoch nur drei
-Monate Zeit, dann wäre es zu aufwendig diesen Prozess jedes Quartal
+Monate Zeit, dann wäre es zu aufwändig diesen Prozess jedes Quartal
 wiederholen zu müssen. Die Automatisierung einer Regressions-Test-Suite, die
-auf \enquote{Knopfdruck} ausgeführt werden kann, hilft dem Unternehmen dabei
-manuelle Tests aus dem Entwicklungsprozess zu entfernen.  Dabei erhalten die
+auf \emph{Knopfdruck} ausgeführt werden kann, hilft dem Unternehmen dabei
+manuelle Tests aus dem Entwicklungsprozess zu entfernen. Dabei erhalten die
 Entwickler nach kürzester Zeit Feedback über das Funktionsverhalten des
-Systems.  Diese Tests können in Form von Akzeptanztests realisiert werden. Bei
+Systems. Diese Tests können in Form von Akzeptanztests realisiert werden. Bei
 einer Iterationslänge von drei Monaten muss die endgültige Form bzw.
 Geschwindigkeit der Tests nicht perfekt oder äußerst schnell sein. Wesentlich
 ist nur, dass diese Tests automatisiert durchgeführt werden können. Die
 entstehenden Wartezeiten sind dabei für den Projekterfolg nicht kritisch.
 
 \subsubsection{Refactoring}
+\label{minisec:refactoring}
 Im Wasserfallmodell gibt es eine eigene Phase für den Entwurf der Software.
 Möchte man alle drei Monate eine neue Version der Software bereitstellen, muss
 das Designen der Software-Architektur über die gesamte Iteration verteilt
 werden. Die Zeit für eine eigene Entwurfs-Phase steht bei dieser
-Iterationslänge nicht zur Verfügung. Da es jetzt kein \enquote{Big Design Up-
+Iterationslänge nicht zur Verfügung. Da es jetzt kein \emph{Big Design Up-
 Front} geben kann, und das Design kontinuierlich den Gegebenheiten angepasst
-werden muss, müssen Softwareentwickler die Technik des \enquote{Refactorings}
+werden muss, müssen Softwareentwickler die Technik des \emph{Refactorings}
 ausgezeichnet beherrschen. Dadurch wird es möglich, große Design-Änderungen in
 kleinen, sicheren Schritten durchzuführen ohne jedoch dabei das
 Systemverhalten zu verändern. Entwickler übernehmen dabei die Verantwortung,
@@ -78,7 +82,7 @@ hinzufügen können. Dadurch kann es am Ende der Iteration zu keinen
 
 \subsubsection{Subscription Modell}
 \label{minisec:subscription-modell}
-Muss eine Unternehmen nur einmal im Jahr den potentiellen Endkunden von der
+Muss ein Unternehmen nur einmal im Jahr den potentiellen Endkunden von der
 neuen Version der Software überzeugen, fällt dieses Vorgehen alle drei Monate
 deutlich schwieriger aus. Man kann den Kunden als Unternehmen nicht dazu
 bringen, jedes Quartal für eine Aktualisierung der Software erneut zahlen zu
