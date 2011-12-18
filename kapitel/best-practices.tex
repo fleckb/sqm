@@ -98,8 +98,102 @@ einmal im Jahr einen Pauschalbetrag und erhält sämtliche Upgrades der Software
 ohne weitere Bezahlung. Diese Art von Geschäftsmodell ist absolut kritisch für
 den Erfolg für eine Umstellung auf dreimonatige Release-Zyklen.
 
+
 \subsection{Quartal auf Monat}
 \label{subsec:quartal-auf-monat}
+
+Bei jedem Übergang von einem längeren zu einem kürzeren Release-Zyklus ist es
+notwendig, gewisse bis jetzt vielleicht erfolgreich eingeführte Praktiken zu
+entfernen und neue zu adaptieren.
+
+\subsubsection{Programmierer schreiben Tests}
+\label{minisec:programmierer-schreiben-tests}
+Hat man bei einer dreimonatigen Iteration ca. 60 Arbeitstage Zeit die neue
+Version der Software zu entwickeln, ist es zeitlich nicht weiter tragisch,
+falls die Ausführungsgeschwindigkeit der Akzeptanztests einen Tag erfordern.
+In einem monatlichen Zyklus muss jedoch die Häufigkeit des Feedbacks für den
+Entwickler drastisch erhöht werden. Dabei muss ein Teil der
+Verifikationsarbeit den Programmierern übergeben werden, sodass diese in
+kürzeren Zeitabständen Informationen über den Zustand der Software einholen
+können.
+
+Ein monatlicher Release-Zyklus macht es erforderlich, dass Entwickler selbst
+Tests schreiben und auch ausführen. Daraus kann man schließen, dass die Anzahl
+der Akzeptanztests nicht nur reduziert werden kann, sondern auch nicht mehr
+alle eventuellen Fehler aufdecken müssen, da diese bereits vorher von den
+Unit-Tests abgefangen werden.
+
+\subsubsection{Status Meetings}
+\label{minisec:status-meetings}
+
+Auch die Art und Weise wie man andere Teammitglieder über durchgeführte
+Veränderungen informiert muss bei monatlichen Iterationen angepasst werden.
+Wurden vielleicht bis jetzt über alle Aktualisierungen der Software Protokolle
+für den Projekt-Manager geschrieben, der diese wiederum an andere Entwickler
+als Feedback weiterleitete, muss man nun eine Form des Wissenstransports
+schaffen, der bei weitem nicht so viel Zeit in Anspruch nimmt. Hat man nur
+noch 20 Arbeitstage für die Entwicklung eines Upgrades der Software, dann hat
+diese Art des relativ \emph{schwergewichtigen}, formalen Prozesses keine
+Daseinsberechtigung.
+
+Man benötigt daher eine Form der täglichen Status-Aktualisierung über
+Projektveränderungen der einzelnen Teammitglieder. Das kann z.B.: in Form
+eines täglichen Stand-Up oder Daily-Scrum Meetings erfolgen bei dem jeden
+Morgen jeder im Team kurz über Neuigkeiten bzw. eventuelle Probleme berichtet.
+
+\subsubsection{Task Board}
+\label{minisec:task}
+Klassische Planungsprozesse bei denen zu erledigende Aufgaben mehrere
+Stationen (z.B.: Projektmanager, Analysten, etc.) durchwandern müssen, danach
+noch eventuell in Form eines Berichts niedergeschrieben werden, bevor sie der
+Programmierer zu Gesicht bekommt um daran arbeiten zu können, müssen ebenfalls
+angepasst werden.
+
+Um Sinnvoll innerhalb eines Monats Planen zu können, werden daher
+transparente, visuelle Techniken benötigt die außerdem noch öffentlich
+zugänglich sein müssen. Dabei kann eine Art von Stellwand (task board) in
+Kombination von Karteikarten, wie sehr oft in Scrum Verwendung finden,
+eingesetzt werden. Dabei repräsentieren die Karten die durchzuführenden
+Aufgaben die jeweils in entsprechenden Zustandspalten auf der Stellwand
+platziert werden. Somit hat jedes Teammitglied zu jedem Zeitpunkt der
+Iteration eine Übersicht, welche Aufgaben noch innerhalb dieses Zyklus zu
+erledigen sind.
+
+\subsubsection{Pay-per-Use Modell}
+\label{minisec:pay-per-use-modell}
+
+Bei monatlichen Releases kann es erneut sinnvoll sein über eine Anpassung des
+Geschäftsmodells nachzudenken.  Bei dieser Iterationskürze könnte das \emph{Pay-
+per-Use}-Modell eingeführt werden. Bei dreimonatigen Prozessen kann diese Art
+von Geschäftsmodell gefährlich sein. Sollte ein Release fehlerhaft sein,
+könnte das die Einnahmen des Unternehmens verringern, jedoch könnten die
+Entwickler erst drei Monate später darauf reagieren.
+
+In einmonatigen Prozessen können viel schneller Korrekturen vorgenommen
+werden. Außerdem kann die Information über die tatsächliche Benutzung des
+Produkts als wertvolles Feedback angesehen werden. Bei Geld handelt es sich
+jedoch mit Abstand um das beste Feedback das man außerdem wieder in das
+Unternehmen investieren kann.
+
+\subsubsection{Notwendige Entfernung von Praktiken}
+\label{minisec:monat-entfernte-praktiken}
+Auch bei dieser Geschwindigkeitsüberführung ist es offensichtlich nicht
+möglich, in der gleichen Art und Weise Software zu entwickeln wie bisher.
+Jedoch gibt es gewisse Übereinstimmungen wie z.B.: die Akzeptanztests, die
+allerdings in einem einmonatigen Zyklus wesentlich schneller ablaufen müssen.
+Es fällt auf, dass  gewisse Aufgaben die zuvor vielleicht nur von einer Person
+durchgeführt wurden, in kürzeren Iterationen von mehreren Teammitgliedern
+erledigt werden müssen. Auf die Häufigkeit der Durchführung und der
+Durchführungszeitpunkt verändern sich.
+
+Allerdings wurden in der Überführung von jährlichen zu dreimonatigen Zyklen
+weitere notwendige Praktiken eingeführt, für die in einmonatigen Phasen keine
+Zeit mehr vorhanden ist. Diese Techniken waren äußerst hilfreich um die
+Entwicklungsgeschwindigkeit in einem ersten Verkürzungsprozess zu erhöhen. Sie
+haben dabei geholfen regelmäße Upgrades der Software bereitzustellen, jedoch
+war das Erlernen und Einhalten der Techniken für jedes Teammitglied sehr
+aufwändig.
+
 
 \subsection{Monat auf Woche}
 \label{subsec:monat-auf-woche}
