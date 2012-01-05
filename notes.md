@@ -1,4 +1,4 @@
-# Articles / Blog Posts / Books #
+# Articles / Blog Posts / Books / Conference Talks #
 
 - Jez Humble (http://continuousdelivery.com/resources/)  
   [Blog] http://continuousdelivery.com/2010/08/continuous-delivery-vs-continuous-deployment/
@@ -15,6 +15,10 @@
  
 - InfoQ Materialien  
   http://www.infoq.com/continuous_delivery/
+
+- Eric Ries
+  http://ecorner.stanford.edu/authorMaterialInfo.html?mid=2289
+  http://www.youtube.com/watch?v=J4rOdxoCnwY
 
 
 # Schlagworte #

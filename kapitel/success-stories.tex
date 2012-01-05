@@ -189,8 +189,30 @@ In vier Jahren gab es bei täglichen Deployments insgesamt nur 2 schwerere
 Bugs.
 
 
-\subsection{Digg~4}
+\subsection{Digg}
 %http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4
+
+Digg\footnote{Digg: \url{http://www.digg.com}} ist eine \emph{Social News}
+online Plattform, dessen Grundfunktionalität das Bewerten von Artikeln durch
+die Benutzer ist. Dabei können die Artikel entweder positiv (\emph{digging})
+oder negativ (\emph{burrying}) bewertet werden. Im August 2010 wurde offiziell
+die Version 4 der Website frei gegeben, was zu reger Kritik seitens der
+Benutzer geführt hat, da die Website zu Beginn des Upgrades teilweise
+unerreichbar, bzw. instabil war. Weiters wurde durch das Upgrade ein neues
+Design eingeführt und bekannte Funktionen herausgenommen.
+
+Aus Entwicklersicht ist das Upgrade auf Version 4 insofern interessant, da mit
+dieser Version auch ein Continuous Deployment Prozess realisiert wurde \cite{digg4}. Seit
+August 2010 gibt es daher bie Digg keine geplanten Releases mehr. Alle
+Änderungen, also Bug Fixes und neue Features gehen sofort live. Auch bei Digg
+wird dabei auf manuelles Testen der Änderungen verzichtet. \\
+Als große Herausforderung wird der Balanceakt zwischen der Agilität und
+Geschwindigkeit von Continuous Deployment und den Anforderungen an Stabilität
+und Verlässlichkeit genannt. Dessen ungeachtet gelten die geringe
+Durchlaufzeit und das unmittelbare Feedback bezüglich Änderungen bei Digg als
+immens wertvoll.
+
+\minisec{Workflow}
 
 \subsection{WiredReach}
 %http://www.justin.tv/startuplessonslearned/b/262656299
@@ -198,3 +220,10 @@ Bugs.
 
 \subsection{Wealthfront}
 %http://www.justin.tv/startuplessonslearned/b/286511488?utm_campaign=archive_embed_click&utm_source=www-cdn.justin.tv
+%http://eng.wealthfront.com/2010/05/deployment-infrastructure-for.html
+%http://eng.wealthfront.com/2010/06/applied-lean-startup-ideas-continuous.html
+
+\subsection{Flickr}
+%http://sna-projects.com/blog/2011/06/continuous-deployment-flickr/
+%http://code.flickr.com/blog/2009/12/02/flipping-out/
+%http://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr

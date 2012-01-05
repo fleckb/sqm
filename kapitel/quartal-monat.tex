@@ -1,0 +1,257 @@
+\subsection{Quartal auf Monat}
+\label{subsec:quartal-auf-monat}
+
+Bei jedem Übergang von einem längeren zu einem kürzeren Release-Zyklus ist es
+notwendig, gewisse bis jetzt vielleicht erfolgreich eingeführte Praktiken zu
+entfernen und neue zu adaptieren.
+
+\subsubsection{Programmierer schreiben Tests}
+\label{minisec:programmierer-schreiben-tests}
+Hat man bei einer dreimonatigen Iteration ca. 60 Arbeitstage Zeit die neue
+Version der Software zu entwickeln, ist es zeitlich nicht weiter tragisch,
+falls die Ausführungsgeschwindigkeit der Akzeptanztests einen Tag erfordern.
+In einem monatlichen Zyklus muss jedoch die Häufigkeit des Feedbacks für den
+Entwickler drastisch erhöht werden. Dabei muss ein Teil der
+Verifikationsarbeit den Programmierern übergeben werden, sodass diese in
+kürzeren Zeitabständen Informationen über den Zustand der Software einholen
+können.
+
+Ein monatlicher Release-Zyklus macht es erforderlich, dass Entwickler selbst
+Tests schreiben und auch ausführen. Daraus kann man schließen, dass die Anzahl
+der Akzeptanztests nicht nur reduziert werden kann, sondern auch nicht mehr
+alle eventuellen Fehler aufdecken müssen, da diese bereits vorher von den
+Unit-Tests abgefangen werden.
+
+\subsubsection{Status Meetings}
+\label{minisec:status-meetings}
+
+Auch die Art und Weise wie man andere Teammitglieder über durchgeführte
+Veränderungen informiert muss bei monatlichen Iterationen angepasst werden.
+Wurden vielleicht bis jetzt über alle Aktualisierungen der Software Protokolle
+für den Projekt-Manager geschrieben, der diese wiederum an andere Entwickler
+als Feedback weiterleitete, muss man nun eine Form des Wissenstransports
+schaffen, der bei weitem nicht so viel Zeit in Anspruch nimmt. Hat man nur
+noch 20 Arbeitstage für die Entwicklung eines Upgrades der Software, dann hat
+diese Art des relativ \emph{schwergewichtigen}, formalen Prozesses keine
+Daseinsberechtigung.
+
+Man benötigt daher eine Form der täglichen Status-Aktualisierung über
+Projektveränderungen der einzelnen Teammitglieder. Das kann z.B.: in Form
+eines täglichen Stand-Up oder Daily-Scrum Meetings erfolgen bei dem jeden
+Morgen jeder im Team kurz über Neuigkeiten bzw. eventuelle Probleme berichtet.
+
+\subsubsection{Task Board}
+\label{minisec:task}
+Klassische Planungsprozesse bei denen zu erledigende Aufgaben mehrere
+Stationen (z.B.: Projektmanager, Analysten, etc.) durchwandern müssen, danach
+noch eventuell in Form eines Berichts niedergeschrieben werden, bevor sie der
+Programmierer zu Gesicht bekommt um daran arbeiten zu können, müssen ebenfalls
+angepasst werden.
+
+Um Sinnvoll innerhalb eines Monats Planen zu können, werden daher
+transparente, visuelle Techniken benötigt die außerdem noch öffentlich
+zugänglich sein müssen. Dabei kann eine Art von Stellwand (task board) in
+Kombination von Karteikarten, wie sehr oft in Scrum Verwendung finden,
+eingesetzt werden. Dabei repräsentieren die Karten die durchzuführenden
+Aufgaben die jeweils in entsprechenden Zustandspalten auf der Stellwand
+platziert werden. Somit hat jedes Teammitglied zu jedem Zeitpunkt der
+Iteration eine Übersicht, welche Aufgaben noch innerhalb dieses Zyklus zu
+erledigen sind.
+
+\subsubsection{Pay-per-Use Modell}
+\label{minisec:pay-per-use-modell}
+
+Bei monatlichen Releases kann es erneut sinnvoll sein über eine Anpassung des
+Geschäftsmodells nachzudenken.  Bei dieser Iterationskürze könnte das \emph{Pay-
+per-Use}-Modell eingeführt werden. Bei dreimonatigen Prozessen kann diese Art
+von Geschäftsmodell gefährlich sein. Sollte ein Release fehlerhaft sein,
+könnte das die Einnahmen des Unternehmens verringern, jedoch könnten die
+Entwickler erst drei Monate später darauf reagieren.
+
+In einmonatigen Prozessen können viel schneller Korrekturen vorgenommen
+werden. Außerdem kann die Information über die tatsächliche Benutzung des
+Produkts als wertvolles Feedback angesehen werden. Bei Geld handelt es sich
+jedoch mit Abstand um das beste Feedback das man außerdem wieder in das
+Unternehmen investieren kann.
+
+\subsubsection{Notwendige Entfernung von Praktiken}
+\label{minisec:monat-entfernte-praktiken}
+Auch bei dieser Geschwindigkeitsüberführung ist es offensichtlich nicht
+möglich, in der gleichen Art und Weise Software zu entwickeln wie bisher.
+Jedoch gibt es gewisse Übereinstimmungen wie z.B.: die Akzeptanztests, die
+allerdings in einem einmonatigen Zyklus wesentlich schneller ablaufen müssen.
+Es fällt auf, dass  gewisse Aufgaben die zuvor vielleicht nur von einer Person
+durchgeführt wurden, in kürzeren Iterationen von mehreren Teammitgliedern
+erledigt werden müssen. Auf die Häufigkeit der Durchführung und der
+Durchführungszeitpunkt verändern sich.
+
+Allerdings wurden in der Überführung von jährlichen zu dreimonatigen Zyklen
+weitere notwendige Praktiken eingeführt, für die in einmonatigen Phasen keine
+Zeit mehr vorhanden ist. Diese Techniken waren äußerst hilfreich um die
+Entwicklungsgeschwindigkeit in einem ersten Verkürzungsprozess zu erhöhen. Sie
+haben dabei geholfen regelmäße Upgrades der Software bereitzustellen, jedoch
+war das Erlernen und Einhalten der Techniken für jedes Teammitglied sehr
+aufwändig.
+
+\subsubsection{QA-Abteilung}
+\label{minisec:qa-abteilung}
+
+Bei einmonatigen Iterationen werden diese Praktiken jedoch zur Last. Z.B.: ist
+das Vorhandensein einer QA-Abteilung aufgrund der organisatorischen Entfernung
+nicht mehr möglich. Diese Abteilung darf jedoch nicht mit der Rolle der Tester
+verwechselt werden.
+
+Natürlich darf auch der psychologische Effekt bezüglich der Reduzierung
+dieser in längeren Iterationen noch so wichtigen Einrichtung nicht vergessen
+werden.  Ein Entwickler der viel Erfahrung mit dreimonatigen Release-Zyklen
+besitzt, für den die QA-Abteilung der erste Schritt aus dem Chaos war, d.h.
+man tatsächlich Software am Ende des Quartals bereitstellen konnte, die noch
+dazu für den Kunden problemlos funktioniert hat, für diesen Entwickler ist
+eine QA-Abteilung unverzichtbar. Er kann sich nicht vorstellen, wie man in
+einem Monat Software erfolgreich bereitstellen soll, ohne der Unterstützung
+dieses \emph{Fehlerfangnetzes}. Aus der Perspektive dieses Entwicklers sind
+dessen Argumentationen völlig nachvollziehbar.
+
+Betrachtet man jedoch den folgenden Prozess genauer, bei dem jede
+Funktionsänderung der Software über den Projektmanager zur QA-Abteilung
+weitergeleitet wird, damit diese dann notwendige Ressourcen allokieren kann um
+die erhaltene Anfrage bearbeiten zu können, erkennt man, dass man in einem
+Monat nicht genug Zeit für diese Vorgehensweise hat.
+
+Obwohl die QA-Abteilung die erhaltenen Anfragen aus Effizienzgründen in
+Warteschlangen organisiert damit dann ein Tester diese Aufgabe entnehmen und
+bearbeiten kann, dauert es für den Entwickler viel zu lange, bis er endlich
+Feedback erhält um darauf reagieren zu können. Wenn man jetzt noch darüber
+nachdenkt, dass die Programmierer die zurückbekommenen Antworten der Tester
+ebenfalls ähnlich organisieren und zum Beheben derselbe Prozess erneut
+durchgeführt werden muss kommt man zum Schluss, dass die Iteration bereits zu
+Ende ist bevor überhaupt nur eine Aufgabe abgeschlossen wurde. Man könnte
+natürlich die Software trotz der Tatsache bereitstellen, dass man nicht 100
+Prozentig sicher weiß, ob das System Fehler enthält oder nicht. Allerdings ist
+das Bereitstellen von fehlerhaften Upgrades für den Endkunden auf Dauer nicht
+tragbar.
+
+\begin{wichtigbox}
+TODO: Ab hier muss noch bis zum Abschnitt~\ref{sec:success-stories} auf
+Seite~\pageref{sec:success-stories} fertig ausformuliert werden.
+\end{wichtigbox}
+
+D.h., dass das Q/A-Department, das kritisch für den Erfolg für jährliche bzw.
+dreimonatige Deployments war, wird zur unüberwindbaren Barriere in
+einmonatigen Prozessen und muss deshalb verworfen werden. Und wieder müssen
+dieselben Probleme nur jetzt ohne Q/A-Department erledigt werden also was
+machen? Ganz einfach, Tester müssen dem Entwicklungsteam hinzugefügt werden.
+D.h. im Endeffekt hat man einen großen Raum in denen sich sowohl Tester als
+auch Entwickler befinden und diese unmittelbar miteinander kommunizieren
+können.
+
+Nichts von den Vorgehensweisen über Warteschlangen, nichts von dem
+zeitaufwendigen weiterleiten von Requests über verschiedene Personen, sondern
+die unmittelbare Kommunikation zwischen Tester und Entwickler sind notwendig.
+Z.B. nimmt ein Entwickler Veränderungen an der Benutzerschnittstelle vor und
+berichtet dem Tester davon. Dieser kann sofort überprüfen ob die vorgenommen
+Änderungen fehlerfrei funktionieren. D.h. der Entwickler erhält nur wenige
+Augenblicke später sofortiges Feedback des Testers.
+
+\subsubsection{Mehrfach releaste Versionen}
+eines Produkts ist eine weitere Praktik die führe längere Zyklen äußerst
+hilfreich ist, jedoch bei kürzeren Phasen ein Problem dastellt. Z.B.
+verkauften wir unsere Software an einen Kunden. Dieser war äußerst zufrieden
+mit dem Produkt.  Nach einiger Zeit fanden wir auch einen weiteren Abnehmer
+jedoch wollte dieser einige Veränderungen. Somit mussten wir eine neue Version
+der Software für den zweiten Kunden erstellen.
+
+Wir versuchten die Änderungen auch dem ersten Kunden schmackhaft zu machen,
+allerdings war dieser mit seiner Version der Software zufrieden. Nach einiger
+Zeit bekamen wir einen Bug-Report und mussten diesen nun in beiden Versionen
+unseres Produkts beheben. Nach einigen Monaten kam der dritte Kunde hinzu, der
+ebenfalls einige Änderungen der Software vornehmen ließ. Nach drei Jahren des
+erfolgreichen Einsatzes der Software bestellten die Kunden einen Consultant
+und fragten, warum Änderungen so viel Zeit in Anspruch nahmen.
+
+Das was Problem war, dass wir (vermutlicherweise) mittlerweile sieben
+verschiedene Versionen des Produkts verkauft hatten und wir in allen dieselben
+Fehlerbehebungen durchführen mussten. Außerdem hat jede Version eine
+unterschiedliche Anzahl von Features implementiert, die wir ebenfalls
+verwalteten mussten. Selbst bei jährlichen Deployments versuchen Software-
+Unternehmen ältere Versionen ihrer Produkte bei Kunden zu aktualisieren, da
+die Verwaltung mehrerer Versionen zu komplex geworden ist.
+
+Jedoch kann man in so einer großen Zeitspanne mit diesem Overhead leben. Wenn
+man jedoch in einem Jahr zwölf neue Releases produziert, funktioniert diese
+Art von Versionierung nicht mehr. Bei dieser Veränderung handelt es sich nicht
+nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem
+Kunden und der Organisation die die Software produziert. Der Kunde muss dem
+Unternehmen vertrauen können und es ist ja kein Geheimnis, dass viele Kunden
+genau das nicht tun, nämlich dem Unternehmen trauen, das das Produkt erstellt.
+Wie man vielleicht schon bemerkt hat, handelt es sich dabei all diesen
+Veränderungen nicht um ausschließlich technischen Veränderungen. Die CEO-zu-
+CEO-Beziehung der Unternehmen muss zu einer Partnerschaft abgeändert werden.
+Sie müssen einander vertrauen können. Ein neues Release der Software darf
+nicht zur Qual für den Kunden werden.
+
+Wenn ein Software-Unternehmen innerhalb von monatlichen Releases überleben
+möchte, darf ein Software-Upgrade kein Hindernis sein. Aus Kundensicht muss
+für so eine Vertrauensbasis aber zu $100\%$ sichergestellt sein, das kein
+Datenverlust möglich ist, keine Produktivität verloren geht, man nicht an
+einem Montag dem 1. Jänner in die Firma kommt und eine komplette Zerstörung
+vorfindet. Der Kunde muss davon überzeugt sein, dass die Software solide ist.
+Der Aufbau einer solcher Beziehung zwischen Kunden und dem Software-
+Unternehmen kann Jahre in Anspruch nehmen. Es handelt sich nicht um einen
+Prozess der über Nach passieren kann.
+
+\subsubsection{Design Dokumente}
+Wenn man drei Monate für ein Release Zeit hat, kann man ohne Probleme Design-
+Skizzen produzieren, diese im Team bearbeiten und analysieren. Hat man
+allerdings nur genau 20 Werktage für das Erstellen einer neuen Version der
+Software, dann kann das Software-Design nicht im selben Umfang dokumentiert
+werden. D.h. aber nicht der komplette Verzicht auf das Design. Ganz im
+Gegenteil, man muss natürlich weiterhin ein ansprechendes Software-Design
+schaffen und dieses natürlich auch kommunizieren. Allerdings sind Dokumente
+dafür nicht das richtige Medium.
+
+\subsubsection{Change Requests}
+Change Request Process ist eine weitere organisational-Distance Barriere.
+Jemand fordert eine Änderung der Software. Diese Forderung wird in irgendein
+Change-Request-System eingearbeitet. Danach wird sie zum Change-Preventation-
+Board (Change Control Board) weitergeleitet und um effizient zu bleiben in
+eine Warteschlange eingereiht wird. Bei dem wöchentlichen Meeting des Boards
+werden dann sämtliche Forderungen abgelehnt. Stellt sich die Frage warum diese
+Forderungen, wenn sie sowieso immer abgelehnt werden, nicht unmittelbar beim
+Eintreffen abgelehnt werden.
+
+Da könnte man sich die wöchentlichen Change-Request-Review-Meetings auch
+gleich sparen. Aufgrund der Zeitbegrenzung funktioniert diese Art von Prozess
+sowieso nicht mehr. Jedoch handelt es sich bei einem Change-Request um
+wertvolles Feedback und wenn man auf dieses innerhalb kurzer Zeit reagieren
+möchte, und es stehen einem nur 20 Werktage zur Verfügung, muss ein
+pragmatischer Ansatz verfolgt werden um diese Requests bearbeiten.
+
+Z.B. könnte der Prozess die Change-Requests priorisieren wobei die
+entstandenen Prioritäten mit denen des Unternehmens harmonieren sollten. Man
+sollte klarerweise an den wichtigen Features arbeiten und die weniger
+wichtigen hinten anstellen. D.h. man muss natürlich weiterhin Entscheidungen
+über die zu implementierenden Features treffen, jedoch hat die ursprüngliche
+Unternehmensstruktur die mittels CCB funktionierte, innerhalb von einem Monat
+nicht genügend Zeit um Prioritäten richtig zu setzen.
+
+\subsubsection{Separate Build- und Analyse-Teams}
+Separate Teams für Analyse und Build-Prozess nehmen ebenfalls zu viel Zeit in
+Anspruch. Ein Team dass sich ausschließlich um die Analyse kümmert, und danach
+ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um
+innerhalb eines Monats ein neues Release zu erstellen. D.h. die
+Softwareentwickler müssen akzeptieren, gemeinsam für diese Dinge Verantwortung
+zu übernehmen.
+
+Es kann natürlich jemanden in einem Team geben, der sich mit der Verfeinerung
+des Builds beschäftigt, jedoch gibt es keine extra Abteilung die sich
+ausschließlich um den Build der Software kümmert. In monatlichen Release-
+Zyklen bleibt keine Zeit um Build-Errors jemanden anderen zu zuteilen der sie
+dann behebt. Benötigt man z.B. eine Woche für das Beheben eines solchen
+Problems, dann ist es in einer 12-wöchigen Phase schmerzhaft, in einer
+vierwöchigen Phase jedoch nicht tragbar.
+
+Entwickler müssen selbst dafür die Verantwortung übernehmen Build-Probleme zu
+beheben. Eine Rolle wie die des Build-Managers gibt es in einer monatliche
+Phase nicht mehr. D.h. die Organisation muss sich diesbezüglich verändern um
+einen vierwöchigen Release-Zyklus zu unterstützen.

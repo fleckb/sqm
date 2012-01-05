@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "/E/Save/uni/sw-qm/sqm",
+            "file_exclude_patterns": ["*.bbl",
+                                      "*.aux",
+                                      "*.bcf",
+                                      "*.blg",
+                                      "*.log",
+                                      "*.out",
+                                      "*.xml",
+                                      "*.sublime-*",
+                                      "*.tcp",
+                                      "*.tps",
+                                      "*.toc",
+                                      "*.pdf"]
+		}
+	]
+}
