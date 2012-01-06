@@ -202,17 +202,56 @@ unerreichbar, bzw. instabil war. Weiters wurde durch das Upgrade ein neues
 Design eingeführt und bekannte Funktionen herausgenommen.
 
 Aus Entwicklersicht ist das Upgrade auf Version 4 insofern interessant, da mit
-dieser Version auch ein Continuous Deployment Prozess realisiert wurde \cite{digg4}. Seit
-August 2010 gibt es daher bie Digg keine geplanten Releases mehr. Alle
-Änderungen, also Bug Fixes und neue Features gehen sofort live. Auch bei Digg
-wird dabei auf manuelles Testen der Änderungen verzichtet. \\
+dieser Version auch ein Continuous Deployment Prozess realisiert wurde
+\cite{digg4}. Seit August 2010 gibt es daher bie Digg keine geplanten Releases
+mehr. Alle Änderungen, also Bug Fixes und neue Features gehen sofort live.
+Auch bei Digg wird dabei auf manuelles Testen der Änderungen verzichtet.
+
 Als große Herausforderung wird der Balanceakt zwischen der Agilität und
 Geschwindigkeit von Continuous Deployment und den Anforderungen an Stabilität
 und Verlässlichkeit genannt. Dessen ungeachtet gelten die geringe
 Durchlaufzeit und das unmittelbare Feedback bezüglich Änderungen bei Digg als
 immens wertvoll.
 
-\minisec{Workflow}
+\minisec{Workflow} Bei Digg wurde schon, bevor Continuous Deployment
+eingeführt wurde, ein Ökosystem aus Entwicklungstools und Techniken eingesetzt
+welche den Schritt zu Continuous Deployment erheblich erleichterten. Als
+Versionierungssystem wurde Git verwendet, die UI-Tests verwendeten Selenium
+und wurden per Continuous Integration mittels Hudson ausgeführt. Hudson wurde
+weiters für das Build-Management verwendet. Das Management und Monitoring der
+Infrastruktur wurde mittles \emph{puppet} umgesetzt.
+
+Als wichtigste Ergänzung dieses Ökosystems wird Gerrit\footnote{Gerrit:
+\url{http://code.google.com/p/gerrit/}} genannt. Gerrit ist ein Code Review
+System für Git basierte Softwareprojekte. Dabei werden Änderungen, so genannte
+\emph{patchsets}, nach einem Commit nicht sofort in den Master Branch der
+Versionsverwaltung eingespielt, sondern von Gerrit zum Review freigegeben.
+Erst nachdem diese Änderungen auch von anderen Entwicklern abgesegnet wurden,
+kann der neue Code in den Master Branch eingespielt werden. 
+
+Gerrit bietet zusätzlich für jedes \emph{patchset} auch ein \emph{Verified
+Flag}. Über dieses Flag lässt sich Gerrit sehr gut mit Continuous Integration
+Systemen wie Hudson verbinden, indem das Flag entsprechend dem Ausgang von
+automatisierten Tests gesetzt wird. Digg verwendet für die Integration von
+Gerrit und Hudson das \emph{Gerrit Trigger} Plugin für Hudson.
+
+Der generelle Ablauf bei Digg ist jetzt wie folgt: Nachdem ein neues
+\emph{patchset} eingespielt wurde, wird dies zum Review freigegeben.
+Zusätzlich werden zunächst ein Subset an Unit- und UI-Tests ausgeführt
+(Vortests). Der Grund warum nicht gleich sämtliche Tests ausgeführt werden ist
+die Zeit die die komplette Testsuite zum Durchlauf benötigen würde. Falls die
+Änderungen durch das Review freigegeben und die Tests fehlerfrei durchlaufen
+wurden, findet ein Merge to Master statt, die Änderungen landen also im
+Hauptzweig der Versionsverwaltung. Erst jetzt werden sämtliche Unit-Tests
+ausgeführt und anschließend der neue Build in eine interne Staging Umgebung
+eingespielt. Von dort wird, nach erfolgreichem Absolvieren sämtlicher UI-
+Tests, in die Produktionsumgebung deployed.
+
+Einem Entwickler bei Digg zufolge \cite{digg4} ist dieser Prozess bei weitem 
+nicht perfekt, so muss immer noch recht oft manuell eingegriffen werden nachdem
+ein Build bei den Vortests nicht durchgekommen ist. Als Grund wird hier die 
+Instabilität einiger Tests genannt. Dennoch werden das Review-System und die 
+Möglichkeit rasch Bug-Fixes einzuspielen positiv hervorgehoben.
 
 \subsection{WiredReach}
 %http://www.justin.tv/startuplessonslearned/b/262656299
