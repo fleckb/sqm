@@ -9,6 +9,7 @@ werden. Sehr oft haben Entwickler das Gefühl, dass ihre erledigte Arbeit für
 niemanden spürbar von Bedeutung sind.
 
 \subsubsection{Immunization}
+\label{minisec:immunization}
 Bei täglichen Deployments ist diese Arbeit bereits am nächsten Tag von
 Bedeutung. Natürlich stellt sich dabei die Frage wie mit Fehlern umgegangen
 wird. Ist es überhaupt noch möglich bei dieser Kürze der Iteration Fehler
@@ -55,6 +56,7 @@ generiert dazu verwenden, um Usability-Entscheidungen zu treffen. Somit lassen
 sich UI-Konflikte  aufgrund von messbaren Daten vermeiden.
 
 \subsubsection{Feature-Flags}
+\label{minisec:featureflags}
 Die Idee dabei ist, dass man zur Laufzeit wenn man z.B. die Software auf 100
 Server verteilt hat, und nebenbei hat man eine Konsole, die es jemanden
 erlaubt Features ein- und auszuschalten. D.h. man eine globale Anzahl von
@@ -68,6 +70,16 @@ bis die anderen Features ihre Wirkung gezeigt haben und aktiviert das sein
 Feature wieder. Jetzt kann man den Output analysieren den das Feature
 verursacht hat. Man erkennt leicht, dass bei täglichen Deployments die
 Laufzeitkonfiguration der Software wirklichen Mehrwert einbringt.
+
+\begin{lstlisting}[float=h!tb,caption=Beispiel eines Feature Flags bei Flickr \cite{flickr09}, label=fflagcode]
+if ($cfg.enable_unicorn_polo) {
+    // do something new and amazing here.
+}
+else {
+    // do the current boring stuff.
+}
+\end{lstlisting}
+
 
 \subsubsection{One-Piece-Flow}
 Kanban ist derzeit in der Entwickler-Community sehr beliebt. Einer der Gründe

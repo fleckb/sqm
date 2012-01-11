@@ -49,13 +49,24 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 %\ofoot{Datei: ThemenNr\_Abstract\_Fleck\_Polanka.pdf}
 \cfoot{\pagemark}
 
-\usepackage{listings}
 \usepackage{subfig}
 \usepackage{mdwlist}
 \usepackage{csquotes}
 \usepackage{booktabs}
 
-%Eigene Umgebung für hervorhebung von Notizen, unfertigen Text, etc.
+% Für Code Listings
+\usepackage{listings}
+\definecolor{comment}{rgb}{0.5,0.5,0.5} 
+\definecolor{keyword}{rgb}{0.0,0.0,0.0} 
+\lstset{basicstyle=\footnotesize,
+	language=C,
+	commentstyle=\color{comment},
+	keywordstyle=\color{keyword}\bfseries,
+	morekeywords={}}
+\lstloadlanguages{C}
+
+
+% Eigene Umgebung für hervorhebung von Notizen, unfertigen Text, etc.
 \definecolor{background}{rgb}{0.9,0.9,1}
 \definecolor{border}{rgb}{0,0,0.5}
 \usepackage{framed}
@@ -66,5 +77,12 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 
 % Neues bibliographie paket
 \usepackage[backend=biber]{biblatex}
+
+% Neuer Befehl für Zitate
+\newcommand{\zitat}[1]{\textit{\enquote{#1}}}
+\newenvironment{zitatenv}
+{\begin{quote}\itshape}
+{\end{quote}}
+
 
 \KOMAoptions{DIV=last}

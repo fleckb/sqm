@@ -54,8 +54,8 @@ durchgeführt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
 Code in die Versionsverwaltung eingespielt.
 
 Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zurzeit sind
-dies zirka $15.000$ Tests aus den Bereichen Unit-Tests, Funktions-Tests und
-Verhaltens-Tests. Dabei werden die folgenden Technologien eingesetzt:
+dies zirka $15.000$ Tests aus den Bereichen Unit-, Funktions- und
+Verhaltenstests. Dabei werden die folgenden Technologien eingesetzt:
 
 \begin{itemize*}
     \item Selenium Core wird mit einem eigens entwickelten API Wrapper für
@@ -101,8 +101,8 @@ Tabellen mit der neuen Struktur erstellt. Die Daten werden dann per \emph{Copy
 on Read} bzw. per Hintergrund-Job migriert.
 
 \begin{wichtigbox}
-Noch die Durchlaufzeit der Test Suite anmerken u. dass sie ca. 50 Deployments
-am Tag schaffen würden.
+Noch die Durchlaufzeit der Test Suite anmerken u. dass sie zirka 50
+Deployments am Tag schaffen würden.
 \end{wichtigbox}
 
 
@@ -179,7 +179,7 @@ Products} dauerte nur 120 Mann-Tage.
 TODO: \emph{Minimum Viable Product} kurz erklären.
 \end{wichtigbox}
 
-Durch das Monitoring werden auftretende Bugs sehr rasch erkannt und können  in
+Durch das Monitoring werden auftretende Bugs sehr rasch erkannt und können in
 der Regel innerhalb einer Stunde korrigiert werden. Möglich wurde all dies
 einerseits durch eiserne Disziplin der Mitarbeiter, als auch durch Erfahrung.
 Sämtliche Entwickler hatten bereits Erfahrung mit agilen Entwicklungsmethoden.
@@ -193,25 +193,26 @@ Bugs.
 %http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4
 
 Digg\footnote{Digg: \url{http://www.digg.com}} ist eine \emph{Social News}
-online Plattform, dessen Grundfunktionalität das Bewerten von Artikeln durch
+Online-Plattform, dessen Grundfunktionalität das Bewerten von Artikeln durch
 die Benutzer ist. Dabei können die Artikel entweder positiv (\emph{digging})
-oder negativ (\emph{burrying}) bewertet werden. Im August 2010 wurde offiziell
-die Version 4 der Website frei gegeben, was zu reger Kritik seitens der
-Benutzer geführt hat, da die Website zu Beginn des Upgrades teilweise
-unerreichbar, bzw. instabil war. Weiters wurde durch das Upgrade ein neues
-Design eingeführt und bekannte Funktionen herausgenommen.
+oder negativ (\emph{burrying}) bewertet werden. Am 25.~August 2010 wurde
+offiziell die Version 4 der Website frei gegeben \cite{digg4-launch}, was zu
+reger Kritik seitens der Benutzer geführt hat, da die Website zu Beginn des
+Upgrades teilweise unerreichbar, bzw. instabil war. Weiters wurde durch das
+Upgrade ein neues Design eingeführt und bekannte Funktionen herausgenommen
+\cite{digg4-critics}.
 
 Aus Entwicklersicht ist das Upgrade auf Version 4 insofern interessant, da mit
 dieser Version auch ein Continuous Deployment Prozess realisiert wurde
-\cite{digg4}. Seit August 2010 gibt es daher bie Digg keine geplanten Releases
-mehr. Alle Änderungen, also Bug Fixes und neue Features gehen sofort live.
+\cite{digg4}. Seit August 2010 gibt es daher bei Digg keine geplanten Releases
+mehr. Alle Änderungen, also Bug-Fixes und neue Features gehen sofort live.
 Auch bei Digg wird dabei auf manuelles Testen der Änderungen verzichtet.
 
 Als große Herausforderung wird der Balanceakt zwischen der Agilität und
 Geschwindigkeit von Continuous Deployment und den Anforderungen an Stabilität
 und Verlässlichkeit genannt. Dessen ungeachtet gelten die geringe
 Durchlaufzeit und das unmittelbare Feedback bezüglich Änderungen bei Digg als
-immens wertvoll.
+immens wertvoll \cite{digg4}.
 
 \minisec{Workflow} Bei Digg wurde schon, bevor Continuous Deployment
 eingeführt wurde, ein Ökosystem aus Entwicklungstools und Techniken eingesetzt
@@ -222,12 +223,12 @@ weiters für das Build-Management verwendet. Das Management und Monitoring der
 Infrastruktur wurde mittles \emph{puppet} umgesetzt.
 
 Als wichtigste Ergänzung dieses Ökosystems wird Gerrit\footnote{Gerrit:
-\url{http://code.google.com/p/gerrit/}} genannt. Gerrit ist ein Code Review
-System für Git basierte Softwareprojekte. Dabei werden Änderungen, so genannte
-\emph{patchsets}, nach einem Commit nicht sofort in den Master Branch der
-Versionsverwaltung eingespielt, sondern von Gerrit zum Review freigegeben.
-Erst nachdem diese Änderungen auch von anderen Entwicklern abgesegnet wurden,
-kann der neue Code in den Master Branch eingespielt werden. 
+\url{http://code.google.com/p/gerrit/}} genannt \cite{digg4}. Gerrit ist ein
+Code Review System für Git basierte Softwareprojekte. Dabei werden Änderungen,
+so genannte \emph{patchsets}, nach einem Commit nicht sofort in den Master
+Branch der Versionsverwaltung eingespielt, sondern von Gerrit zum Review
+freigegeben. Erst nachdem diese Änderungen auch von anderen Entwicklern
+abgesegnet wurden, kann der neue Code in den Master Branch eingespielt werden.
 
 Gerrit bietet zusätzlich für jedes \emph{patchset} auch ein \emph{Verified
 Flag}. Über dieses Flag lässt sich Gerrit sehr gut mit Continuous Integration
@@ -247,22 +248,123 @@ ausgeführt und anschließend der neue Build in eine interne Staging Umgebung
 eingespielt. Von dort wird, nach erfolgreichem Absolvieren sämtlicher UI-
 Tests, in die Produktionsumgebung deployed.
 
-Einem Entwickler bei Digg zufolge \cite{digg4} ist dieser Prozess bei weitem 
-nicht perfekt, so muss immer noch recht oft manuell eingegriffen werden nachdem
-ein Build bei den Vortests nicht durchgekommen ist. Als Grund wird hier die 
-Instabilität einiger Tests genannt. Dennoch werden das Review-System und die 
-Möglichkeit rasch Bug-Fixes einzuspielen positiv hervorgehoben.
+Andrew Bayer, einem Entwickler bei Digg zufolge \cite{digg4}, ist dieser
+Prozess bei weitem nicht perfekt, so muss immer noch recht oft manuell
+eingegriffen werden nachdem ein Build bei den Vortests nicht durchgekommen
+ist. Als Grund wird hier die Instabilität einiger Tests genannt. Dennoch
+werden das Review-System und die Möglichkeit rasch Bug-Fixes einzuspielen
+positiv hervorgehoben.
 
-\subsection{WiredReach}
-%http://www.justin.tv/startuplessonslearned/b/262656299
-%http://www.startuplessonslearned.com/2010/01/case-study-continuous-deployment-makes.html
-
-\subsection{Wealthfront}
-%http://www.justin.tv/startuplessonslearned/b/286511488?utm_campaign=archive_embed_click&utm_source=www-cdn.justin.tv
-%http://eng.wealthfront.com/2010/05/deployment-infrastructure-for.html
-%http://eng.wealthfront.com/2010/06/applied-lean-startup-ideas-continuous.html
 
 \subsection{Flickr}
 %http://sna-projects.com/blog/2011/06/continuous-deployment-flickr/
 %http://code.flickr.com/blog/2009/12/02/flipping-out/
 %http://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr
+
+Flickr\footnote{Flickr: \url{http://www.flickr.com}} ist eine Hosting-
+Plattform für Fotos und Videos. Dabei können Fotos und Videos hochgeladen,
+verwaltet und für andere zum Austausch freigegeben werden. Flickr bietet
+zusätzlich eine über Webservices realisierte API an. Die Firma wurde 2005 von
+\emph{Yahoo!} übernommen und beschäftigte Mitte 2011 zirka 25 Angestellte
+\cite{flickr11}.
+
+Flickr setzt bei der Weiterentwicklung und Wartung ihrer Plattform einen über
+die Zeit inkrementell entstandenen Continuous Deployment Przess ein.
+Interessant an diesem Prozess ist das hohe Maß an Veranwortung welches jedem
+einzelnen Enwickler selbst zugetraut wird, denn jeder Entwickler ist bei
+Flickr gleichzeitig auch Release Manager. Über ein webbasiertes Deployment-
+Tool ist es allen Entwicklern möglich das Deployment eines neuen Builds zu
+starten. Über dieses Tool wird derzeit in der Regel 10 mal am Tag eine neue
+Version deployed. Es gibt aber auch Tage an denen keine neue Version deployed
+wird. Das Maximum wären zirka 50 Deployments am Tag \cite{flickr11}.
+
+Möglich wird dies durch eine Firmenphilosophie die eine professionelle
+Einstellung \cite{flickr11} zur Softwareentwicklung fördert. Da aber Menschen
+eben auch Fehler machen gibt es zusätzlich Maßnahmen um dem entgegenzuwirken.
+Wie schon in Abschnitt~\ref{minisec:immunization} auf
+Seite~\pageref{minisec:immunization} vorgestellt, spielt Immunization dabei
+eine Wichtige Rolle. Daher wird beim Planen von neuen Features zum Beispiel
+schon eng mit dem Operations-Team zusammengearbeitet um die richtigen Metriken
+auszuwählen, die den ordnungsgemäßen Betrieb des Features sicherstellen
+können. Weiters gibt es die Möglichkeit das letzte Deployment per \emph{1
+Klick} Lösung wieder rückgängig zu machen. 
+
+\minisec{Workflow} Bei der Entwicklung selbst werden keine \emph{Branches} in
+der Versionsverwaltung (Flickr verwendet Subversion) angelegt. Das heißt
+alles, auch neue Features, landen sofort im Hauptzweig (HEAD). Dies ist für
+ein schnelles Bugfixing zwar von Vorteil, bei neuen Features, deren
+Entwicklung teilweise Monate in Anspruch nehmen, stellt dies jedoch ein
+Problem dar. Fertig entwickelte Features die noch nicht zum Release
+freigegeben sind würden so einfach angezeigt werden. Schlimmer noch wären
+halbfertige, die Website möglicherweise in negativer Art beeinträchtigende,
+Features die bereits einer breiten Öffentlichkeit zugänglich sind. Als Lösung
+kommen hier die in Abschnitt~\ref{minisec:featureflags} auf
+Seite~\pageref{minisec:featureflags} vorgestellten Feature Flags zum Einsatz
+\cite{flickr09}.
+
+Weiters werden bei Flickr Feature Flags auch eingesetzt um Code gezielt für
+verschiedene Umgebungen (Entwicklung, Staging oder Produktion) freizuschalten.
+Die Einstellungen welche Features aktiviert sind und welche nicht werden dabei
+recht einfach über Konfigurationsdateien realisiert. Der Vorteil daran ist,
+dass sobald ein Feature fertig entwickelt wurde, die Aktivierung auf
+sämtlichen Servern durch eine einzige Zeile in einer Konfigurationsdatei
+geschieht. Die Steuerung der Features ist aber nicht auf verschiedene
+Umgebungen begrenzt, sie können sogar für einzelne Benutzer freigeschalten
+werden. Der einzige Nachteil der Feature Flags ist, dass Code teilweise 
+doppelt vorhanden ist und nach dem Launch eines neuen Features der alte Code
+manuell entfernt werden muss. Dies geschieht in der Regel zirka 3 Monate nach
+dem Launch \cite{flickr11}.
+
+Ein anderer interessanter Aspekt wie bei Flickr mit neuen Features umgegangen
+wird sind \emph{Dark Launches} \cite{flickr11}. Dabei werden neue Features
+komplett vom User Interface bis zur Datenbank ausgeführt, dem Benutzer wird
+davon aber nichts angezeigt. So können die Auswirkungen die neue Features auf
+das Gesamtsystem haben vorab mit echtem Feedback getestet werden.
+
+Wie schon erwähnt tragen die Entwickler bei Flickr sehr viel Verantwortung.
+Dies schlägt sich schon beim Testen nieder. So liegt die Hauptverantwortung
+für das Testen bei jedem Entwickler selbst \cite{flickr11}. Es gibt keine
+allumfassende Test Suite die automatisiert durch Continuous Integration
+sämtliche Bereiche der Anwendung gründlich testet. Ausführliche Unit- und
+Loadtests werden von den Entwicklern direkt in der Entwicklungsumgebung
+durchgeführt.
+
+Es existiert zwar eine Stagingumgebung die nach jedem Commit aktualisiert
+wird, dort werden aber nur noch rudimentäre Tests durchgeführt. So zum
+Beispiel ob die verwendeten Datenbankreferenzen auch auf die
+Produktionsdatenbanken zeigen und nicht auf die Entwicklungsumgebung. Auch
+Performance Tests werden in dieser Stagingumgebung durchgeführt. Als
+Continuous Integration Tool kommt hier Hudson zum Einsatz und die
+automatisierten Tests benötigen in dieser Umgebung derzeit nur zirka 3
+Minuten.
+
+Über das zuvor kurz angesprochene Deployment Tool kann anschließend der in der
+Stagingumgebung befindliche Build deployed werden. Dabei werden dem Entwickler
+der die neue Version frei gibt noch einmal sämtliche Änderungen am Quellcode
+angezeigt, die er oder andere zwischenzeitlich vorgenommen haben. Damit nicht
+mehrere Entwickler gleichzeitig ein neues Release freigeben können wird das
+Deployment Tool für andere gesperrt sobald ein Entwickler anfängt damit zu
+arbeiten.
+
+Auch diesem Prozess wird eingeräumt dass er nicht perfekt sei. So äußerte sich
+Ross Harmes darüber folgendermaßen:
+
+\begin{quote}
+\zitat{This style of development isn’t all rainbows and sunshine. $(\dots)$
+But overall, we find it helps us develop new features faster and with fewer
+bugs.}~\cite{flickr09}
+\end{quote}
+
+Michael Deerkoski zufolge \cite{flickr11} war es ihnen aber mit diesem Prozess
+möglich, einen Bug innerhalb von 35 Minuten ab der Meldung durch einen
+Benutzer zu beheben. \emph{Zu beheben} bedeutet in diesem Zusammenhang
+natürlich dass der Bugfix bereits in der Produktionsumgebung eingespielt ist.
+
+%\subsection{WiredReach}
+%http://www.justin.tv/startuplessonslearned/b/262656299
+%http://www.startuplessonslearned.com/2010/01/case-study-continuous-deployment-makes.html
+
+%\subsection{Wealthfront}
+%http://www.justin.tv/startuplessonslearned/b/286511488?utm_campaign=archive_embed_click&utm_source=www-cdn.justin.tv
+%http://eng.wealthfront.com/2010/05/deployment-infrastructure-for.html
+%http://eng.wealthfront.com/2010/06/applied-lean-startup-ideas-continuous.html
