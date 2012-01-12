@@ -27,12 +27,13 @@ und ausgetauscht werden können.
 
 IMVU war eines der ersten \emph{Lean Startup} Unternehmen welche Continuous
 Deployment aktiv einsetzten. Dabei ist dies aber nicht vorab im Ganzen geplant
-worden, sondern inkrementell entstanden. Derzeit sind bei IMVU zirka 50
-technische Mitarbeiter angestellt. Ein wichtiger Punkt warum bei vor allem so
-vielen Entwicklern Continuous Deployment funktioniert, ist, dass es ein
-zentraler Bestandteil der Firmenkultur ist. \\
+worden, sondern inkrementell entstanden \cite{Fitz2009-02-10}. Derzeit sind
+bei IMVU zirka 50 technische Mitarbeiter angestellt \cite{imvu10}. Ein
+wichtiger Punkt warum bei, vor allem so vielen Entwicklern, Continuous
+Deployment funktioniert, ist, dass es ein zentraler Bestandteil der
+Firmenkultur ist. \\
 Als Vorteile von Continuous Deployment werden von IMVU die folgenden Punkte
-genannt:
+genannt \cite{imvu10}:
 
 \begin{itemize*}
     \item Regression wird sehr rasch erkannt
@@ -46,16 +47,17 @@ genannt:
 bei IMVU ist wie schon in Abschnitt~\ref{minisec:continuous-integration} auf
 Seite~\pageref{minisec:continuous-integration} gezeigt: Continuous
 Integration. Als Technologie kommt hier Buildbot\footnote{Buildbot:
-\url{http://trac.buildbot.net/}} zum Einsatz. Um die Vorteile von Continuous
-Integration voll ausnützen zu können wird beim Entwickeln selbst \emph{Commit
-Early Commit Often} praktiziert. Ist ein Feature fertig entwickelt, oder ein
-Bug behoben worden, werden zuerst lokale Tests auf der Entwicklermaschine
-durchgeführt. Wenn all diese Tests positiv durchlaufen wurden, wird der neue
-Code in die Versionsverwaltung eingespielt.
+\url{http://trac.buildbot.net/}} zum Einsatz \cite{imvu09}. Um die Vorteile
+von Continuous Integration voll ausnützen zu können wird beim Entwickeln
+selbst \emph{Commit Early Commit Often} praktiziert \cite{Fitz2009-02-10}. Ist
+ein Feature fertig entwickelt, oder ein Bug behoben worden, werden zuerst
+lokale Tests auf der Entwicklermaschine durchgeführt. Wenn all diese Tests
+positiv durchlaufen wurden, wird der neue Code in die Versionsverwaltung
+eingespielt \cite{imvu10}.
 
-Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zurzeit sind
-dies zirka $15.000$ Tests aus den Bereichen Unit-, Funktions- und
-Verhaltenstests. Dabei werden die folgenden Technologien eingesetzt:
+Erst jetzt werden sämtliche Tests der Test-Suite angestoßen. Zurzeit sind dies
+zirka $15.000$ Tests aus den Bereichen Unit-, Funktions- und Verhaltenstests
+\cite{imvu10}. Dabei werden die folgenden Technologien eingesetzt:
 
 \begin{itemize*}
     \item Selenium Core wird mit einem eigens entwickelten API Wrapper für
@@ -70,25 +72,27 @@ Schlägt nur einer der Tests fehl wird der zuletzt eingespielte Code
 zurückgesetzt. Es ist zu beachten, dass nicht nur die Masse an Tests, sprich
 die Testabdeckung, wichtig für IMVU ist, sondern auch die Qualität der Tests.
 Ein weiteres Merkmal ihrer Firmenkultur ist nämlich das Schreiben von
-qualitativ hochwertigen Tests. Durch diese Maßnahmen, also dem Schreiben von
-gründlichen hochwertigen Tests, welche sich auf alle Aufgabenbereiche
-verteilen, schafft es IMVU ein separates Qualitätssicherungsteam überflüssig
-zu machen.
+qualitativ hochwertigen Tests \cite{Fitz2009-02-10}. Durch diese Maßnahmen,
+also dem Schreiben von gründlichen hochwertigen Tests, welche sich auf alle
+Aufgabenbereiche verteilen, schafft es IMVU ein separates
+Qualitätssicherungsteam überflüssig zu machen.
 
 Nachdem sämtliche Tests erfolgreich durchgeführt wurden, wird ein eigen
 entwickeltes Build-Skript angestoßen um den neuen Code in die
 Produktionsumgebung einzuspielen. IMVUs Produktionsumgebung besteht aus einem
-Custer mit derzeit zirka 700 Servern. Das Build-Skript verteilt zwar den Code
-im gesamten Cluster, umgestellt werden zunächst aber nur eine gewisse Prozent
-Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt recht simpel per
-Symlink. 
+Custer mit derzeit zirka 700 Servern \cite{imvu10}. Das Build-Skript verteilt
+zwar den Code im gesamten Cluster, umgestellt werden zunächst aber nur eine
+gewisse Prozent Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt
+recht simpel per Symlink.
 
 Durch ein ständig aktives Monitoring werden fortlaufend Messwerte über den
-Gesundheitszustand des Clusters gesammelt. Diese Messdaten beinhalten Werte
-für CUP-, Speicher- und Netzwerk-Last, aber auch Business Metriken kommen zum
-Einsatz. Findet nach einer gewissen Zeitspanne keine Regression des Clusters
-statt wird der neue Code auf allen Servern aktiv geschalten. Durch das
-begleitende Monitoring könnte so noch immer jederzeit auf die vorherige
+Gesundheitszustand des Clusters gesammelt. Siehe dazu auch
+Abschnitt~\ref{minisec:immunization} auf Seite~\pageref{minisec:immunization}.
+Diese Messdaten beinhalten Werte für CUP-, Speicher- und Netzwerk-Last, aber
+auch Business Metriken kommen zum Einsatz \cite{Fitz2009-02-10},
+\cite{imvu09}. Findet nach einer gewissen Zeitspanne keine Regression des
+Clusters statt wird der neue Code auf allen Servern aktiv geschalten. Durch
+das begleitende Monitoring könnte so noch immer jederzeit auf die vorherige
 Version zurückgewechselt werden.
 
 Kurz sei noch erwähnt wie bei IMVU mit den relationalen Datenbanken verfahren
@@ -96,14 +100,21 @@ wird. Da ein Datenbank Schema Rollback nur schwer möglich ist, bzw. das
 Verändern des Schemas einen schwerwiegenden Eingriff darstellt, durchlaufen
 Schemamodifikationen, im Gegensatz zum Code Deployment, einen formalen Review
 Prozess. Müssen tatsächlich die Strukturen der Tabellen angepasst werden,
-bleiben die  alten Tabellen weiterhin bestehen und es werden einfach neue
+bleiben die alten Tabellen weiterhin bestehen und es werden einfach neue
 Tabellen mit der neuen Struktur erstellt. Die Daten werden dann per \emph{Copy
-on Read} bzw. per Hintergrund-Job migriert.
+on Read} bzw. per Hintergrund-Job migriert \cite{imvu10}.
 
-\begin{wichtigbox}
-Noch die Durchlaufzeit der Test Suite anmerken u. dass sie zirka 50
-Deployments am Tag schaffen würden.
-\end{wichtigbox}
+IMVU schafft nach dieser Methode derzeit zirka 50 Deployments pro Tag, was
+mitunter auch an der geringen Durchlaufzeit der Test Suite liegt -- diese
+liegt unter 10 Minuten \cite{Fitz2009-02-10}. Auf einen wichtigen
+Vorteil für IMVU bezüglich Continuous Deployment zurückkommend fasst dies
+Timothy Fitz wie folgt zusammen:
+
+\begin{quote}
+\zitat{This is a software release process implementation of the classic Fail
+Fast pattern. The closer a failure is to the point where it was introduced,
+the more data you have to correct for that failure.}~\cite{Fitz2009-02-08}
+\end{quote}
 
 
 \subsection{Huitale}
