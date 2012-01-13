@@ -1,6 +1,34 @@
 \section{Schlussfolgerungen}
 \label{sec:schlussfolgerungen}
 
+\begin{sidewaystable}[p]
+\sffamily
+\caption{Übersicht über die Best Practices}
+\label{tab:uebersicht}
+\begin{tabular}{p{2.5cm}*{4}{p{4cm}}}
+\toprule
+& \textbf{Jahr auf Quartal} & \textbf{Quartal auf Monat} & \textbf{Monat auf Woche} & \textbf{Woche auf Tag} \\
+\midrule
+\multirow{5}{5em}{\textbf{Or\-ga\-ni\-satorische Aspekte}}
+& & Programmierer schreiben Tests & Temporäre Branches       & One-Piece-Flow \\
+& & Status Meetings               & Kanban                   & kein Operations Department \\
+& & Task Board                    & Kein separates Test Team & keine Status Meetings\\
+& & keine QA-Abteilung            & Keine Up-front Usability & \\
+& & kein Change Management        & & \\
+\addlinespace
+\multirow{3}{5em}{\textbf{Werkzeug- und Methoden\-unterstützung}}
+& Automatisierte Akzeptanztests & keine mehrfach releasten Versionen       & Keystoning                  & Immunization \\
+& Refactoring                   & keine separaten Design Dokumente         & One-Button-Deploy           & Data-Informed-Usability \\
+& Continuous Integration        & keine separaten Build- und Analyse-Teams & Kein aktiver Release-Branch & Feature-Flags \\ 
+&                               &                                          &                             & kein Multi-Level-Staging \\
+\addlinespace
+\textbf{Geschäftliche Aspekte} & Subscription Modell & Pay-per-Use Modell & & \\
+\bottomrule
+\end{tabular}
+\end{sidewaystable}
+
+Siehe Tabelle~\ref{tab:uebersicht} auf Seite~\pageref{tab:uebersicht}.
+
 \begin{wichtigbox}
 Kurze Zusammenfassung der \enquote{Ergebnisse}, bzw. Auflisten der Vorteile
 wenn man sich an die genannten Best Practices hällt. Dabei kann man sich auch

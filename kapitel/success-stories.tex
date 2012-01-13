@@ -8,9 +8,6 @@ auf angewandte Methoden und Workflows gerichtet. Sofern Informationen darüber
 vorhanden sind welche unterstützenden Technologien verwendet wurden, werden
 diese ebenfalls erwähnt.
 
-\begin{wichtigbox}
-TODO: Referenzen zu den Quellen einbauen.
-\end{wichtigbox}
 
 \subsection{IMVU}
 \label{subsec:imvu}
@@ -128,76 +125,74 @@ entwickeltes Produkt \emph{nextdoor.fi}\footnote{nextdoor.fi:
 \url{http://http://www.nextdoor.fi}} berufen. Nextdoor.fi ist eine online
 Plattform um Dienstleistungen im Haushaltsservicebereich anzubieten und
 einzukaufen. Die Plattform hat derzeit zirka $2.000$ aktive Benutzer und im
-Monat ungefähr $30.000$ Besucher.
+Monat ungefähr $30.000$ Besucher \cite{Taipale2010}.
 
 Huitale hat während der Entwicklung von \emph{nextdoor.fi} einen angepassten
 lean Software Entwicklungsprozess umgesetzt, welcher im Folgenden kurz
 vorgestellt wird.
 
 \minisec{Workflow} Der Softwareentwicklungsprozess von Huitale setzt viele
-Elemente von \emph{Kanban} ein um ihren Prozess zu visualisieren, messen und
-um diesen steuerbar zu machen. Näheres zu Kanban siehe Abschnitt~\ref{subsec:monat-auf-woche}
-auf Seite~\pageref{subsec:monat-auf-woche}. \\
-Als Basis für neue Funktionalität dienen \emph{Minimum Marketable Features}
-welche nach Priorität sortiert in einer \emph{Product Queue} landen. Diese
-Queue hat ein \emph{Work in Progress} Limit von 7. Befinden sich nur noch 2
-MMFs in der Queue können neue aufgenommen werden. Diese Queue orientiert sich
-also ganz stark an dem Puffer Konzept aus Kanban. Die Entwicklungsabteilung
-selbst hat ein \emph{Work in Progress} Limit von 2.
+Elemente von \emph{Kanban} ein um ihren Prozess zu visualisieren und mess- und
+steuerbar zu machen. Näheres zu Kanban siehe Abschnitt~\ref{subsec:monat-auf-woche}
+auf Seite~\pageref{subsec:monat-auf-woche}. 
 
-\begin{wichtigbox}
-Hier vielleicht noch erklären was genau ein Minimum Marketable Feature im
-Gegensatz zu einem \emph{normalen} Feature ist. Zusätzlich kann noch gezeigt
-werden wie Huitale überhaupt zu den MMFs kommt (Brainstorming, Customer
-Development, etc.).
-\end{wichtigbox}
+Als Basis für neue Funktionalität dienen \emph{Minimum Marketable Features}.
+Ein \emph{Minimum Marketable Feature} ist im Gegensatz zu einem normalen
+Feature ein minimales Set an Funktionalität welches dem Kunden einen Mehrwert
+bietet. Dieser Mehrwert muss nicht unbedingt als reiner Gewinn gemessen
+werden, damit könnten zum Beispiel auch Kostenersparnisse oder erhöhte
+Kundenzufriedenheit gemeint sein \cite{norefyet}.
+
+Sämtliche ermittelten \emph{MMFs} landen nach Priorität sortiert in einer
+\emph{Product Queue}. Diese Queue hat ein \emph{Work in
+Progress} Limit von 7. Befinden sich nur noch 2 \emph{MMFs} in der Queue
+können neue aufgenommen werden. Diese Queue orientiert sich also ganz stark an
+dem Puffer Konzept aus Kanban. Die Entwicklungsabteilung selbst hat ein
+\emph{Work in Progress} Limit von 2 \cite{Taipale2010}.
 
 Ein \emph{MMF} wird dann als fertig entwickelt angesehen, wenn es dafür eine
-ausreichende Anzahl qualitativ hochwertiger Unit- und Akzeptanz-Tests gibt und
+ausreichende Anzahl qualitativ hochwertiger Unit- und Akzeptanztests gibt und
 diese in der Continuous Integration Umgebung fehlerfrei ausgeführt wurden.
 Weiters findet eine automatisierte Qualitätssicherung mittels statischer
 Codeanalyse (Checkstyle\footnote{Checkstyle:
 \url{http://checkstyle.sourceforge.net/}} und PMD\footnote{PMD:
-\url{http://pmd.sourceforge.net/}}). Als letzter Schritt findet ein \emph{Peer
-Review} statt. Werden all diese Schritte erfolgreich durchlaufen gilt ein
-\emph{MMF} als \emph{done} und wird in 24h Zyklen deployed.\\
+\url{http://pmd.sourceforge.net/}}) statt \cite{Taipale2010}. Der letzte
+verpflichtende Schritt besteht aus einem \emph{Peer Review}. Werden all diese
+Schritte erfolgreich durchlaufen gilt ein \emph{MMF} als \emph{done} und wird
+in 24h Zyklen deployed.\\
 Das Continuous Deployment Konzept selbst ist sehr stark an das von IMVU
 angelehnt (siehe Abschnitt~\ref{subsec:imvu}). Auch hier gibt es ein 24/7
 Monitoring des Produktivsystems mit der Möglichkeit, die täglich statt
 findenden Backups, jederzeit automatisiert wiedereinzuspielen (Immune System
-mit automatischen Rollbacks).
+mit automatischen Rollbacks \ref{minisec:immunization}).
 
 Die Einteilung des Teams war ursprünglich stark an SCRUM mit einem
-\emph{single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer zwei
+\emph{Single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer zwei
 Team Strategie aufgegeben. Jetzt gibt es ein \emph{Problem Team} und ein
 \emph{Solution Team}. Dem \emph{Problem Team} steht der CEO vor und besteht
 weiters aus dem CTO, Marketing \& Sales und User Experience Experten. Der CTO
 steht zusätzlich dem \emph{Solution Team} vor, welches auch die Entwickler
-beinhaltet.\\
+beinhaltet \cite{Taipale2010}.\\
 Eigene Teams für das Testen oder den laufenden Betrieb gibt es nicht. Diese
-Aufgaben werden vom \emph{Solution Team} mit übernommen. Bemerkenswert ist auch
-dass es bei Huitale keine Vollzeit angestellten Entwickler gibt.
+Aufgaben werden vom \emph{Solution Team} mit übernommen. Bemerkenswert ist
+auch dass es bei Huitale keine Vollzeit angestellten Entwickler gibt
+\cite{huitale11}.
 
 Die Ergebnisse dieses Vorgehens sprechen für sich. Die \emph{lead
 time}\footnote{lead time: Die Zeit vom Erfassen eines Features bis zur
 Fertigstellung} neuer Features kann Aufgrund der ständig gemessenen und
 ausgewerteten Daten sehr genau angegeben werden. Im Durchschnitt beträgt diese
-derzeit 8 Tage, bei kleineren Features zirka 3 Tage.\\
-Das Entwickeln einer ersten \emph{Public Beta}, also des \emph{Minimum Viable
-Products} dauerte nur 120 Mann-Tage.
-
-\begin{wichtigbox}
-TODO: \emph{Minimum Viable Product} kurz erklären.
-\end{wichtigbox}
+derzeit 8 Tage, bei kleineren Features zirka 3 Tage. Das Entwickeln einer
+ersten \emph{Public Beta} dauerte mit dieser Methode nur 120 Manntage
+\cite{Taipale2010}.
 
 Durch das Monitoring werden auftretende Bugs sehr rasch erkannt und können in
 der Regel innerhalb einer Stunde korrigiert werden. Möglich wurde all dies
 einerseits durch eiserne Disziplin der Mitarbeiter, als auch durch Erfahrung.
 Sämtliche Entwickler hatten bereits Erfahrung mit agilen Entwicklungsmethoden.
 Auch Kanban wird als wichtige Stütze im Finden von Verbesserungspotenzial des
-Prozesses angegeben.\\
-In vier Jahren gab es bei täglichen Deployments insgesamt nur 2 schwerere
-Bugs.
+Prozesses angegeben. In vier Jahren gab es bei täglichen Deployments insgesamt
+nur 2 schwerere Bugs \cite{Taipale2010}.
 
 
 \subsection{Digg}
