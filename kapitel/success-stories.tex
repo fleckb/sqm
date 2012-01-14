@@ -77,7 +77,7 @@ Qualitätssicherungsteam überflüssig zu machen.
 Nachdem sämtliche Tests erfolgreich durchgeführt wurden, wird ein eigen
 entwickeltes Build-Skript angestoßen um den neuen Code in die
 Produktionsumgebung einzuspielen. IMVUs Produktionsumgebung besteht aus einem
-Custer mit derzeit zirka 700 Servern \cite{imvu10}. Das Build-Skript verteilt
+Cluster mit derzeit zirka 700 Servern \cite{imvu10}. Das Build-Skript verteilt
 zwar den Code im gesamten Cluster, umgestellt werden zunächst aber nur eine
 gewisse Prozent Anzahl an Servern. Die Umstellung auf den neuen Code erfolgt
 recht simpel per Symlink.
@@ -85,7 +85,7 @@ recht simpel per Symlink.
 Durch ein ständig aktives Monitoring werden fortlaufend Messwerte über den
 Gesundheitszustand des Clusters gesammelt. Siehe dazu auch
 Abschnitt~\ref{minisec:immunization} auf Seite~\pageref{minisec:immunization}.
-Diese Messdaten beinhalten Werte für CUP-, Speicher- und Netzwerk-Last, aber
+Diese Messdaten beinhalten Werte für CPU-, Speicher- und Netzwerk-Last, aber
 auch Business Metriken kommen zum Einsatz \cite{Fitz2009-02-10},
 \cite{imvu09}. Findet nach einer gewissen Zeitspanne keine Regression des
 Clusters statt wird der neue Code auf allen Servern aktiv geschalten. Durch
@@ -128,7 +128,7 @@ einzukaufen. Die Plattform hat derzeit zirka $2.000$ aktive Benutzer und im
 Monat ungefähr $30.000$ Besucher \cite{Taipale2010}.
 
 Huitale hat während der Entwicklung von \emph{nextdoor.fi} einen angepassten
-lean Software Entwicklungsprozess umgesetzt, welcher im Folgenden kurz
+Lean Software Entwicklungsprozess umgesetzt, welcher im Folgenden kurz
 vorgestellt wird.
 
 \minisec{Workflow} Der Softwareentwicklungsprozess von Huitale setzt viele
@@ -145,10 +145,10 @@ Kundenzufriedenheit gemeint sein \cite{norefyet}.
 
 Sämtliche ermittelten \emph{MMFs} landen nach Priorität sortiert in einer
 \emph{Product Queue}. Diese Queue hat ein \emph{Work in
-Progress} Limit von 7. Befinden sich nur noch 2 \emph{MMFs} in der Queue
-können neue aufgenommen werden. Diese Queue orientiert sich also ganz stark an
+Progress} Limit von sieben. Befinden sich nur noch zwei \emph{MMFs} in der Queue
+können neue aufgenommen werden. Diese Queue orientiert sich also stark an
 dem Puffer Konzept aus Kanban. Die Entwicklungsabteilung selbst hat ein
-\emph{Work in Progress} Limit von 2 \cite{Taipale2010}.
+\emph{Work in Progress} Limit von zwei \cite{Taipale2010}.
 
 Ein \emph{MMF} wird dann als fertig entwickelt angesehen, wenn es dafür eine
 ausreichende Anzahl qualitativ hochwertiger Unit- und Akzeptanztests gibt und
@@ -162,21 +162,20 @@ Schritte erfolgreich durchlaufen gilt ein \emph{MMF} als \emph{done} und wird
 in 24h Zyklen deployed.\\
 Das Continuous Deployment Konzept selbst ist sehr stark an das von IMVU
 angelehnt (siehe Abschnitt~\ref{subsec:imvu}). Auch hier gibt es ein 24/7
-Monitoring des Produktivsystems mit der Möglichkeit, die täglich statt
-findenden Backups, jederzeit automatisiert wiedereinzuspielen (Immune System
-mit automatischen Rollbacks \ref{minisec:immunization}).
+Monitoring des Produktivsystems mit der Möglichkeit, die täglich
+stattfindenden Backups, jederzeit automatisiert wiedereinzuspielen (Immune
+System mit automatischen Rollbacks \ref{minisec:immunization}).
 
-Die Einteilung des Teams war ursprünglich stark an SCRUM mit einem
-\emph{Single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer zwei
-Team Strategie aufgegeben. Jetzt gibt es ein \emph{Problem Team} und ein
+Die Organisation des Teams war ursprünglich stark an SCRUM mit einem
+\emph{Single Product Owner} angelehnt. Dies wurde aber zu Gunsten einer Zwei-
+Team-Strategie aufgegeben. Jetzt gibt es ein \emph{Problem Team} und ein
 \emph{Solution Team}. Dem \emph{Problem Team} steht der CEO vor und besteht
 weiters aus dem CTO, Marketing \& Sales und User Experience Experten. Der CTO
 steht zusätzlich dem \emph{Solution Team} vor, welches auch die Entwickler
-beinhaltet \cite{Taipale2010}.\\
-Eigene Teams für das Testen oder den laufenden Betrieb gibt es nicht. Diese
-Aufgaben werden vom \emph{Solution Team} mit übernommen. Bemerkenswert ist
-auch dass es bei Huitale keine Vollzeit angestellten Entwickler gibt
-\cite{huitale11}.
+beinhaltet \cite{Taipale2010}.\\ Eigene Teams für das Testen oder den
+laufenden Betrieb gibt es nicht. Diese Aufgaben werden vom \emph{Solution
+Team} mit übernommen. Bemerkenswert ist auch dass es bei Huitale keine
+Vollzeit angestellten Entwickler gibt \cite{huitale11}.
 
 Die Ergebnisse dieses Vorgehens sprechen für sich. Die \emph{lead
 time}\footnote{lead time: Die Zeit vom Erfassen eines Features bis zur
@@ -188,11 +187,11 @@ ersten \emph{Public Beta} dauerte mit dieser Methode nur 120 Manntage
 
 Durch das Monitoring werden auftretende Bugs sehr rasch erkannt und können in
 der Regel innerhalb einer Stunde korrigiert werden. Möglich wurde all dies
-einerseits durch eiserne Disziplin der Mitarbeiter, als auch durch Erfahrung.
-Sämtliche Entwickler hatten bereits Erfahrung mit agilen Entwicklungsmethoden.
-Auch Kanban wird als wichtige Stütze im Finden von Verbesserungspotenzial des
-Prozesses angegeben. In vier Jahren gab es bei täglichen Deployments insgesamt
-nur 2 schwerere Bugs \cite{Taipale2010}.
+durch disziplinierte und erfahrene Mitarbeiter. Sämtliche Entwickler hatten
+bereits Erfahrung mit agilen Entwicklungsmethoden. Auch Kanban wird als
+wichtige Stütze im Finden von Verbesserungspotenzial des Prozesses angegeben.
+In vier Jahren gab es bei täglichen Deployments insgesamt nur zwei schwerere
+Bugs \cite{Taipale2010}.
 
 
 \subsection{Digg}
