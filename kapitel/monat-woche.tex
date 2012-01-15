@@ -1,152 +1,62 @@
 \subsection{Monat auf Woche}
 \label{subsec:monat-auf-woche}
 
-Es kann natürlich vorkommen, dass Kunden selbst für einen monatlichen Release-
-Zyklus zu ungeduldig sind und deshalb auf wöchentliche Updates ihrer Software
-bestehen. D.h. das Entwickler-Team steht wieder vor der Aufgabe, dieselben
-Probleme in noch kürzer Zeit zu bewältigen. Die erste Frage die sich bei der
-Umstellung auf wöchentliche Release-Zyklen stellt, wann soll die Software
-bereitgestellt werden? Freitag?
+Es kann natürlich vorkommen, dass Kunden selbst für einen monatlichen Release-Zyklus zu ungeduldig sind und deshalb auf wöchentliche Updates ihrer Software bestehen. Das heißt, das Entwickler-Team steht wieder vor der Aufgabe, dieselben Probleme in noch kürzerer Zeit zu bewältigen. Die erste Frage die sich bei der Umstellung auf wöchentliche Iterationen stellt, ist, an welchem Tag die neue Version bereitgestellt werden soll.
 
-Nein, der letzte Tag der Woche ist ein äußerst schlechter Tag um neue
-Produktaktualisierungen dem Kunden zur Verfügung zu stellen, genauso am Tag
-bevor Weihnachten. Die Mitte der Woche scheint eine gute Idee zu sein. D.h.
-Jeden Mittwoch wird eine neue Version der Software bereitgestellt, sodass der
-Kunde mit dieser seine Arbeit verrichten kann. Dafür müssen wieder einmal die
-Organisation und der Zeitpunkt der Lösung angepasst werden um einen
-einwöchigen Release-Zyklus gerecht zu werden. Das Entwickler-Team also fünf
-Tage Zeit um ein für den Kunden wertvolles Inkrement zu erstellen. Wie soll
-man das anstellen? Erster Schritt ist eine Atomated Data Migration.
-Automatische Datenmigration
+Zum Beispiel ist der letzte Tag der Woche oder ein Tag bevor Weihnachten, ein äußerst schlechter um neue Produktaktualisierungen dem Kunden zur Verfügung zu stellen. Die Mitte der Woche scheint eine gute Idee zu sein. Das heißt, jeden Mittwoch wird eine neue Version der Software bereitgestellt, sodass der Kunde mit dieser seine Arbeit verrichten kann. 
 
-Bei einem einmonatigen Release-Zyklus hat man ein paar Tage Zeit um das DB-
-Schema anzupassen. Keinem Entwickler mach diese Art von Spaß, jedoch bleibt
-genügend Zeit um es manell anzupassen. Innerhalb von einer Woche geht sich
-diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen
-durchzuführen sind einfach zu kostspielig. Eine voll automatisierte \emph{1
--Button-Push} Datenmigration ist unabdingbar um Daten von einem alten zu einem
-neuen Zustand überzuführen.
+Dafür müssen wieder einmal die Organisation und der Zeitpunkt der Lösungen der verschiedenen Probleme angepasst werden, um einwöchigen Iterationen gerecht zu werden. Das Entwickler-Team hat also fünf Tage Zeit, um ein für den Kunden wertvolles Inkrement zu erstellen. Wie sollte dabei vorgegangen werden? Ein erster Schritt könnte eine automatische Datenmigration sein.
 
-Falls man einen Service 24/7 bereitstellen muss, dann muss man noch
-zusätzliche Dinge tun. Mehr davon bei täglichen Releases. Bei dieser Phase
-darf Datenmigration auf jeden Fall kein Problem mehr darstellen. Vor allem
-handelt es sich hierbei nur um ein Engineering-Problem. Dabei unterstützt ein
-Datastore automatisierte Datenmigrierung vielleicht besser als ein anderer.
-Dafür ist ja Engineering da, man nimmt die Zutaten die man hat und wendet sie
-passend am bestehenden Problem an.
+\subsubsection{Automatische Datenmiration}
 
-\subsubsection{Temporäre Branches}
-In einem einmonatigen Zyklus können Entwickler Branches für Änderungen der
-Software anlegen und diese nicht unmittelbar wieder in den Main-Branch zurück
-mergen. D.h. die Programmierer arbeiten z.B. über einen Zeitraum von einer
-Woche an einer Änderung in einem neu erstellten Branch und migrieren diesen
-dann nach Fertigstellung wieder zurück in den Trunk.
+Bei einem einmonatigen Release-Zyklus können ein paar Tage dafür verwendet werden, um eventuell am Datenbankschema Änderungen vorzunehmen. Keinem Entwickler macht diese Art von Arbeit Spaß, jedoch bleibt genügend Zeit um manuelle Anpassungen durchzuführen. Innerhalb von einer Woche geht sich diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen durchzuführen sind in Bezug auf Zeit einfach zu kostspielig. Eine voll automatisierte \endquote{Ein-Knopfdruck}-Datenmigration ist unabdingbar um Daten von einem alten in einen neuen Zustand überzuführen. 
 
-Dabei kann es zu komplizierteren Merges kommen, die einiges an Zeit
-beanspruchen. Genau diese Zeit ist in einem einwöchigen Zyklus nicht mehr
-vorhanden. Daher können Entwickler maximal temporäre Branches anlegen, die
-maximal nach ein paar Stunden wieder in den Main-Branch zurückmigriert werden.
-Dadurch verhindert man komplizierte Merges die aufgrund einer hohen Anzahl von
-Konflikten auftreten könnten.
+Falls man einen Service 24 Stunden, sieben Tage die Woche bereitstellen muss, dann müssen Softwareentwickler noch zusätzliche Dinge tun. Diese werden genauer bei täglichen Releases beschrieben. Hat man nur eine Woche Zeit um eine neue Version der Software bereitzustellen, darf Datenmigration kein Problem mehr darstellen. Vor allem handelt es sich bei diesem Problem „nur“ um ein  technisches Problem bei dem keine zwischenmenschlichen Konflikte entstehen sollten. 
 
-Es stellt sich die Frage, ob bei temporären Branches nur halbfertige
-Änderungen wieder in die Main-Line zurückmigriert werden. Jedoch überwiegt die
-Verhinderung der auftretenden Kosten bei komplizierten Merges diese Tatsache.
-D.h. man hat keine andere Wahl als kurzweilige, temporäre Branches anzulegen
-da ansonsten einwöchige Release-Zyklen keine Chance auf Erfolg hätten.
+Da eine Vielzahl an Datenbankprodukten existieren, unterstützt eine Datenbank die automatisierte Datenmigrierung vielleicht besser als ein andere. Dafür ist Software-Engineering da, man nimmt die Zutaten die man hat und wendet sie passend am bestehenden Problem an.
 
-Ein wichtige Begabung die Entwickler bei immer kürzeren Zyklenen haben sollte,
-ist die immer feinere Unterteilung von Arbeiten, sodass die Software nach
-einer Änderung trotzdem noch funktioniert. Z.B. hat man ein Refactoring von
-ca. 4000 LoC vor sich. Diese Änderungen müssen nicht alle auf einmal
-geschehen. Die Begabung eines Entwickler liegt nun bei der Unterteilung der
-vorzunehmenden Änderungen. Diese müssen so proportioniert werden, sodass nach
-einer Integrierung die Software noch voll funktionsfähig ist. Das Problem ist
-also die Reihenfolge der Änderungen sorgfältig zu bestimmen.
+\subsubsection{Temporäre Verzweigungen (Branches)}
+In einem einmonatigen Zyklus können Entwickler Branches für Änderungen der Software anlegen und diese nicht unmittelbar wieder in den Haupt-Branch (Trunk) zurückintegrieren. Das heißt die Programmierer arbeiten zum Beispiel über einen Zeitraum von einer Woche an einer Änderung in einem neu erstellten Branch und migrieren diesen dann nach Fertigstellung der Änderungen wieder zurück in den Trunk. 
+
+Dabei kann es zu komplizierteren Merges kommen, die einiges an Zeit beanspruchen können. Genau diese Zeit ist in einwöchigen Iterationen nicht mehr vorhanden. Daher sollten Entwickler maximal temporäre Branches anlegen dürfen, die nach ein paar Stunden Arbeit wieder in den Haupt-Branch zurückmigriert werden. Dadurch verhindert man komplizierte Merges die aufgrund einer hohen Anzahl von Konflikten auftreten könnten. 
+
+Es stellt sich die Frage ob bei temporären Branches nur halbfertige Änderungen wieder in die Main-Line zurückmigriert werden. Jedoch überwiegt die Verhinderung der auftretenden Kosten bei komplizierten Merges diese eventuelle Tatsache. Das heißt, Entwickler haben keine andere Wahl als kurzweilige, temporäre Branches anzulegen, da ansonsten einwöchige Release-Zyklen keine Chance auf Erfolg hätten. 
+
+Eine wichtige Begabung die Entwickler bei immer kürzeren Iterationen haben sollten, ist die immer feinere Unterteilung von Arbeiten, sodass die Software nach einer Änderung trotzdem noch funktioniert. Zum Beispiel hat man ein Refactoring von zirka 4000 Lines of Code vor sich. Diese Änderungen müssen nicht alle auf einmal geschehen. Die Begabung eines Entwicklers liegt nun bei der Unterteilung der vorzunehmenden Änderungen. Diese müssen so proportioniert werden, sodass nach einer Integrierung die Software noch voll funktionsfähig ist. Das Problem ist also die Reihenfolge der Änderungen sorgfältig zu wählen.
 
 \subsubsection{Keystoning}
-Hat man das Problem, dass ein zu implementierendes Feature mehr als eine Woche
-Zeit in Anspruch nimmt, man hat allerdings wöchentliche Releases, kann man
-zuerst die notwendige Funktionalität erstellen, die der Endbenutzer nicht zu
-Gesicht bekommt. Im nächsten Release-Zyklus kann man dann die notwendigen UI-
-Anpassungen durchführen und
+Haben Entwickler das Problem, dass ein zu implementierendes Feature mehr als eine Woche Zeit in Anspruch nehmen würde, das heißt mehr als eine Iteration benötigen würde, könnten sie zuerst die notwendige Funktionalität erstellen, die der Endbenutzer nicht zu Gesicht bekommt. 
 
-gewährleistet dadurch die Einhaltung der fünftägigen Software-Aktualisierung.
-D.h. man sollte bei einwöchigen Releases die sichtbaren Änderungen immer zum
-Schluss durchführen. Natürlich entsteht dadurch ein gewisses Risiko, da man ja
-Code in Produktion ausgeliefert hat, der nicht aufgerufen werden kann. Diesen
-Preis muss man aber für wöchentliche Releases bezahlen.
+Im nächsten Release-Zyklus werden dann die notwendigen UI-Anpassungen durchgeführt und gewährleistet dadurch, die Einhaltung der fünftägigen Software-Aktualisierung. Das heißt, Entwickler sollten bei einwöchigen Releases die sichtbaren Änderungen immer zum Schluss durchführen.
+
+Natürlich entsteht dadurch ein gewisses Risiko, da man ja Code in Produktion ausgeliefert hat, der nicht aufgerufen werden kann. Diesen Preis muss man aber für wöchentliche Iterationen in Kauf nehmen.
 
 \subsubsection{Kanban}
-Die Vorteile von Kanban werden bei wöchentlichen Release-Zyklen so richtig
-wertvoll. Genau wie all die bereits erwähnten Techniken kann Kanban natürlich
-auch bei länger andauernden Phasen zum Einsatz kommen. Bei einwöchigen
-Iterationen macht eine Art des Pull-Modells auf jeden Fall Sinn. Hat man in
-jedem Release-Zyklus eine fixe Anzahl von Tasks die zu erledigen sind und
-dieser Plan kann aufgrund von irgendwelchen Einflüssen nicht eingehalten
-werden, dann kann das zu Folgefehlern führen, sodass der Gesamtplan gefährdet
-ist.
+Die Vorteile von Kanban kommen bei wöchentlichen Release-Zyklen noch stärker zur Geltung. Genau wie all die bereits erwähnten Techniken kann Kanban natürlich auch bei länger andauernden Phasen zum Einsatz kommen. Bei einwöchigen Iterationen macht eine Art des Pull-Modells auf jeden Fall Sinn. 
 
-Im Gegensatz dazu bietet Kanban die Möglichkeit mittels des Pull-Modells, dass
-ein Entwickler z.B. am Montag in der Früh eine neue Aufgabe vom Aufgaben-Stack
-entnimmt und diese abarbeitet. Sollte dieser Task mehr Zeit als angenommen
-beanspruchen, gefährdet dies keine anderen Aufgaben. Dadurch müssen keine
-Planänderungen durchgeführt bzw. keine entsprechenden Meetings einberufen
-werden.
+Hat man in jedem Release-Zyklus eine fixe Anzahl von Tasks die zu erledigen sind, das heißt einen fixen Scope, und dieser kann aufgrund von irgendwelchen Einflüssen nicht umgesetzt werden, dann kann das zu Folgefehlern in der Planung führen, sodass der Gesamtplan gefährdet ist. 
+
+Im Gegensatz dazu bietet Kanban die Möglichkeit mittels des Pull-Modells, dass ein Entwickler zum Beispiel am Montag in der Früh eine neue Aufgabe vom Aufgaben-Stack entnimmt und diese abarbeitet. Sollte dieser Task mehr Zeit als angenommen beanspruchen, gefährdet dies keine anderen Aufgaben. Dadurch müssen keine Planänderungen durchgeführt beziehungsweise keine entsprechenden Meetings einberufen werden.
 
 \subsubsection{One-Button-Deploy}
-Will man wöchentliche Release-Zyklen realisieren wird ein \emph{One-Button-
-Deploy} unvermeidlich. Selbst wenn man einen vollen Monat Zeit hat, wird ein
-zweistündiger, manueller Deploy, bei dem noch dazu hin und wieder Fehler
-auftreten können, wirklich zur Qual für jeden Entwickler. Wenn man sich jetzt
-vorstellt, dass man für jeden Release diese fehleranfällige Arbeit erledigen
-muss, wird man schnell einsichtig, dass die Zeit dafür zu kostbar ist.
+Will ein Unternehmen wöchentliche Iterationen realisieren wird ein \endquote{Ein-Knopfdruck}-Deployment verpflichtend um den Erfolg des Projekts zu garantieren. Selbst wenn Entwickler für ein Release einen vollen Monat Zeit haben, wird ein zweistündiger, manueller Deployment-Prozess, bei dem noch dazu hin und wieder Fehler auftreten können, zur Qual für denjenigen, der die Aktualisierung durchführen muss. Manuelle, fehleranfällige Aufgaben, die noch dazu zu viel Zeit in Anspruch nehmen, müssen prinzipiell in kurzen Iterationen vermieden werden.
 
-Auch hier gilt wieder, dass ein \emph{One-Button-Release} ebenfalls für
-jährliche Entwicklungs-Phasen eingesetzt werden kann. Jedoch ist diese Technik
-bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es
-auf jeden Fall kritisch.
+Auch hier gilt wieder, dass diese Technik der vollständigen Automatisierung des Deployment-Prozesses auch für längere Iterationen eingesetzt werden kann. Jedoch ist dies bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es auf jeden Fall kritisch und daher eine Grundvoraussetzung für den Erfolg.
 
 \subsubsection{Kein separates Test Team}
-In wöchentlichen Release-Zyklen unterscheidet man nicht mehr zwischen einem
-separaten Test-Team und einem Entwickler-Team. Selbst dieser geringe Abstand
-zwischen den beiden Teams wir in dieser kurzen Zeit zu aufwendig um ihn zu
-unterstützen. Der typische Arbeitsablauf bei dem ein Entwickler dem Tester neu
-hinzugefügte Funktionalität zum Testen bereitstellt, und dieser dann
-selbstständig das erwartete Verhalten der Software verifiziert.
+In wöchentlichen Release-Zyklen gib es keine Trennung zwischen einem Test- und einem Entwicklerteam. Selbst dieser geringe Abstand zwischen den beiden Teams wäre in dieser kurzen Zeit zu aufwendig um ihn zu unterstützen. 
 
-Der Entwickler erhält dann unmittelbares Feedback vom Tester auf das er dann
-in entsprechender Art und Weise reagieren muss. Dieses Request-Response
-Verfahren ist zu zeitintensiv um in einer Woche eingesetzt zu werden. D.h. es
-gibt das Team das sowohl neue Funktionalität bereitstellt, also auch Feedback
-für diese erzeugt, auf das das Team entsprechend reagieren muss. Somit gilt,
-das Team muss für Implementierung und Testen gemeinsam Verantwortung
-übernehmen.
+Der typische Arbeitsablauf bei dem ein Entwickler dem Tester neu hinzugefügte Funktionalität zum Testen bereitstellt, dieser dann selbstständig das erwartete Verhalten der Software verifiziert um danach dem Entwickler Feedback zu geben damit dieser darauf entsprechend reagieren kann, muss angepasst werden. 
+
+Dieses Request-Response Verfahren ist zu zeitintensiv um in einer Woche eingesetzt zu werden. Das heißt, das gesamte Team ist dafür verantwortlich, dass sowohl neue Funktionalität bereitstellt, Feedback dafür zu erzeugt und entsprechend darauf reagiert wird.
 
 \subsubsection{Keine Up-front Usability}
-Jeder Spezialbereich der Software-Entwicklung hat das Verlangen vor allen
-anderen berücksichtigt zu werden. Z.B. wird gerne die Software-Architektur als
-wichtigstes Kriterium für die erfolgreiche Erstellung des Produkts angesehen.
-Die Architektur sollte zu Beginn entworfen werden, danach kann die restliche,
-oft als nicht so wesentlich empfundene Arbeit umgesetzt werden. Genau
-dieselben Ansichten haben die Designer, die Tester, etc. In wöchentlichen
-Release-Zyklen kann diese Kurzsichtigkeit nicht unterstützt werden.
+Jeder Spezialbereich der Softwareentwicklung hat das Verlangen vor allen anderen berücksichtigt zu werden. Zum Beispiel wird gerne die Softwarearchitektur als wichtigstes Kriterium für die erfolgreiche Erstellung des Produkts angesehen. Die Architektur sollte zu Beginn des Projekts entworfen werden, danach kann die restliche, oft als nicht so wesentlich empfundene Arbeit umgesetzt werden. 
 
-D.h. Entwickler können nicht fünf Tage auf das Architekturdokument warten,
-wenn man nur genau eine Woche Zeit hat, die gewünschten Features
-bereitzustellen. Daher muss die Aufgabe des Usability-Designs über die
-komplette Phase verteilt umgesetzt werden im Gegensatz zu einer Aufgabe, die
-nur zu Beginn des Zyklus stattfindet.
+Genau dieselben Ansichten haben Analysten, Designer, Tester, etc. In wöchentlichen Iterationen kann diese Kurzsichtigkeit nicht unterstützt werden. Das heißt, Entwickler können nicht die komplette Zeit einer einwöchigen Iteration auf das Architekturdokument warten. Wann sollen da noch die notwendigen Features umgesetzt werden? 
+Daher muss die Aufgabe des Usability-Designs, anstatt nur zu Beginn des Zyklus, über die komplette Iteration verteilt umgesetzt werden.
 
 \subsubsection{Aktiver Release-Branch}
-Bei wöchentlichen Iterationen wird die Pflege eines separaten Release-Banches,
-der aktiv verändert wird, zu zeitaufwändig und muss daher entfernt werden. Hat
-man einen Monat Zeit, und man muss eventuell einen Software-Patch einspielen
-der z.B. am 1. eines Monats deployt worden ist, ist es nicht kritischen diesen
-Patch auch im Entwickler-Branch nachzuziehen.
+Bei wöchentlichen Iterationen wird die Pflege eines separaten Release-Banches, der aktiv verändert wird, zu zeitaufwändig und muss daher entfernt werden. Hat man einen Monat Zeit um eventuell einen Software-Patch einzuarbeiten, ist es nicht zeitkritische diesen auch im Entwickler-Branch nachzuziehen. 
 
-D.h. in diesem Fall sind zwei Branches noch ohne Weiteres umsetzbar. Bei
-fünftätigen Zyklen wird es zu aufwendig den Release-Brach aktiv zu
-aktualisieren, da man ja ständig die Software verändert. Jede Änderung doppelt
-zu warten ist in wöchentlichen Iterationen zu kostspielig. D.h. Kunden müssen
-sich eine Woche, dafür maximal eine Woche, auf einen Bug-Fix gedulden.
+Das heißt, in längeren Iterationen ist die Pflege von zwei separaten Branches noch ohne weiteres umsetzbar. Bei fünftätigen Zyklen wird es zu aufwendig den Release-Brach aktiv zu aktualisieren, da man ja ständig die Software verändert. Jede Änderung doppelt zu warten ist in wöchentlichen Iterationen zu kostspielig. Der Vorteil für Kunden dabei ist, sie müssen sich maximal eine Woche auf einen Bug-Fix gedulden.
