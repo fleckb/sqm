@@ -1,7 +1,7 @@
 \subsection{Monat auf Woche}
 \label{subsec:monat-auf-woche}
 
-Es kann natürlich vorkommen, dass Kunden selbst für einen monatlichen Release-Zyklus zu ungeduldig sind und deshalb auf wöchentliche Updates ihrer Software bestehen. Das heißt, das Entwicklerteam steht wieder vor der Aufgabe, dieselben Probleme in noch kürzerer Zeit zu bewältigen. Die erste Frage die sich bei der Umstellung auf wöchentliche Iterationen stellt, ist, an welchem Tag die neue Version bereitgestellt werden soll.
+Es kann natürlich vorkommen, dass Kunden selbst für einen monatlichen Releasezyklus zu ungeduldig sind und deshalb auf wöchentliche Updates ihrer Software bestehen. Das heißt, das Entwicklerteam steht wieder vor der Aufgabe, dieselben Probleme in noch kürzerer Zeit zu bewältigen. Die erste Frage die sich bei der Umstellung auf wöchentliche Iterationen stellt, ist, an welchem Tag die neue Version bereitgestellt werden soll.
 
 Zum Beispiel ist der letzte Tag der Woche oder ein Tag bevor Weihnachten, ein äußerst schlechter um neue Produktaktualisierungen dem Kunden zur Verfügung zu stellen. Die Mitte der Woche scheint eine gute Idee zu sein. Das heißt, jeden Mittwoch wird eine neue Version der Software bereitgestellt, sodass der Kunde mit dieser seine Arbeit verrichten kann. 
 
@@ -9,7 +9,7 @@ Dafür müssen wieder einmal die Organisation und der Zeitpunkt der Lösungen de
 
 \subsubsection{Automatische Datenmigration}
 
-Bei einem einmonatigen Release-Zyklus können ein paar Tage dafür verwendet werden, um eventuell am Datenbankschema Änderungen vorzunehmen. Keinem Entwickler macht diese Art von Arbeit Spaß, jedoch bleibt genügend Zeit um manuelle Anpassungen durchzuführen. Innerhalb von einer Woche geht sich diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen durchzuführen sind in Bezug auf Zeit einfach zu kostspielig. Eine voll automatisierte \enquote{Ein-Knopfdruck}-Datenmigration ist unabdingbar um Daten von einem alten in einen neuen Zustand überzuführen. 
+Bei einem einmonatigen Releasezyklus können ein paar Tage dafür verwendet werden, um eventuell am Datenbankschema Änderungen vorzunehmen. Keinem Entwickler macht diese Art von Arbeit Spaß, jedoch bleibt genügend Zeit um manuelle Anpassungen durchzuführen. Innerhalb von einer Woche geht sich diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen durchzuführen sind in Bezug auf Zeit einfach zu kostspielig. Eine voll automatisierte \enquote{Ein-Knopfdruck}-Datenmigration ist unabdingbar um Daten von einem alten in einen neuen Zustand überzuführen. 
 
 Falls man einen Service 24 Stunden, sieben Tage die Woche bereitstellen muss, dann müssen Softwareentwickler noch zusätzliche Dinge tun. Diese werden genauer bei täglichen Releases beschrieben. Hat man nur eine Woche Zeit um eine neue Version der Software bereitzustellen, darf Datenmigration kein Problem mehr darstellen. Vor allem handelt es sich bei diesem Problem \enquote{nur} um ein  technisches Problem bei dem keine zwischenmenschlichen Konflikte entstehen sollten. 
 
@@ -20,21 +20,21 @@ In einem einmonatigen Zyklus können Entwickler Branches für Änderungen der So
 
 Dabei kann es zu komplizierteren Merges kommen, die einiges an Zeit beanspruchen können. Genau diese Zeit ist in einwöchigen Iterationen nicht mehr vorhanden. Daher sollten Entwickler maximal temporäre Branches anlegen dürfen, die nach ein paar Stunden Arbeit wieder in den Haupt-Branch zurückmigriert werden. Dadurch verhindert man komplizierte Merges die aufgrund einer hohen Anzahl von Konflikten auftreten könnten. 
 
-Es stellt sich die Frage ob bei temporären Branches nur halbfertige Änderungen wieder in die Main-Line zurückmigriert werden. Jedoch überwiegt die Verhinderung der auftretenden Kosten bei komplizierten Merges diese eventuelle Tatsache. Das heißt, Entwickler haben keine andere Wahl als kurzweilige, temporäre Branches anzulegen, da ansonsten einwöchige Release-Zyklen keine Chance auf Erfolg hätten. 
+Es stellt sich die Frage ob bei temporären Branches nur halbfertige Änderungen wieder in die Main-Line zurückmigriert werden. Jedoch überwiegt die Verhinderung der auftretenden Kosten bei komplizierten Merges diese eventuelle Tatsache. Das heißt, Entwickler haben keine andere Wahl als kurzweilige, temporäre Branches anzulegen, da ansonsten einwöchige Releasezyklen keine Chance auf Erfolg hätten. 
 
 Eine wichtige Begabung die Entwickler bei immer kürzeren Iterationen haben sollten, ist die immer feinere Unterteilung von Arbeiten, sodass die Software nach einer Änderung trotzdem noch funktioniert. Zum Beispiel hat man ein Refactoring von zirka 4000 Lines of Code vor sich. Diese Änderungen müssen nicht alle auf einmal geschehen. Die Begabung eines Entwicklers liegt nun bei der Unterteilung der vorzunehmenden Änderungen. Diese müssen so proportioniert werden, sodass nach einer Integrierung die Software noch voll funktionsfähig ist. Das Problem ist also die Reihenfolge der Änderungen sorgfältig zu wählen.
 
 \subsubsection{Keystoning}
 Haben Entwickler das Problem, dass ein zu implementierendes Feature mehr als eine Woche Zeit in Anspruch nehmen würde, das heißt mehr als eine Iteration benötigen würde, könnten sie zuerst die notwendige Funktionalität erstellen, die der Endbenutzer nicht zu Gesicht bekommt. 
 
-Im nächsten Release-Zyklus werden dann die notwendigen UI-Anpassungen durchgeführt und gewährleistet dadurch, die Einhaltung der fünftägigen Software-Aktualisierung. Das heißt, Entwickler sollten bei einwöchigen Releases die sichtbaren Änderungen immer zum Schluss durchführen.
+Im nächsten Releasezyklus werden dann die notwendigen UI-Anpassungen durchgeführt und gewährleistet dadurch, die Einhaltung der fünftägigen Software-Aktualisierung. Das heißt, Entwickler sollten bei einwöchigen Releases die sichtbaren Änderungen immer zum Schluss durchführen.
 
 Natürlich entsteht dadurch ein gewisses Risiko, da man ja Code in Produktion ausgeliefert hat, der nicht aufgerufen werden kann. Diesen Preis muss man aber für wöchentliche Iterationen in Kauf nehmen.
 
 \subsubsection{Kanban}
-Die Vorteile von Kanban \cite{Boeg2011} kommen bei wöchentlichen Release-Zyklen noch stärker zur Geltung. Genau wie all die bereits erwähnten Techniken kann Kanban natürlich auch bei länger andauernden Phasen zum Einsatz kommen. Bei einwöchigen Iterationen macht eine Art des Pull-Modells auf jeden Fall Sinn. 
+Die Vorteile von Kanban \cite{Boeg2011} kommen bei wöchentlichen Releasezyklen noch stärker zur Geltung. Genau wie all die bereits erwähnten Techniken kann Kanban natürlich auch bei länger andauernden Phasen zum Einsatz kommen. Bei einwöchigen Iterationen macht eine Art des Pull-Modells auf jeden Fall Sinn. 
 
-Hat man in jedem Release-Zyklus eine fixe Anzahl von Tasks die zu erledigen sind, das heißt einen fixen Scope, und dieser kann aufgrund von irgendwelchen Einflüssen nicht umgesetzt werden, dann kann das zu Folgefehlern in der Planung führen, sodass der Gesamtplan gefährdet ist. 
+Hat man in jedem Releasezyklus eine fixe Anzahl von Tasks die zu erledigen sind, das heißt einen fixen Scope, und dieser kann aufgrund von irgendwelchen Einflüssen nicht umgesetzt werden, dann kann das zu Folgefehlern in der Planung führen, sodass der Gesamtplan gefährdet ist. 
 
 Im Gegensatz dazu bietet Kanban die Möglichkeit mittels des Pull-Modells, dass ein Entwickler zum Beispiel am Montag in der Früh eine neue Aufgabe vom Aufgaben-Stack entnimmt und diese abarbeitet. Sollte dieser Task mehr Zeit als angenommen beanspruchen, gefährdet dies keine anderen Aufgaben. Dadurch müssen keine Planänderungen durchgeführt beziehungsweise keine entsprechenden Meetings einberufen werden.
 
@@ -44,7 +44,7 @@ Will ein Unternehmen wöchentliche Iterationen realisieren wird ein \enquote{Ein
 Auch hier gilt wieder, dass diese Technik der vollständigen Automatisierung des Deployment-Prozesses auch für längere Iterationen eingesetzt werden kann. Jedoch ist dies bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es auf jeden Fall kritisch und daher eine Grundvoraussetzung für den Erfolg.
 
 \subsubsection{Kein separates Test Team}
-In wöchentlichen Release-Zyklen gib es keine Trennung zwischen einem Test- und einem Entwicklerteam. Selbst dieser geringe Abstand zwischen den beiden Teams wäre in dieser kurzen Zeit zu aufwendig um ihn zu unterstützen. 
+In wöchentlichen Releasezyklen gib es keine Trennung zwischen einem Test- und einem Entwicklerteam. Selbst dieser geringe Abstand zwischen den beiden Teams wäre in dieser kurzen Zeit zu aufwendig um ihn zu unterstützen. 
 
 Der typische Arbeitsablauf bei dem ein Entwickler dem Tester neu hinzugefügte Funktionalität zum Testen bereitstellt, dieser dann selbstständig das erwartete Verhalten der Software verifiziert um danach dem Entwickler Feedback zu geben damit dieser darauf entsprechend reagieren kann, muss angepasst werden. 
 
