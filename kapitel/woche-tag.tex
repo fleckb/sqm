@@ -1,7 +1,7 @@
 \subsection{Woche auf Tag}
 \label{subsec:subscription-modell}
 
-Neben den technischen Herausforderungen für tägliche Releases erhält der Entwickler den angenehmen Nebeneffekt, dass die tägliche Arbeit bereits am nächsten Tag von irgendeinem Kunden bereits verwendet wird. Diese Tatsache darf als Motivationsfaktor für den Softwareentwickler nicht unterschätzt werden. Sehr oft haben Entwickler das Gefühl, dass ihre erledigte Arbeit für niemanden \endquote{spürbar} von Bedeutung ist.
+Neben den technischen Herausforderungen für tägliche Releases erhält der Entwickler den angenehmen Nebeneffekt, dass die tägliche Arbeit bereits am nächsten Tag von irgendeinem Kunden bereits verwendet wird. Diese Tatsache darf als Motivationsfaktor für den Softwareentwickler nicht unterschätzt werden. Sehr oft haben Entwickler das Gefühl, dass ihre erledigte Arbeit für niemanden \enquote{spürbar} von Bedeutung ist.
 
 \subsubsection{Immunization}
 \label{minisec:immunization}
@@ -18,9 +18,9 @@ Um all dies jedoch umsetzen zu können, muss es unmittelbar nach einem fehlerhaf
 Eine weitere Variante wie man mit fehlerhaften Releases umgehen kann ist, dass nach einem Deployment eine Art Monitor der Software automatisch das Team benachrichtigt, dass es ein Problem mit dem System gibt. Daraufhin stoppen alle Entwickler ihre aktuellen Arbeiten und beheben den Fehler worauf eine neue Version der Software deployt werden kann.
 
 \subsubsection{Data-Informed-Usability}
-Man trifft bei täglichen Releasese dieselben Usability-Entscheidungen aber diesmal kann man mit Hilfe von echten Daten entscheiden. A/B Testing ist eine Art von diesem Vorgehen bei dem zum Beispiel an einem Tag eine bestimmte Version der Software released wird und danach Daten eingeholt werden \cite{webanalytics2009}. Am nächsten Tag deployt man eine abgeänderte Version und analysiert wieder die entstandenen Informationen. Zum Beispiel könnte man die Transaktionsanzahl messen oder wie lange Benutzer auf einer Seite geblieben sind. 
+Man trifft bei täglichen Releasese dieselben Usability-Ent\-schei\-dun\-gen aber diesmal kann man mit Hilfe von echten Daten entscheiden. A/B Testing ist eine Art von diesem Vorgehen bei dem zum Beispiel an einem Tag eine bestimmte Version der Software released wird und danach Daten eingeholt werden \cite{webanalytics2009}. Am nächsten Tag deployt man eine abgeänderte Version und analysiert wieder die entstandenen Informationen. Zum Beispiel könnte man die Transaktionsanzahl messen oder wie lange Benutzer auf einer Seite geblieben sind. 
 
-Man kann also die Daten die man generiert dazu verwenden, um Usability-Entscheidungen zu treffen. Somit lassen sich UI-Diskussionen die auf rein subjektiven Tatsachen beruhen und eventuell zu Konflikten führen können, aufgrund von messbaren Daten vermeiden.
+Man kann also die Daten die man generiert dazu verwenden, um Usability-Ent\-schei\-dun\-gen zu treffen. Somit lassen sich UI-Diskussionen die auf rein subjektiven Tatsachen beruhen und eventuell zu Konflikten führen können, aufgrund von messbaren Daten vermeiden.
 
 \subsubsection{Feature-Flags}
 \label{minisec:featureflags}
@@ -44,7 +44,7 @@ Kanban ist derzeit in der Entwickler-Community sehr beliebt. Einer der Gründe i
 
 Bei täglichen Deployments hat man allerdings nicht genügend Zeit, Aufgaben von einer Spalte zur nächsten weiterzureichen. Entwickler treffen bei täglichen Deployments eine hohe Anzahl an verschiedenen Entscheidungen, im Gegensatz zu längeren Iterationen. Das liegt daran, dass die Entwickler unmittelbares Feedback benötigen um entsprechend schnell darauf reagieren zu können.
 
-Dabei nehmen sie viele verschiedene Rollen ein. Zum Beispiel die Rolle des Designers oder des Programmierers oder die des Performance-Testers, etc. Das heißt, die einzelnen Stationen bei Kanban werden zu einem \endquote{One-Piece Flow} wobei der Entwickler selbst dafür die Verantwortung übernehmen muss, neue Funktionalitäten durch all diese Stationen zu führen um sie anschließend freizugeben \cite{sutherland2011}.
+Dabei nehmen sie viele verschiedene Rollen ein. Zum Beispiel die Rolle des Designers oder des Programmierers oder die des Performance-Testers, etc. Das heißt, die einzelnen Stationen bei Kanban werden zu einem \enquote{One-Piece Flow} wobei der Entwickler selbst dafür die Verantwortung übernehmen muss, neue Funktionalitäten durch all diese Stationen zu führen um sie anschließend freizugeben \cite{sutherland2011}.
 
 \subsubsection{Multi-Level-Staging}
 Bei täglichen Releases bleibt keine Zeit mehr, die Software durch verschiedene Stages zu führen. Das heißt, der Flow von einer Entwickler-Box über eine Integrations-Box, wo einige Tests durchgeführt werden, über eine Testing-Box, über eine Pre-Production-Box und zu guter Letzt die Produktionsumgebung, ist nicht mehr möglich. Software durch all diese Stationen zu führen benötigt zu viel Zeit wenn man täglich neue Versionen bereitstellen möchte. 
@@ -54,7 +54,7 @@ Das heißt, man muss wie immer dieselben Problemen in kürzerer dadurch lösen, 
 \subsubsection{Operations Department}
 Heutzutage gibt es noch sehr oft eine Trennung zwischen dem Operations-Department oder auch System-Administration genannt, und dem Entwicklungsteam in einem IT-Unternehmen. Dabei mussten sich Entwickler nicht um Infrastrukturangelegenheiten kümmern. Bei täglichen Zyklen lässt sich diese Aufgabe jedoch nicht mehr so einfach delegieren. 
 
-Bei täglichen Releases reicht die Zeit nicht mehr um den Umweg zwischen Operations-Team und Entwicklerteam zu unterstützen. Natürlich gibt es auch weiterhin Infrastruktur-Spezialisten deren Job es ist, das System zu überwachen, gewisse Prozesse zu automatisieren, Entwickler zu schulen und um Frameworks und Tools zu erstellen, sodass jeder Verantwortung für Operations-Angelegenheiten übernehmen kann \cite{weboperations2010}.
+Bei täglichen Releases reicht die Zeit nicht mehr um den Umweg zwischen Operations-Team und Entwicklerteam zu unterstützen. Natürlich gibt es auch weiterhin Infrastrukturspezialisten deren Job es ist, das System zu überwachen, gewisse Prozesse zu automatisieren, Entwickler zu schulen und um Frameworks und Tools zu erstellen, sodass jeder Verantwortung für Operations-Angelegenheiten übernehmen kann \cite{weboperations2010}.
 
 \subsubsection{Keine Status Meetings}
 Obwohl es eine der wichtigsten agilen Praktiken ist, bleibt einem Entwickler bei täglichen Releases keine Zeit einen ganzen Tag darauf zu warten, dass man über den aktuellen Arbeitsfortschritt eines jeden Teammitglieds informiert wird. Waren Stand-Up Meetings bei monatlichen Iterationen absolute Voraussetzung um Status-Updates zu bekommen, so sind sie bei täglichen Zyklen eher ein Hindernis. 

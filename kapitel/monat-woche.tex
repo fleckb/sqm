@@ -7,9 +7,9 @@ Zum Beispiel ist der letzte Tag der Woche oder ein Tag bevor Weihnachten, ein ä
 
 Dafür müssen wieder einmal die Organisation und der Zeitpunkt der Lösungen der verschiedenen Probleme angepasst werden, um einwöchigen Iterationen gerecht zu werden. Das Entwickler-Team hat also fünf Tage Zeit, um ein für den Kunden wertvolles Inkrement zu erstellen. Wie sollte dabei vorgegangen werden? Ein erster Schritt könnte eine automatische Datenmigration sein.
 
-\subsubsection{Automatische Datenmiration}
+\subsubsection{Automatische Datenmigration}
 
-Bei einem einmonatigen Release-Zyklus können ein paar Tage dafür verwendet werden, um eventuell am Datenbankschema Änderungen vorzunehmen. Keinem Entwickler macht diese Art von Arbeit Spaß, jedoch bleibt genügend Zeit um manuelle Anpassungen durchzuführen. Innerhalb von einer Woche geht sich diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen durchzuführen sind in Bezug auf Zeit einfach zu kostspielig. Eine voll automatisierte \endquote{Ein-Knopfdruck}-Datenmigration ist unabdingbar um Daten von einem alten in einen neuen Zustand überzuführen. 
+Bei einem einmonatigen Release-Zyklus können ein paar Tage dafür verwendet werden, um eventuell am Datenbankschema Änderungen vorzunehmen. Keinem Entwickler macht diese Art von Arbeit Spaß, jedoch bleibt genügend Zeit um manuelle Anpassungen durchzuführen. Innerhalb von einer Woche geht sich diese Arbeit allerdings nicht aus. Manuelle Anpassungen um Datenmigrationen durchzuführen sind in Bezug auf Zeit einfach zu kostspielig. Eine voll automatisierte \enquote{Ein-Knopfdruck}-Datenmigration ist unabdingbar um Daten von einem alten in einen neuen Zustand überzuführen. 
 
 Falls man einen Service 24 Stunden, sieben Tage die Woche bereitstellen muss, dann müssen Softwareentwickler noch zusätzliche Dinge tun. Diese werden genauer bei täglichen Releases beschrieben. Hat man nur eine Woche Zeit um eine neue Version der Software bereitzustellen, darf Datenmigration kein Problem mehr darstellen. Vor allem handelt es sich bei diesem Problem „nur“ um ein  technisches Problem bei dem keine zwischenmenschlichen Konflikte entstehen sollten. 
 
@@ -39,9 +39,9 @@ Hat man in jedem Release-Zyklus eine fixe Anzahl von Tasks die zu erledigen sind
 Im Gegensatz dazu bietet Kanban die Möglichkeit mittels des Pull-Modells, dass ein Entwickler zum Beispiel am Montag in der Früh eine neue Aufgabe vom Aufgaben-Stack entnimmt und diese abarbeitet. Sollte dieser Task mehr Zeit als angenommen beanspruchen, gefährdet dies keine anderen Aufgaben. Dadurch müssen keine Planänderungen durchgeführt beziehungsweise keine entsprechenden Meetings einberufen werden.
 
 \subsubsection{One-Button-Deploy}
-Will ein Unternehmen wöchentliche Iterationen realisieren wird ein \endquote{Ein-Knopfdruck}-Deployment verpflichtend um den Erfolg des Projekts zu garantieren. Selbst wenn Entwickler für ein Release einen vollen Monat Zeit haben, wird ein zweistündiger, manueller Deployment-Prozess, bei dem noch dazu hin und wieder Fehler auftreten können, zur Qual für denjenigen, der die Aktualisierung durchführen muss. Manuelle, fehleranfällige Aufgaben, die noch dazu zu viel Zeit in Anspruch nehmen, müssen prinzipiell in kurzen Iterationen vermieden werden.
+Will ein Unternehmen wöchentliche Iterationen realisieren wird ein \enquote{Ein-Knopfdruck}-Deployment verpflichtend um den Erfolg des Projekts zu garantieren. Selbst wenn Entwickler für ein Release einen vollen Monat Zeit haben, wird ein zweistündiger, manueller Deployment-Prozess, bei dem noch dazu hin und wieder Fehler auftreten können, zur Qual für denjenigen, der die Aktualisierung durchführen muss. Manuelle, fehleranfällige Aufgaben, die noch dazu zu viel Zeit in Anspruch nehmen, müssen prinzipiell in kurzen Iterationen vermieden werden.
 
-Auch hier gilt wieder, dass diese Technik der vollständigen Automatisierung des Deployment-Prozesses auch für längere Iterationen eingesetzt werden kann. Jedoch ist dies bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es auf jeden Fall kritisch und daher eine Grundvoraussetzung für den Erfolg.
+Auch hier gilt wieder, dass diese Technik der vollständigen Automatisierung des De\-ploy\-ment-Pro\-zes\-ses auch für längere Iterationen eingesetzt werden kann. Jedoch ist dies bei dieser Geschwindigkeit nicht kritisch. Bei wöchentlichen Releases ist es auf jeden Fall kritisch und daher eine Grundvoraussetzung für den Erfolg.
 
 \subsubsection{Kein separates Test Team}
 In wöchentlichen Release-Zyklen gib es keine Trennung zwischen einem Test- und einem Entwicklerteam. Selbst dieser geringe Abstand zwischen den beiden Teams wäre in dieser kurzen Zeit zu aufwendig um ihn zu unterstützen. 
