@@ -3,7 +3,8 @@
 
 Bei jedem Übergang von einem längeren zu einem kürzeren Release-Zyklus ist es
 notwendig, gewisse bis jetzt vielleicht erfolgreich eingeführte Praktiken zu
-entfernen und neue zu adaptieren.
+entfernen und neue zu adaptieren. Diese Tatsache findet im Übrigen bei jeder 
+weiteren Iterationsverkürzung ebenfalls statt.
 
 \subsubsection{Programmierer schreiben Tests}
 \label{minisec:programmierer-schreiben-tests}
@@ -20,7 +21,7 @@ Ein monatlicher Release-Zyklus macht es erforderlich, dass Entwickler selbst
 Tests schreiben und auch ausführen. Daraus kann man schließen, dass die Anzahl
 der Akzeptanztests nicht nur reduziert werden kann, sondern auch nicht mehr
 alle eventuellen Fehler aufdecken müssen, da diese bereits vorher von den
-Unit-Tests abgefangen werden.
+Unit-Tests abgefangen werden \cite{pragunittesting2003}.
 
 \subsubsection{Status Meetings}
 \label{minisec:status-meetings}
@@ -36,14 +37,15 @@ diese Art des relativ \emph{schwergewichtigen}, formalen Prozesses keine
 Daseinsberechtigung.
 
 Man benötigt daher eine Form der täglichen Status-Aktualisierung über
-Projektveränderungen der einzelnen Teammitglieder. Das kann z.B.: in Form
+Projektveränderungen der einzelnen Teammitglieder. Das kann zum Beispiel in Form
 eines täglichen Stand-Up oder Daily-Scrum Meetings erfolgen bei dem jeden
-Morgen jeder im Team kurz über Neuigkeiten bzw. eventuelle Probleme berichtet.
+Morgen jeder im Team kurz über Neuigkeiten bzw. eventuelle Probleme berichtet
+\cite{dpunktscrum2008}.
 
 \subsubsection{Task Board}
 \label{minisec:task}
 Klassische Planungsprozesse bei denen zu erledigende Aufgaben mehrere
-Stationen (z.B.: Projektmanager, Analysten, etc.) durchwandern müssen, danach
+Stationen (zum Beispiel Projektmanager, Analysten, etc.) durchwandern müssen, danach
 noch eventuell in Form eines Berichts niedergeschrieben werden, bevor sie der
 Programmierer zu Gesicht bekommt um daran arbeiten zu können, müssen ebenfalls
 angepasst werden.
@@ -52,7 +54,7 @@ Um Sinnvoll innerhalb eines Monats Planen zu können, werden daher
 transparente, visuelle Techniken benötigt die außerdem noch öffentlich
 zugänglich sein müssen. Dabei kann eine Art von Stellwand (task board) in
 Kombination von Karteikarten, wie sehr oft in Scrum Verwendung finden,
-eingesetzt werden. Dabei repräsentieren die Karten die durchzuführenden
+eingesetzt werden \cite{dpunktscrum2008}. Dabei repräsentieren die Karten die durchzuführenden
 Aufgaben die jeweils in entsprechenden Zustandspalten auf der Stellwand
 platziert werden. Somit hat jedes Teammitglied zu jedem Zeitpunkt der
 Iteration eine Übersicht, welche Aufgaben noch innerhalb dieses Zyklus zu
@@ -78,7 +80,7 @@ Unternehmen investieren kann.
 \label{minisec:monat-entfernte-praktiken}
 Auch bei dieser Geschwindigkeitsüberführung ist es offensichtlich nicht
 möglich, in der gleichen Art und Weise Software zu entwickeln wie bisher.
-Jedoch gibt es gewisse Übereinstimmungen wie z.B.: die Akzeptanztests, die
+Jedoch gibt es gewisse Übereinstimmungen wie zum Beispiel die Akzeptanztests, die
 allerdings in einem einmonatigen Zyklus wesentlich schneller ablaufen müssen.
 Es fällt auf, dass  gewisse Aufgaben die zuvor vielleicht nur von einer Person
 durchgeführt wurden, in kürzeren Iterationen von mehreren Teammitgliedern
@@ -96,7 +98,7 @@ aufwändig.
 \subsubsection{QA-Abteilung}
 \label{minisec:qa-abteilung}
 
-Bei einmonatigen Iterationen werden diese Praktiken jedoch zur Last. Z.B.: ist
+Bei einmonatigen Iterationen werden diese Praktiken jedoch zur Last. Zum Beispiel ist
 das Vorhandensein einer QA-Abteilung aufgrund der organisatorischen Entfernung
 nicht mehr möglich. Diese Abteilung darf jedoch nicht mit der Rolle der Tester
 verwechselt werden.
@@ -104,8 +106,8 @@ verwechselt werden.
 Natürlich darf auch der psychologische Effekt bezüglich der Reduzierung
 dieser in längeren Iterationen noch so wichtigen Einrichtung nicht vergessen
 werden.  Ein Entwickler der viel Erfahrung mit dreimonatigen Release-Zyklen
-besitzt, für den die QA-Abteilung der erste Schritt aus dem Chaos war, d.h.
-man tatsächlich Software am Ende des Quartals bereitstellen konnte, die noch
+besitzt, für den die QA-Abteilung der erste Schritt aus dem Chaos war, das heißt,
+dass man tatsächlich Software am Ende des Quartals bereitstellen konnte, die noch
 dazu für den Kunden problemlos funktioniert hat, für diesen Entwickler ist
 eine QA-Abteilung unverzichtbar. Er kann sich nicht vorstellen, wie man in
 einem Monat Software erfolgreich bereitstellen soll, ohne der Unterstützung
@@ -139,7 +141,7 @@ Nichts von den Vorgehensweisen über Warteschlangen, nichts von dem zeitaufwendi
 \subsubsection{Mehrfach releaste Versionen}
 Sofern ein Team unter keinem enormen Zeitdruck leidet und eventuell nicht Unmengen an Kunden besitzt, kann es durchaus möglich sein, mehrere unterschiedliche Versionen der Software zu verwalten. Dieser Aufwand ist jedoch auf keinen Fall zu unterschätzen und sollte daher gut dokumentiert sein.
 
-Mit jeder zusätzlichen Version der Software steigt die Komplexität der Organisation des Konfigurationsmanagements. Zum Beispiel könnte eine Organisation Software an einen bestimmten Kunden verkaufen. Angenommen dieser ist äußerst zufrieden mit dem Produkt. Nach einiger Zeit wird ein weiterer Abnehmer der Software gefunden,  jedoch lässt dieser einige Veränderungen vornehmen. Somit müssen die Entwickler eine zusätzliche Version der Software für den neuen Kunden erstellen. 
+Mit jeder zusätzlichen Version der Software steigt die Komplexität der Organisation des Konfigurationsmanagements \cite{dpunktkonfig2008}. Zum Beispiel könnte eine Organisation Software an einen bestimmten Kunden verkaufen. Angenommen dieser ist äußerst zufrieden mit dem Produkt. Nach einiger Zeit wird ein weiterer Abnehmer der Software gefunden, jedoch lässt dieser einige Veränderungen vornehmen. Somit müssen die Entwickler eine zusätzliche Version der Software für den neuen Kunden erstellen. 
 
 Natürlich versucht die Organisation die Änderungen auch dem ersten Kunden zu verkaufen, allerdings reicht diesem die ursprüngliche Version der Software. Angenommen nach einiger Zeit erhalten die Entwickler einen Bug-Report und müssen diesen natürlich in beiden Versionen des Produkts beheben. Ziel der Organisation ist natürlich die weitere Kundengewinnung. Jedoch mit jedem zusätzlichen Abnehmer der Software, der ebenfalls einige Änderungen vornehmen lassen möchte steigt der Verwaltungsaufwand. Waren Änderungswünsche des Kunden zu Beginn noch relativ rasch durchzuführen, wir es mit der Zeit immer schwieriger was jedoch dem Abnehmer nicht interessiert.
 
@@ -147,7 +149,7 @@ Aus eigener Erfahrung der Autoren kann es vorkommen, dass nicht einmal mehr die 
 
 Wenn das Unternehmen jedoch beschließt, in einem Jahr zwölf neue Releases bereitzustellen, kann diese Art von Konfigurationsmanagement nicht mehr funktionieren. Eine einzige Version des Produktes, die jeder Kunde bekommt, muss dabei das Ziel der Entwickler sein. Dafür muss die Aktualisierung der Software jedoch ohne zusätzliche Komplikationen für den Kunden stattfinden. Das fördert die Vertrauensbasis die zwischen dem Abnehmer des Produkts und dem Hersteller unbedingt vorhanden sein muss.
 
-Bei dieser Veränderung handelt es sich also nicht nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem Kunden und dem Unternehmen die die Software produziert. Der Kunde muss den Entwicklern vertrauen können. Die „CEO-zu-CEO“-Beziehung beider Unternehmen muss zu einer Partnerschaft verändert werden. Sie müssen einander vertrauen können. Ein neues Release der Software darf nicht zur Qual für den Kunden werden. 
+Bei dieser Veränderung handelt es sich also nicht nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem Kunden und dem Unternehmen die die Software produziert. Der Kunde muss den Entwicklern vertrauen können. Die \endquote{CEO-zu-CEO}-Beziehung beider Unternehmen muss zu einer Partnerschaft verändert werden. Sie müssen einander vertrauen können. Ein neues Release der Software darf nicht zur Qual für den Kunden werden. 
 
 Wenn ein Software-Unternehmen innerhalb von monatlichen Releases überleben möchte, darf ein Software-Upgrade kein Hindernis sein. Aus Kundensicht muss für so eine Vertrauensbasis aber zu 100 Prozent sichergestellt sein, das kein Datenverlust möglich ist, keine Produktivität verloren geht, der Kunde nicht am Monatsanfang des neuen Jahres in die Firma kommt und eine komplette Zerstörung vorfindet. Der Kunde muss davon überzeugt sein, dass die Software solide ist. 
 
@@ -156,17 +158,17 @@ Der Aufbau einer solchen Beziehung zwischen Kunden und dem Software-Unternehmen 
 \subsubsection{Design Dokumente}
 In traditionellen Vorgehensmodellen wir das das Design der Software sehr umfangreich dokumentiert. Prinzipiell ist es eine gute Idee, Softwarearchitektur-Skizzen zu erstellen um gewisse Aspekte der Struktur besser verstehen zu können. Dies kann jedoch in einer einmonatigen Iteration nicht im gleichen Umfang durchgeführt werden, wie für jährliche Releases. Das Design der Software muss jedoch weiterhin genau überlegt und geplant werden. Dabei sind jedoch Dokumente nicht das richtige Medium um Wissen zu transportieren. 
 
-Eventuell können hier Whiteboard-Skizzen erstellt und mittels Digitalkamera festgehalten werden. Die Bilder können dann in einem Team-Wiki verwaltet werden. In dem Buch „Growing Object-Oriented Software Guided By Tests“ wird dies als das Visualisieren einer sogenannten Broad-Brush Architektur genannt. Dabei gilt als Daumenregel, dass das Design der Software in wenigen Minuten in Teamarbeit auf einem Whiteboard skizziert wird. 
+Eventuell können hier Whiteboard-Skizzen erstellt und mittels Digitalkamera festgehalten werden. Die Bilder können dann in einem Team-Wiki verwaltet werden. In dem Buch \cite{goos} wird dies als das Visualisieren einer sogenannten \emph{Broad-Brush} Architektur genannt. Dabei gilt als Daumenregel, dass das Design der Software in wenigen Minuten in Teamarbeit auf einem Whiteboard skizziert wird. 
 
 \subsubsection{Anforderungsänderungen (Change Requests)}
-Analysiert man den Prozess wie in einem traditionellen Vorgehensmodell Änderungsanforderungen verarbeitet werden, sieht man schnell, dass es sich dabei um eine organisatorische Barriere handelt. Im folgenden Abschnitt wird ein solcher Ablauf kurz beschrieben. Zum Beispiel fordert ein Kunde eine Änderung der Software aufgrund eines Fehlers. Die verantwortliche Abteilung arbeitet diese Anfrage wird in irgendein entsprechendes System ein (z.B.: JIRA). Sofern es sich beim Kundenwusch um eine Erweiterung handelt, wird diese zum Change Control Board weitergeleitet. Um effizient zu bleiben wird die Anforderung in eine Verarbeitungswarteschlange eingereiht. Bei dem wöchentlichen Meeting des erwähnten Boards werden dann sämtliche Forderungen eventuell abgelehnt.
+Analysiert man den Prozess wie in einem traditionellen Vorgehensmodell Änderungsanforderungen verarbeitet werden, sieht man schnell, dass es sich dabei um eine organisatorische Barriere handelt. Im folgenden Abschnitt wird ein solcher Ablauf kurz beschrieben. Zum Beispiel fordert ein Kunde eine Änderung der Software aufgrund eines Fehlers. Die verantwortliche Abteilung arbeitet diese Anfrage wird in irgendein entsprechendes System ein (zum Beispiel JIRA). Sofern es sich beim Kundenwusch um eine Erweiterung handelt, wird diese zum \emph{Change Control Board} \cite{dpunktkonfig2008} weitergeleitet. Um effizient zu bleiben wird die Anforderung in eine Verarbeitungswarteschlange eingereiht. Bei dem wöchentlichen Meeting des erwähnten Boards werden dann sämtliche Forderungen eventuell abgelehnt.
 
 Aufgrund der Zeitbegrenzung von einem Monat funktioniert diese Art von Prozess nicht mehr. Jedoch handelt es sich bei einem Änderungsanforderungen um wertvolles Feedback. Wenn man auf dieses innerhalb kurzer Zeit reagieren möchte, und es stehen einem nur 20 Werktage zur Verfügung, muss ein pragmatischer Ansatz verfolgt werden um diese Anforderungen bearbeiten zu können. 
 
 Zum Beispiel könnten die Entwickler in Zusammenarbeit mit dem Kunden die gewünschten Anforderungen priorisieren, wobei die entstandenen Prioritäten mit denen des Unternehmens harmonieren sollten. Klarerweise sollten die Entwickler an den wichtigen Features arbeiten und die weniger wichtigen hinten anstellen. Das heißt, man muss weiterhin Entscheidungen über die zu implementierenden Features treffen, jedoch hat die ursprüngliche Unternehmensstruktur die mittels Change Control Board funktioniert hat, innerhalb von einem Monat nicht genügend Zeit um Prioritäten richtig zu setzen.
 
 \subsubsection{Separate Konfigurationsmanagement- und Analyse-Teams}
-Diese Art von Separierung nimmt ebenfalls zu viel Zeit von einmonatigen Iterationen in Anspruch. Ein Team das sich ausschließlich um die Analyse kümmert, und danach ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um innerhalb eines Monats ein neue Version der Software zu erstellen. Softwareentwickler müssen akzeptieren, dass das komplette Team die Verantwortung für das Konfigurationsmanagement und die Analyse übernehmen muss.
+Diese Art von Separierung nimmt ebenfalls zu viel Zeit von einmonatigen Iterationen in Anspruch. Ein Team das sich ausschließlich um die Analyse kümmert, und danach ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um innerhalb eines Monats ein neue Version der Software zu erstellen. Softwareentwickler müssen akzeptieren, dass das komplette Team die Verantwortung für das Konfigurationsmanagement und die Analyse übernehmen muss \cite{dpunktkonfig2008}.
 
 Es kann natürlich Personen in einem Team geben, die sich mit der Verfeinerung des Build-Prozesses beschäftigen, jedoch gibt es keine extra Abteilung die sich ausschließlich um diesen Teil der Software kümmert. In monatlichen Iterationen bleibt keine Zeit um Konfigurationsfehler bezüglich des Builds jemanden anderen zu zuteilen der sie dann darum kümmert. Benötigt man zum Beispiel eine Woche für das Beheben eines solchen Problems, dann ist es in einer zwölfwöchigen Phase schmerzhaft, in einer vierwöchigen Iteration jedoch erfolgsgefährdend. 
 
