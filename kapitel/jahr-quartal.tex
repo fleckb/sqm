@@ -5,8 +5,7 @@ In Unternehmen die nur einmal im Jahr eine neue Version ihres Produktes
 bereitstellen, kommen häufig lineare, nicht iterative Vorgehensmodelle zum
 Einsatz. Eines der bekanntesten Beispiele dafür ist das Wasserfallmodell, dass
 aus verschiedenen Phasen wie z.B.: der Analyse, dem Entwurf, der Realisierung
-(Implementierung) und dem Testen besteht. Wenn man diese Art von langwierigen
-Prozess verfolgt, dann ist es für ein Unternehmen relativ schwer auf
+(Implementierung) und dem Testen besteht \cite{Royce:1987:MDL:41765.41801}. Wenn man diese Art von langwierigen Prozess verfolgt, dann ist es für ein Unternehmen relativ schwer auf
 Veränderungen am weltweiten Markt rasch reagieren zu können. Aktualisiert man
 nur einmal im Jahr das Produkt läuft man Gefahr, dass die verwendete
 Technologie höchstwahrscheinlich schon längst wieder veraltet ist. Daher muss
@@ -29,13 +28,13 @@ Manuelles Testen der Software ist zeitaufwendig und fehleranfällig. Hat man
 eine Iterationslänge von einem Jahr, kann man jedoch ohne weiteres diese Art
 von Testen durchführen. Nach Beendigung der Implementierungsphase wird die
 Software an die QA-Abteilung weitergeleitet, die dann mit dem ausführlichen
-verifizieren des Produkts beschäftigt ist. Hat ein Unternehmen jedoch nur drei
-Monate Zeit, dann wäre es zu aufwändig diesen Prozess jedes Quartal
-wiederholen zu müssen. Die Automatisierung einer Regressions-Test-Suite, die
+verifizieren des Produkts beschäftigt ist. 
+
+Hat ein Unternehmen jedoch nur dreiMonate Zeit, dann wäre es zu aufwändig diesen Prozess jedes Quartal wiederholen zu müssen. Die Automatisierung einer Regressions-Test-Suite, die
 auf \emph{Knopfdruck} ausgeführt werden kann, hilft dem Unternehmen dabei
 manuelle Tests aus dem Entwicklungsprozess zu entfernen. Dabei erhalten die
 Entwickler nach kürzester Zeit Feedback über das Funktionsverhalten des
-Systems. Diese Tests können in Form von Akzeptanztests realisiert werden. Bei
+Systems. Diese Tests können in Form von Akzeptanztests realisiert werden \cite{pugh2010}. Bei
 einer Iterationslänge von drei Monaten muss die endgültige Form bzw.
 Geschwindigkeit der Tests nicht perfekt oder äußerst schnell sein. Wesentlich
 ist nur, dass diese Tests automatisiert durchgeführt werden können. Die
@@ -50,7 +49,7 @@ werden. Die Zeit für eine eigene Entwurfs-Phase steht bei dieser
 Iterationslänge nicht zur Verfügung. Da es jetzt kein \emph{Big Design Up-
 Front} geben kann, und das Design kontinuierlich den Gegebenheiten angepasst
 werden muss, müssen Softwareentwickler die Technik des \emph{Refactorings}
-ausgezeichnet beherrschen. Dadurch wird es möglich, große Design-Änderungen in
+ausgezeichnet beherrschen \cite{fowler1999refactoring}. Dadurch wird es möglich, große Design-Änderungen in
 kleinen, sicheren Schritten durchzuführen ohne jedoch dabei das
 Systemverhalten zu verändern. Entwickler übernehmen dabei die Verantwortung,
 regelmäßig in den Softwareentwurf des Produkts zu investieren.
@@ -59,15 +58,14 @@ regelmäßig in den Softwareentwurf des Produkts zu investieren.
 \label{minisec:continuous-integration}
 Auch bei dieser Technik gilt dieselbe Argumentation wie auch schon beim
 Refactoring. In einer dreimonatigen Iteration bleibt keine Zeit für eine
-eigene Integrationsphase der Software. Sollte es z.B.: kurz vor einem neuen
+eigene Integrationsphase der Software. Sollte es zum Beispiel kurz vor einem neuen
 Release zu Problemen bezüglich des Zusammenbaus des Produkts kommen, die von
 den Entwicklern während der Implementierung nicht berücksichtigt wurden,
 könnte eventuell ein weiterer Release-Zyklus erforderlich sein, diese um all
 diese Probleme zu beheben. Deshalb muss eine Möglichkeit für die
 kontinuierliche Integration der Software in Form eines Build-Servers
 geschaffen werden, auf dem die Entwickler täglich ihre erledigten Aufgaben
-hinzufügen können. Dadurch kann es am Ende der Iteration zu keinen
-überraschenden Komplikationen bezüglich des Gesamtprodukts kommen.
+hinzufügen können \cite{duvall2007continuous}. Dadurch kann es am Ende der Iteration zu keinen überraschenden Komplikationen bezüglich des Gesamtprodukts kommen.
 
 \subsubsection{Subscription Modell}
 \label{minisec:subscription-modell}
@@ -77,10 +75,9 @@ deutlich schwieriger aus. Man kann den Kunden als Unternehmen nicht dazu
 bringen, jedes Quartal für eine Aktualisierung der Software erneut zahlen zu
 lassen. Sollte das Geschäftsmodell der Firma jedoch vorsehen, dass der Kunde
 für Upgrades des Produkts zahlen muss, dann kann die Iterationslänge nicht auf
-häufigere Releases umgestellt werden. Leider verliert man dadurch auch die
-Vorteile des häufigeren Feedbacks des Benutzers, genauer gesagt all die
-Informationen die man aufgrund der Benutzung des Produkts durch den Endkunden
-und die Entwicklung des Produkts am Markt erhält. Daher muss das
+häufigere Releases umgestellt werden. 
+
+Leider verliert man dadurch auch die Vorteile des häufigeren Feedbacks des Benutzers, genauer gesagt all die Informationen die man aufgrund der Benutzung des Produkts durch den Endkundenund die Entwicklung des Produkts am Markt erhält. Daher muss das
 Geschäftsmodell des Unternehmens ebenfalls angepasst werden und möglicherweise
 eine Form von Subscription-Modell eingeführt werden. Dabei zahlt der Kunde
 einmal im Jahr einen Pauschalbetrag und erhält sämtliche Upgrades der Software
