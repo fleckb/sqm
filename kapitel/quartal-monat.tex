@@ -131,127 +131,43 @@ Prozentig sicher weiß, ob das System Fehler enthält oder nicht. Allerdings ist
 das Bereitstellen von fehlerhaften Upgrades für den Endkunden auf Dauer nicht
 tragbar.
 
-\begin{wichtigbox}
-TODO: Ab hier muss noch bis zum Abschnitt~\ref{sec:success-stories} auf
-Seite~\pageref{sec:success-stories} fertig ausformuliert werden.
-\end{wichtigbox}
+Das heißt, dass das Q/A-Department, das kritisch für den Erfolg für jährliche bzw. dreimonatige Releases war, wird zur unüberwindbaren Barriere in einmonatigen Prozessen und muss deshalb verworfen werden. Allerdings ist es nicht das Ziel die Verantwortlichkeiten dieser Abteilung aufzugeben. Sie müssen neu organisiert und verteilt werden.
+Eine Lösung wäre, dass Tester im Entwicklungsteam integriert werden. Wichtig dabei ist, dass sich alle Beteiligten im selben Raum befinden und ständig miteinander kommunizieren zu können.
 
-D.h., dass das Q/A-Department, das kritisch für den Erfolg für jährliche bzw.
-dreimonatige Deployments war, wird zur unüberwindbaren Barriere in
-einmonatigen Prozessen und muss deshalb verworfen werden. Und wieder müssen
-dieselben Probleme nur jetzt ohne Q/A-Department erledigt werden also was
-machen? Ganz einfach, Tester müssen dem Entwicklungsteam hinzugefügt werden.
-D.h. im Endeffekt hat man einen großen Raum in denen sich sowohl Tester als
-auch Entwickler befinden und diese unmittelbar miteinander kommunizieren
-können.
-
-Nichts von den Vorgehensweisen über Warteschlangen, nichts von dem
-zeitaufwendigen weiterleiten von Requests über verschiedene Personen, sondern
-die unmittelbare Kommunikation zwischen Tester und Entwickler sind notwendig.
-Z.B. nimmt ein Entwickler Veränderungen an der Benutzerschnittstelle vor und
-berichtet dem Tester davon. Dieser kann sofort überprüfen ob die vorgenommen
-Änderungen fehlerfrei funktionieren. D.h. der Entwickler erhält nur wenige
-Augenblicke später sofortiges Feedback des Testers.
+Nichts von den Vorgehensweisen über Warteschlangen, nichts von dem zeitaufwendigen weiterleiten von Anfragen über verschiedene Personen, sondern die unmittelbare Kommunikation zwischen Tester und Entwickler sind notwendig. Zum Beispiel nimmt ein Entwickler Veränderungen an der Benutzerschnittstelle vor und berichtet dem Tester davon. Dieser kann sofort überprüfen ob die vorgenommen Änderungen fehlerfrei funktionieren. Das heißt der Entwickler erhält nur wenige Augenblicke später direktes Feedback des Testers. 
 
 \subsubsection{Mehrfach releaste Versionen}
-eines Produkts ist eine weitere Praktik die führe längere Zyklen äußerst
-hilfreich ist, jedoch bei kürzeren Phasen ein Problem dastellt. Z.B.
-verkauften wir unsere Software an einen Kunden. Dieser war äußerst zufrieden
-mit dem Produkt.  Nach einiger Zeit fanden wir auch einen weiteren Abnehmer
-jedoch wollte dieser einige Veränderungen. Somit mussten wir eine neue Version
-der Software für den zweiten Kunden erstellen.
+Sofern ein Team unter keinem enormen Zeitdruck leidet und eventuell nicht Unmengen an Kunden besitzt, kann es durchaus möglich sein, mehrere unterschiedliche Versionen der Software zu verwalten. Dieser Aufwand ist jedoch auf keinen Fall zu unterschätzen und sollte daher gut dokumentiert sein.
 
-Wir versuchten die Änderungen auch dem ersten Kunden schmackhaft zu machen,
-allerdings war dieser mit seiner Version der Software zufrieden. Nach einiger
-Zeit bekamen wir einen Bug-Report und mussten diesen nun in beiden Versionen
-unseres Produkts beheben. Nach einigen Monaten kam der dritte Kunde hinzu, der
-ebenfalls einige Änderungen der Software vornehmen ließ. Nach drei Jahren des
-erfolgreichen Einsatzes der Software bestellten die Kunden einen Consultant
-und fragten, warum Änderungen so viel Zeit in Anspruch nahmen.
+Mit jeder zusätzlichen Version der Software steigt die Komplexität der Organisation des Konfigurationsmanagements. Zum Beispiel könnte eine Organisation Software an einen bestimmten Kunden verkaufen. Angenommen dieser ist äußerst zufrieden mit dem Produkt. Nach einiger Zeit wird ein weiterer Abnehmer der Software gefunden,  jedoch lässt dieser einige Veränderungen vornehmen. Somit müssen die Entwickler eine zusätzliche Version der Software für den neuen Kunden erstellen. 
 
-Das was Problem war, dass wir (vermutlicherweise) mittlerweile sieben
-verschiedene Versionen des Produkts verkauft hatten und wir in allen dieselben
-Fehlerbehebungen durchführen mussten. Außerdem hat jede Version eine
-unterschiedliche Anzahl von Features implementiert, die wir ebenfalls
-verwalteten mussten. Selbst bei jährlichen Deployments versuchen Software-
-Unternehmen ältere Versionen ihrer Produkte bei Kunden zu aktualisieren, da
-die Verwaltung mehrerer Versionen zu komplex geworden ist.
+Natürlich versucht die Organisation die Änderungen auch dem ersten Kunden zu verkaufen, allerdings reicht diesem die ursprüngliche Version der Software. Angenommen nach einiger Zeit erhalten die Entwickler einen Bug-Report und müssen diesen natürlich in beiden Versionen des Produkts beheben. Ziel der Organisation ist natürlich die weitere Kundengewinnung. Jedoch mit jedem zusätzlichen Abnehmer der Software, der ebenfalls einige Änderungen vornehmen lassen möchte steigt der Verwaltungsaufwand. Waren Änderungswünsche des Kunden zu Beginn noch relativ rasch durchzuführen, wir es mit der Zeit immer schwieriger was jedoch dem Abnehmer nicht interessiert.
 
-Jedoch kann man in so einer großen Zeitspanne mit diesem Overhead leben. Wenn
-man jedoch in einem Jahr zwölf neue Releases produziert, funktioniert diese
-Art von Versionierung nicht mehr. Bei dieser Veränderung handelt es sich nicht
-nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem
-Kunden und der Organisation die die Software produziert. Der Kunde muss dem
-Unternehmen vertrauen können und es ist ja kein Geheimnis, dass viele Kunden
-genau das nicht tun, nämlich dem Unternehmen trauen, das das Produkt erstellt.
-Wie man vielleicht schon bemerkt hat, handelt es sich dabei all diesen
-Veränderungen nicht um ausschließlich technischen Veränderungen. Die CEO-zu-
-CEO-Beziehung der Unternehmen muss zu einer Partnerschaft abgeändert werden.
-Sie müssen einander vertrauen können. Ein neues Release der Software darf
-nicht zur Qual für den Kunden werden.
+Aus eigener Erfahrung der Autoren kann es vorkommen, dass nicht einmal mehr die Entwickler selbst wissen, wie viele unterschiedliche Versionen der Software in Betrieb sind. Das führt dazu, dass Fehlerbehebungen bzw. Erweiterungen länger Zeit in Anspruch nehmen, als gäbe es nur eine einheitliche Version des Produkts. Selbst bei jährlichen Releases sollten Software-Unternehmen ältere Versionen ihrer Produkte bei Kunden aktualisieren, da der zusätzliche Verwaltungsaufwand zu kompliziert werden kann. Haben die Entwickler jedoch ein volles Jahr Zeit, ist es nicht kritisch und vielleicht wichtiger, die wenigen Kunden die man hat, mit individuellen Features zufrieden zu stellen.
 
-Wenn ein Software-Unternehmen innerhalb von monatlichen Releases überleben
-möchte, darf ein Software-Upgrade kein Hindernis sein. Aus Kundensicht muss
-für so eine Vertrauensbasis aber zu $100\%$ sichergestellt sein, das kein
-Datenverlust möglich ist, keine Produktivität verloren geht, man nicht an
-einem Montag dem 1. Jänner in die Firma kommt und eine komplette Zerstörung
-vorfindet. Der Kunde muss davon überzeugt sein, dass die Software solide ist.
-Der Aufbau einer solcher Beziehung zwischen Kunden und dem Software-
-Unternehmen kann Jahre in Anspruch nehmen. Es handelt sich nicht um einen
-Prozess der über Nach passieren kann.
+Wenn das Unternehmen jedoch beschließt, in einem Jahr zwölf neue Releases bereitzustellen, kann diese Art von Konfigurationsmanagement nicht mehr funktionieren. Eine einzige Version des Produktes, die jeder Kunde bekommt, muss dabei das Ziel der Entwickler sein. Dafür muss die Aktualisierung der Software jedoch ohne zusätzliche Komplikationen für den Kunden stattfinden. Das fördert die Vertrauensbasis die zwischen dem Abnehmer des Produkts und dem Hersteller unbedingt vorhanden sein muss.
+
+Bei dieser Veränderung handelt es sich also nicht nur um eine technische sondern auch um eine Beziehungsänderung zwischen dem Kunden und dem Unternehmen die die Software produziert. Der Kunde muss den Entwicklern vertrauen können. Die „CEO-zu-CEO“-Beziehung beider Unternehmen muss zu einer Partnerschaft verändert werden. Sie müssen einander vertrauen können. Ein neues Release der Software darf nicht zur Qual für den Kunden werden. 
+
+Wenn ein Software-Unternehmen innerhalb von monatlichen Releases überleben möchte, darf ein Software-Upgrade kein Hindernis sein. Aus Kundensicht muss für so eine Vertrauensbasis aber zu 100 Prozent sichergestellt sein, das kein Datenverlust möglich ist, keine Produktivität verloren geht, der Kunde nicht am Monatsanfang des neuen Jahres in die Firma kommt und eine komplette Zerstörung vorfindet. Der Kunde muss davon überzeugt sein, dass die Software solide ist. 
+
+Der Aufbau einer solchen Beziehung zwischen Kunden und dem Software-Unternehmen kann Jahre in Anspruch nehmen. Es handelt sich nicht um einen Prozess der über Nach passieren kann.
 
 \subsubsection{Design Dokumente}
-Wenn man drei Monate für ein Release Zeit hat, kann man ohne Probleme Design-
-Skizzen produzieren, diese im Team bearbeiten und analysieren. Hat man
-allerdings nur genau 20 Werktage für das Erstellen einer neuen Version der
-Software, dann kann das Software-Design nicht im selben Umfang dokumentiert
-werden. D.h. aber nicht der komplette Verzicht auf das Design. Ganz im
-Gegenteil, man muss natürlich weiterhin ein ansprechendes Software-Design
-schaffen und dieses natürlich auch kommunizieren. Allerdings sind Dokumente
-dafür nicht das richtige Medium.
+In traditionellen Vorgehensmodellen wir das das Design der Software sehr umfangreich dokumentiert. Prinzipiell ist es eine gute Idee, Softwarearchitektur-Skizzen zu erstellen um gewisse Aspekte der Struktur besser verstehen zu können. Dies kann jedoch in einer einmonatigen Iteration nicht im gleichen Umfang durchgeführt werden, wie für jährliche Releases. Das Design der Software muss jedoch weiterhin genau überlegt und geplant werden. Dabei sind jedoch Dokumente nicht das richtige Medium um Wissen zu transportieren. 
 
-\subsubsection{Change Requests}
-Change Request Process ist eine weitere organisational-Distance Barriere.
-Jemand fordert eine Änderung der Software. Diese Forderung wird in irgendein
-Change-Request-System eingearbeitet. Danach wird sie zum Change-Preventation-
-Board (Change Control Board) weitergeleitet und um effizient zu bleiben in
-eine Warteschlange eingereiht wird. Bei dem wöchentlichen Meeting des Boards
-werden dann sämtliche Forderungen abgelehnt. Stellt sich die Frage warum diese
-Forderungen, wenn sie sowieso immer abgelehnt werden, nicht unmittelbar beim
-Eintreffen abgelehnt werden.
+Eventuell können hier Whiteboard-Skizzen erstellt und mittels Digitalkamera festgehalten werden. Die Bilder können dann in einem Team-Wiki verwaltet werden. In dem Buch „Growing Object-Oriented Software Guided By Tests“ wird dies als das Visualisieren einer sogenannten Broad-Brush Architektur genannt. Dabei gilt als Daumenregel, dass das Design der Software in wenigen Minuten in Teamarbeit auf einem Whiteboard skizziert wird. 
 
-Da könnte man sich die wöchentlichen Change-Request-Review-Meetings auch
-gleich sparen. Aufgrund der Zeitbegrenzung funktioniert diese Art von Prozess
-sowieso nicht mehr. Jedoch handelt es sich bei einem Change-Request um
-wertvolles Feedback und wenn man auf dieses innerhalb kurzer Zeit reagieren
-möchte, und es stehen einem nur 20 Werktage zur Verfügung, muss ein
-pragmatischer Ansatz verfolgt werden um diese Requests bearbeiten.
+\subsubsection{Anforderungsänderungen (Change Requests)}
+Analysiert man den Prozess wie in einem traditionellen Vorgehensmodell Änderungsanforderungen verarbeitet werden, sieht man schnell, dass es sich dabei um eine organisatorische Barriere handelt. Im folgenden Abschnitt wird ein solcher Ablauf kurz beschrieben. Zum Beispiel fordert ein Kunde eine Änderung der Software aufgrund eines Fehlers. Die verantwortliche Abteilung arbeitet diese Anfrage wird in irgendein entsprechendes System ein (z.B.: JIRA). Sofern es sich beim Kundenwusch um eine Erweiterung handelt, wird diese zum Change Control Board weitergeleitet. Um effizient zu bleiben wird die Anforderung in eine Verarbeitungswarteschlange eingereiht. Bei dem wöchentlichen Meeting des erwähnten Boards werden dann sämtliche Forderungen eventuell abgelehnt.
 
-Z.B. könnte der Prozess die Change-Requests priorisieren wobei die
-entstandenen Prioritäten mit denen des Unternehmens harmonieren sollten. Man
-sollte klarerweise an den wichtigen Features arbeiten und die weniger
-wichtigen hinten anstellen. D.h. man muss natürlich weiterhin Entscheidungen
-über die zu implementierenden Features treffen, jedoch hat die ursprüngliche
-Unternehmensstruktur die mittels CCB funktionierte, innerhalb von einem Monat
-nicht genügend Zeit um Prioritäten richtig zu setzen.
+Aufgrund der Zeitbegrenzung von einem Monat funktioniert diese Art von Prozess nicht mehr. Jedoch handelt es sich bei einem Änderungsanforderungen um wertvolles Feedback. Wenn man auf dieses innerhalb kurzer Zeit reagieren möchte, und es stehen einem nur 20 Werktage zur Verfügung, muss ein pragmatischer Ansatz verfolgt werden um diese Anforderungen bearbeiten zu können. 
 
-\subsubsection{Separate Build- und Analyse-Teams}
-Separate Teams für Analyse und Build-Prozess nehmen ebenfalls zu viel Zeit in
-Anspruch. Ein Team dass sich ausschließlich um die Analyse kümmert, und danach
-ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um
-innerhalb eines Monats ein neues Release zu erstellen. D.h. die
-Softwareentwickler müssen akzeptieren, gemeinsam für diese Dinge Verantwortung
-zu übernehmen.
+Zum Beispiel könnten die Entwickler in Zusammenarbeit mit dem Kunden die gewünschten Anforderungen priorisieren, wobei die entstandenen Prioritäten mit denen des Unternehmens harmonieren sollten. Klarerweise sollten die Entwickler an den wichtigen Features arbeiten und die weniger wichtigen hinten anstellen. Das heißt, man muss weiterhin Entscheidungen über die zu implementierenden Features treffen, jedoch hat die ursprüngliche Unternehmensstruktur die mittels Change Control Board funktioniert hat, innerhalb von einem Monat nicht genügend Zeit um Prioritäten richtig zu setzen.
 
-Es kann natürlich jemanden in einem Team geben, der sich mit der Verfeinerung
-des Builds beschäftigt, jedoch gibt es keine extra Abteilung die sich
-ausschließlich um den Build der Software kümmert. In monatlichen Release-
-Zyklen bleibt keine Zeit um Build-Errors jemanden anderen zu zuteilen der sie
-dann behebt. Benötigt man z.B. eine Woche für das Beheben eines solchen
-Problems, dann ist es in einer 12-wöchigen Phase schmerzhaft, in einer
-vierwöchigen Phase jedoch nicht tragbar.
+\subsubsection{Separate Konfigurationsmanagement- und Analyse-Teams}
+Diese Art von Separierung nimmt ebenfalls zu viel Zeit von einmonatigen Iterationen in Anspruch. Ein Team das sich ausschließlich um die Analyse kümmert, und danach ihr Ergebnis an die Entwickler weiterleitet, ist viel zu zweitaufwändig um innerhalb eines Monats ein neue Version der Software zu erstellen. Softwareentwickler müssen akzeptieren, dass das komplette Team die Verantwortung für das Konfigurationsmanagement und die Analyse übernehmen muss.
 
-Entwickler müssen selbst dafür die Verantwortung übernehmen Build-Probleme zu
-beheben. Eine Rolle wie die des Build-Managers gibt es in einer monatliche
-Phase nicht mehr. D.h. die Organisation muss sich diesbezüglich verändern um
-einen vierwöchigen Release-Zyklus zu unterstützen.
+Es kann natürlich Personen in einem Team geben, die sich mit der Verfeinerung des Build-Prozesses beschäftigen, jedoch gibt es keine extra Abteilung die sich ausschließlich um diesen Teil der Software kümmert. In monatlichen Iterationen bleibt keine Zeit um Konfigurationsfehler bezüglich des Builds jemanden anderen zu zuteilen der sie dann darum kümmert. Benötigt man zum Beispiel eine Woche für das Beheben eines solchen Problems, dann ist es in einer zwölfwöchigen Phase schmerzhaft, in einer vierwöchigen Iteration jedoch erfolgsgefährdend. 
+
+Entwickler müssen dafür die Verantwortung übernehmen Konfigurationsprobleme zu beheben. Eine Rolle wie die des Build-Managers gibt es in einer monatlichen Iteration nicht mehr. Das heißt, dass sich die Organisation diesbezüglich verändern muss, um einen vierwöchigen Release-Zyklus zu unterstützen.
