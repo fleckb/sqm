@@ -210,7 +210,7 @@ Upgrade ein neues Design eingeführt und bekannte Funktionen herausgenommen
 Aus Entwicklersicht ist das Upgrade auf Version 4 insofern interessant, da mit
 dieser Version auch ein Continuous Deployment Prozess realisiert wurde
 \cite{digg4}. Seit August 2010 gibt es daher bei Digg keine geplanten Releases
-mehr. Alle Änderungen, also Bug-Fixes und neue Features gehen sofort live.
+mehr. Alle Änderungen, also Bug-Fixes und neue Features, gehen sofort live.
 Auch bei Digg wird dabei auf manuelles Testen der Änderungen verzichtet.
 
 Als große Herausforderung wird der Balanceakt zwischen der Agilität und
@@ -230,22 +230,22 @@ Infrastruktur wurde mittles \emph{puppet} umgesetzt.
 Als wichtigste Ergänzung dieses Ökosystems wird Gerrit\footnote{Gerrit:
 \url{http://code.google.com/p/gerrit/}} genannt \cite{digg4}. Gerrit ist ein
 Code Review System für Git basierte Softwareprojekte. Dabei werden Änderungen,
-so genannte \emph{patchsets}, nach einem Commit nicht sofort in den Master
+so genannte \emph{Patchsets}, nach einem Commit nicht sofort in den Master
 Branch der Versionsverwaltung eingespielt, sondern von Gerrit zum Review
 freigegeben. Erst nachdem diese Änderungen auch von anderen Entwicklern
 abgesegnet wurden, kann der neue Code in den Master Branch eingespielt werden.
 
-Gerrit bietet zusätzlich für jedes \emph{patchset} auch ein \emph{Verified
+Gerrit bietet zusätzlich für jedes \emph{Patchset} auch ein \emph{Verified
 Flag}. Über dieses Flag lässt sich Gerrit sehr gut mit Continuous Integration
 Systemen wie Hudson verbinden, indem das Flag entsprechend dem Ausgang von
 automatisierten Tests gesetzt wird. Digg verwendet für die Integration von
 Gerrit und Hudson das \emph{Gerrit Trigger} Plugin für Hudson.
 
 Der generelle Ablauf bei Digg ist jetzt wie folgt: Nachdem ein neues
-\emph{patchset} eingespielt wurde, wird dies zum Review freigegeben.
+\emph{Patchset} eingespielt wurde, wird dies zum Review freigegeben.
 Zusätzlich werden zunächst ein Subset an Unit- und UI-Tests ausgeführt
 (Vortests). Der Grund warum nicht gleich sämtliche Tests ausgeführt werden ist
-die Zeit die die komplette Testsuite zum Durchlauf benötigen würde. Falls die
+die Dauer die die komplette Testsuite zum Durchlauf benötigen würde. Falls die
 Änderungen durch das Review freigegeben und die Tests fehlerfrei durchlaufen
 wurden, findet ein Merge to Master statt, die Änderungen landen also im
 Hauptzweig der Versionsverwaltung. Erst jetzt werden sämtliche Unit-Tests
@@ -266,33 +266,33 @@ positiv hervorgehoben.
 %http://code.flickr.com/blog/2009/12/02/flipping-out/
 %http://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr
 
-Flickr\footnote{Flickr: \url{http://www.flickr.com}} ist eine Hosting-
-Plattform für Fotos und Videos. Dabei können Fotos und Videos hochgeladen,
-verwaltet und für andere zum Austausch freigegeben werden. Flickr bietet
-zusätzlich eine über Webservices realisierte API an. Die Firma wurde 2005 von
-\emph{Yahoo!} übernommen und beschäftigte Mitte 2011 zirka 25 Angestellte
-\cite{flickr11}.
+Flickr\footnote{Flickr: \url{http://www.flickr.com}} ist eine
+Hosting-Plattform für Fotos und Videos. Dabei können Fotos und Videos
+hochgeladen, verwaltet und für andere zum Austausch freigegeben werden. Flickr
+bietet zusätzlich eine über Webservices realisierte API an. Die Firma wurde
+2005 von \emph{Yahoo!} übernommen und beschäftigte Mitte 2011 zirka 25
+Angestellte \cite{flickr11}.
 
 Flickr setzt bei der Weiterentwicklung und Wartung ihrer Plattform einen über
 die Zeit inkrementell entstandenen Continuous Deployment Przess ein.
 Interessant an diesem Prozess ist das hohe Maß an Veranwortung welches jedem
 einzelnen Enwickler selbst zugetraut wird, denn jeder Entwickler ist bei
-Flickr gleichzeitig auch Release Manager. Über ein webbasiertes Deployment-
-Tool ist es allen Entwicklern möglich das Deployment eines neuen Builds zu
+Flickr gleichzeitig auch Release Manager. Über ein webbasiertes Deployment-Tool
+ist es allen Entwicklern möglich das Deployment eines neuen Builds zu
 starten. Über dieses Tool wird derzeit in der Regel 10 mal am Tag eine neue
 Version deployed. Es gibt aber auch Tage an denen keine neue Version deployed
 wird. Das Maximum wären zirka 50 Deployments am Tag \cite{flickr11}.
 
 Möglich wird dies durch eine Firmenphilosophie die eine professionelle
-Einstellung \cite{flickr11} zur Softwareentwicklung fördert. Da aber Menschen
-eben auch Fehler machen gibt es zusätzlich Maßnahmen um dem entgegenzuwirken.
-Wie schon in Abschnitt~\ref{minisec:immunization} auf
+Einstellung zur Softwareentwicklung fördert \cite{flickr11}. Da aber Menschen
+auch Fehler machen gibt es zusätzliche Maßnahmen um dem entgegenzuwirken. Wie
+schon in Abschnitt~\ref{minisec:immunization} auf
 Seite~\pageref{minisec:immunization} vorgestellt, spielt Immunization dabei
-eine Wichtige Rolle. Daher wird beim Planen von neuen Features zum Beispiel
+eine wichtige Rolle. Daher wird beim Planen von neuen Features zum Beispiel
 schon eng mit dem Operations-Team zusammengearbeitet um die richtigen Metriken
 auszuwählen, die den ordnungsgemäßen Betrieb des Features sicherstellen
 können. Weiters gibt es die Möglichkeit das letzte Deployment per \emph{1
-Klick} Lösung wieder rückgängig zu machen. 
+Klick} Lösung wieder rückgängig zu machen.
 
 \minisec{Workflow} Bei der Entwicklung selbst werden keine \emph{Branches} in
 der Versionsverwaltung (Flickr verwendet Subversion) angelegt. Das heißt
@@ -301,19 +301,19 @@ ein schnelles Bugfixing zwar von Vorteil, bei neuen Features, deren
 Entwicklung teilweise Monate in Anspruch nehmen, stellt dies jedoch ein
 Problem dar. Fertig entwickelte Features die noch nicht zum Release
 freigegeben sind würden so einfach angezeigt werden. Schlimmer noch wären
-halbfertige, die Website möglicherweise in negativer Art beeinträchtigende,
+halbfertige, die Website möglicherweise in negativer Art beeinträchtigende
 Features die bereits einer breiten Öffentlichkeit zugänglich sind. Als Lösung
 kommen hier die in Abschnitt~\ref{minisec:featureflags} auf
 Seite~\pageref{minisec:featureflags} vorgestellten Feature Flags zum Einsatz
 \cite{flickr09}.
 
-Weiters werden bei Flickr Feature Flags auch eingesetzt um Code gezielt für
+Weiters werden bei Flickr Feature Flags eingesetzt um Code gezielt für
 verschiedene Umgebungen (Entwicklung, Staging oder Produktion) freizuschalten.
 Die Einstellungen welche Features aktiviert sind und welche nicht werden dabei
 recht einfach über Konfigurationsdateien realisiert. Der Vorteil daran ist,
 dass sobald ein Feature fertig entwickelt wurde, die Aktivierung auf
 sämtlichen Servern durch eine einzige Zeile in einer Konfigurationsdatei
-geschieht. Die Steuerung der Features ist aber nicht auf verschiedene
+möglich ist. Die Steuerung der Features ist aber nicht auf verschiedene
 Umgebungen begrenzt, sie können sogar für einzelne Benutzer freigeschalten
 werden. Der einzige Nachteil der Feature Flags ist, dass Code teilweise 
 doppelt vorhanden ist und nach dem Launch eines neuen Features der alte Code
@@ -360,7 +360,7 @@ But overall, we find it helps us develop new features faster and with fewer
 bugs.}~\cite{flickr09}
 \end{quote}
 
-Michael Deerkoski zufolge \cite{flickr11} war es ihnen aber mit diesem Prozess
+Michael Deerkoski zufolge \cite{flickr11} war es ihnen mit diesem Prozess
 möglich, einen Bug innerhalb von 35 Minuten ab der Meldung durch einen
 Benutzer zu beheben. \emph{Zu beheben} bedeutet in diesem Zusammenhang
 natürlich dass der Bugfix bereits in der Produktionsumgebung eingespielt ist.
